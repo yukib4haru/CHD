@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/Image">
+        <file>Xing.png</file>
+        <file>bgTest.png</file>
+    </qresource>
+</RCC>
