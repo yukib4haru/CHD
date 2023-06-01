@@ -19,6 +19,7 @@ SOURCES += \
     Enemy.cpp \
     Hero.cpp \
     Role.cpp \
+    Xing.cpp \
     main.cpp \
     Mainwindow.cpp
 
@@ -27,6 +28,7 @@ HEADERS += \
     Hero.h \
     Mainwindow.h \
     Role.h \
+    Xing.h \
     star.h
 
 FORMS += \

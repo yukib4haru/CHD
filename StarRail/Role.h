@@ -3,7 +3,7 @@
 #include<star.h>
 #include<Mainwindow.h>
 
-class Role:public MainWindow
+class Role:public QGraphicsItem
 {
 public:
     Role();

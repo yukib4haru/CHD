@@ -15,17 +15,18 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void initWindow();
+    void paintEvent(QPaintEvent *event);
 
 private:
     Ui::MainWindow *ui;
 
-    QGraphicsView mGameView;//游戏视图
-    QGraphicsScene mScene;//场景
+    QGraphicsView GameView;//游戏视图
+    QGraphicsScene Scene;//场景
 
-    QGraphicsPixmapItem mBackGround1;
-    QGraphicsPixmapItem mXing;
-    QGraphicsPixmapItem mXier;
-    QGraphicsPixmapItem mMarch;
+    QPixmap BackGround;
+    QGraphicsPixmapItem Xing;
+    QGraphicsPixmapItem Xier;
+    QGraphicsPixmapItem March;
 
 };
 #endif // MAINWINDOW_H
