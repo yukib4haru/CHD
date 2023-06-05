@@ -5,15 +5,15 @@ Xing::Xing()
 
 }
 
-void Xing::skillA(double att,Role* p)
+void Xing::skillA(Role* p)
 {
 
 }
-void Xing::skillB(double att,Role* p)
+void Xing::skillB(Role* p)
 {
 
 }
-void Xing::skillC(double att,Role* p)
+void Xing::skillC(Role* p)
 {
 
 }

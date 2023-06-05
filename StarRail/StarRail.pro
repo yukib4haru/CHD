@@ -18,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Enemy.cpp \
     Hero.cpp \
+    Herowindow.cpp \
     Role.cpp \
     Xing.cpp \
     main.cpp \
@@ -26,6 +27,7 @@ SOURCES += \
 HEADERS += \
     Enemy.h \
     Hero.h \
+    Herowindow.h \
     Mainwindow.h \
     Role.h \
     Xing.h \

@@ -7,9 +7,9 @@ class Xing : public Hero
 {
 public:
     Xing();
-    void skillA(double att,Role* p);
-    void skillB(double att,Role* p);
-    void skillC(double att,Role* p);
+    void skillA(Role* p);
+    void skillB(Role* p);
+    void skillC(Role* p);
     virtual QRectF boundingRect() const { /* implement */ }
     virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget)
     { /* implement */ }

@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include<star.h>
+#include<Xing.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,9 +24,11 @@ private:
     QGraphicsScene Scene;//场景
 
     QPixmap BackGround;
-    QGraphicsPixmapItem Xing;
-    QGraphicsPixmapItem Xier;
-    QGraphicsPixmapItem March;
+
+    //test
+    QPushButton* skillAbtn;
+    QPushButton* skillBbtn;
+    QPushButton* skillCbtn;
 
 };
 #endif // MAINWINDOW_H

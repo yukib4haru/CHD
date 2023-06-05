@@ -26,7 +26,9 @@ void MainWindow::initWindow()
     BackGround.load(":/Image/bgTest.png");
 
     QGraphicsScene* scene = new QGraphicsScene();
-//    Hero* xing = new Xing();
+
+    this->skillAbtn = new QPushButton(this);
+//    skillAbtn->setIcon()
 }
 
 void MainWindow::paintEvent(QPaintEvent *event)

@@ -2,6 +2,7 @@
 #define ROLE_H
 
 #include<star.h>
+// #include<Mainwindow.h>
 
 class Role:public QGraphicsItem
 {

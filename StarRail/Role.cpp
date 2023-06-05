@@ -4,3 +4,8 @@ Role::Role()
 {
 
 }
+
+Role::~Role()
+{
+
+}

@@ -3,17 +3,23 @@
 
 #include<iostream>
 #include<string>
-#include <QMainWindow>
+#include <ctime>
+
 #include<QWidget>
+#include <QMainWindow>  //继承自QWidget
 #include<QGraphicsPixmapItem>//图形元素
 #include<QGraphicsView>//视图
 #include<QGraphicsScene>//场景
+#include<QLabel>//标签
+#include<QPushButton>//按钮
 
+#include<QDebug>//调试用
+#include<QBrush>
 #include <QIcon>
 #include <QKeyEvent>
-#include <ctime>
 #include <QFontDatabase>
 #include <QString>
+
 using namespace std;
 
 #define GAME_WIDTH  1600
