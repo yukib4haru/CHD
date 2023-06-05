@@ -1,6 +1,6 @@
 #include "Xing.h"
 
-Xing::Xing()
+Xing::Xing():Hero("Xing",100,15,5,1)
 {
 
 }

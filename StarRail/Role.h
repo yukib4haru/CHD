@@ -6,8 +6,9 @@
 class Role:public QGraphicsItem
 {
 public:
-    Role();
+    Role(string name1,int hp1,int att1,int speed1);
     ~Role();
+
     //动画
     void showRole();
     void death();
@@ -15,8 +16,8 @@ public:
     void entryOrder(Role* p);
 private:
     string name;
-    double hp;
-    double att;
+    int hp;
+    int att;
     int speed;
     bool isAlive;
 signals:

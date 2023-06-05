@@ -19,6 +19,7 @@ SOURCES += \
     Enemy.cpp \
     Hero.cpp \
     Herowindow.cpp \
+    Jiachong.cpp \
     Role.cpp \
     Xing.cpp \
     main.cpp \
@@ -28,6 +29,7 @@ HEADERS += \
     Enemy.h \
     Hero.h \
     Herowindow.h \
+    Jiachong.h \
     Mainwindow.h \
     Role.h \
     Xing.h \

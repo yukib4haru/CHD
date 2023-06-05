@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include<Xing.h>
+#include<Jiachong.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,8 +15,11 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
     void initWindow();
     void paintEvent(QPaintEvent *event);
+
+    void initRole();
 
 private:
     Ui::MainWindow *ui;
@@ -25,11 +29,16 @@ private:
 
     QPixmap BackGround;
 
-    //test
+    //testBtn
     QPushButton* skillAbtn;
     QPushButton* skillBbtn;
     QPushButton* skillCbtn;
     QVBoxLayout* vboxlayout;
 
+    //testHero
+    Xing* xing;
+
+    //testEnemy
+    Jiachong* jiachong;
 };
 #endif // MAINWINDOW_H

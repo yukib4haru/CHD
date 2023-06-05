@@ -7,7 +7,7 @@
 class Hero : public Role
 {
 public:
-    Hero();
+    Hero(string name1,int hp1,int att1,int speed1,int label1);
 private:
     int shield;
     int label;

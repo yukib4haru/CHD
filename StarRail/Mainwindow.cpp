@@ -2,9 +2,12 @@
 #include "ui_Mainwindow.h"
 
 #include"star.h"
-#include"Xing.h"
-#include"Hero.h"
 #include"Role.h"
+#include"Hero.h"
+#include"Xing.h"
+
+#include"Enemy.h"
+#include"Jiachong.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -13,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     initWindow();   //初始化窗口
+    initRole();     //初始化人物
 }
 
 MainWindow::~MainWindow()
@@ -52,8 +56,14 @@ void MainWindow::initWindow()
 
 }
 
-void MainWindow::paintEvent(QPaintEvent *event)
-{ 
-    QPainter painter(this);
-    painter.drawPixmap(0,0,BackGround);
+void MainWindow::initRole()
+{
+    xing = new Xing();
+    jiachong = new Jiachong();
 }
+
+//void MainWindow::paintEvent(QPaintEvent *event)
+//{
+//    QPainter painter(this);
+//    painter.drawPixmap(0,0,BackGround);
+//}
