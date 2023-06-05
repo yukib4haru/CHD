@@ -1,9 +1,12 @@
 #ifndef ROLE_H
 #define ROLE_H
 
+<<<<<<< HEAD
+=======
 #include<star.h>
 // #include<Mainwindow.h>
 
+>>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
 class Role:public QGraphicsItem
 {
 public:

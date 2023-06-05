@@ -25,11 +25,17 @@ private:
     QGraphicsScene Scene;//场景
 
     QPixmap BackGround;
+<<<<<<< HEAD
+    QGraphicsPixmapItem Xing;
+    QGraphicsPixmapItem Xier;
+    QGraphicsPixmapItem March;
+=======
 
     //test
     QPushButton* skillAbtn;
     QPushButton* skillBbtn;
     QPushButton* skillCbtn;
+>>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
 
     QVBoxLayout* vboxlayout;
 

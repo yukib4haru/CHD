@@ -20,7 +20,15 @@ SOURCES += \
     Hero.cpp \
     Herowindow.cpp \
     Role.cpp \
+<<<<<<< HEAD
+<<<<<<< HEAD
+    dialoglogin.cpp \
+=======
     Xing.cpp \
+>>>>>>> 7dd0af3e31e9856081eaf2dfe0d941ff466b9fc1
+=======
+    Xing.cpp \
+>>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
     main.cpp \
     Mainwindow.cpp
 
@@ -30,11 +38,20 @@ HEADERS += \
     Herowindow.h \
     Mainwindow.h \
     Role.h \
+<<<<<<< HEAD
+<<<<<<< HEAD
+    dialoglogin.h \
+=======
     Xing.h \
+>>>>>>> 7dd0af3e31e9856081eaf2dfe0d941ff466b9fc1
+=======
+    Xing.h \
+>>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
     star.h
 
 FORMS += \
-    Mainwindow.ui
+    Mainwindow.ui \
+    dialoglogin.ui
 
 TRANSLATIONS += \
     StarRail_zh_CN.ts
