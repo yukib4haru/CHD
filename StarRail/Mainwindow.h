@@ -1,6 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include<star.h>
 #include<Xing.h>
 
 QT_BEGIN_NAMESPACE
@@ -29,6 +30,8 @@ private:
     QPushButton* skillAbtn;
     QPushButton* skillBbtn;
     QPushButton* skillCbtn;
+
+    QVBoxLayout* vboxlayout;
 
 };
 #endif // MAINWINDOW_H

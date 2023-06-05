@@ -12,6 +12,7 @@
 #include<QGraphicsScene>//场景
 #include<QLabel>//标签
 #include<QPushButton>//按钮
+#include<QVBoxLayout>//布局
 
 #include<QDebug>//调试用
 #include<QBrush>
