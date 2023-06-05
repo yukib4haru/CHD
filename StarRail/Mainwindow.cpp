@@ -62,8 +62,8 @@ void MainWindow::initRole()
     jiachong = new Jiachong();
 }
 
-//void MainWindow::paintEvent(QPaintEvent *event)
-//{
-//    QPainter painter(this);
-//    painter.drawPixmap(0,0,BackGround);
-//}
+void MainWindow::paintEvent(QPaintEvent *event)
+{
+    QPainter painter(this);
+    painter.drawPixmap(0,0,BackGround);
+}
