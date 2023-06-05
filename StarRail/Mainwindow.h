@@ -29,6 +29,7 @@ private:
     QPushButton* skillAbtn;
     QPushButton* skillBbtn;
     QPushButton* skillCbtn;
+    QVBoxLayout* vboxlayout;
 
 };
 #endif // MAINWINDOW_H

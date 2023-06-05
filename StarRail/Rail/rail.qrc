@@ -7,6 +7,8 @@
         <file>xierE0.png</file>
         <file>xierIcon.png</file>
         <file>xierQ1.png</file>
+        <file>StarRail.ico</file>
+        <file>BK2.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>
