@@ -2,5 +2,11 @@
     <qresource prefix="/Image">
         <file>Xing.png</file>
         <file>bgTest.png</file>
+        <file>JiaChong.png</file>
+        <file>XIer.png</file>
+        <file>xierE0.png</file>
+        <file>xierIcon.png</file>
+        <file>xierQ1.png</file>
     </qresource>
+    <qresource prefix="/"/>
 </RCC>
