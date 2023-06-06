@@ -39,11 +39,10 @@ private:
     QVBoxLayout* vboxlayout;
 
     //testHero
-//    QGraphicsPixmapItem* xing;
     Xing* xing;
 
     //testEnemy
-    QGraphicsPixmapItem* jiachong;
+    Jiachong* jiachong;
 
 signals:
 

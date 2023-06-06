@@ -22,9 +22,11 @@ MainWidget::MainWidget(QWidget *parent)
 void MainWidget::initRole()
 {
     jiachong = new Jiachong();
+    jiachong->bindFunc();
+
     xing = new Xing();
     xing->bindFunc();
-    xing->setPixmap(QPixmap(":/Image/Xing.png"));
+
 //    test1 = new Role("星",100,15,5);
 //    test1->setPixmap(QPixmap(":/Image/Xing.png"));
 }
@@ -50,10 +52,11 @@ void MainWidget::initWindow()
     //图片元素添加到场景
     Scene.addItem(&Background1);
 
-
     //添加人物
 //    Scene.addItem(test1);
     Scene.addItem(xing);
+    Scene.addItem(jiachong);
+    jiachong->setPos(600,0);
 
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);

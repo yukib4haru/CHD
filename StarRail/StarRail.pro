@@ -52,3 +52,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Rail/rail.qrc
+
+DISTFILES += \
+    Rail/JiaChong.png
