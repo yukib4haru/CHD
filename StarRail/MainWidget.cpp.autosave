@@ -19,6 +19,11 @@ MainWidget::MainWidget(QWidget *parent)
     initWindow();   //初始化窗口
 }
 
+MainWidget::~MainWidget()
+{
+    delete ui;
+}
+
 void MainWidget::initWindow()
 {
     //设置窗口大小

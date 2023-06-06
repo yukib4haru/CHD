@@ -34,7 +34,7 @@ HEADERS += \
     star.h
 
 FORMS += \
-    Mainwindow.ui
+    MainWidget.ui
 
 TRANSLATIONS += \
     StarRail_zh_CN.ts
