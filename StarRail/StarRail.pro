@@ -23,8 +23,8 @@ SOURCES += \
     Role.cpp \
     dialoglogin.cpp \
     Xing.cpp \
-    Xing.cpp \
     main.cpp \
+    star.cpp
 
 HEADERS += \
     Enemy.h \
@@ -37,6 +37,8 @@ HEADERS += \
     star.h
 
 FORMS += \
+    MainWidget.ui \
+    dialoglogin.ui
 
     dialoglogin.ui
     MainWidget.ui
@@ -51,4 +53,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    Rail/rail.qrc \
     Rail/rail.qrc
+
+DISTFILES += \
+    Rail/BK1.jpg \
+    Rail/BK2.png \
+    Rail/JiaChong.png \
+    Rail/StarRail.ico \
+    Rail/XiEr.png \
+    Rail/Xing.png \
+    Rail/bgTest.png \
+    Rail/xierE0.png \
+    Rail/xierIcon.png \
+    Rail/xierQ1.png

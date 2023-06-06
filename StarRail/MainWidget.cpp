@@ -9,8 +9,6 @@
 #include"Enemy.h"
 #include"Jiachong.h"
 
-
-
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)

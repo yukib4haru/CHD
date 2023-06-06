@@ -11,14 +11,13 @@
 #include<QGraphicsItem> //图形元素？
 #include<QGraphicsView>//视图
 #include<QGraphicsScene>//场景
-<<<<<<< HEAD
 
 #include <QIcon>
 #include <QKeyEvent>
 #include <ctime>
 #include <QFontDatabase>
 #include <QString>
-=======
+
 #include<QLabel>//标签
 #include<QPushButton>//按钮
 #include<QVBoxLayout>//布局
@@ -30,7 +29,6 @@
 #include <QFontDatabase>
 #include <QString>
 
->>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
 using namespace std;
 
 #define GAME_WIDTH  1600
