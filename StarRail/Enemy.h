@@ -5,8 +5,8 @@
 class Enemy : public Role
 {
 public:
-    Enemy();
-    virtual void skill(int att)=0;
+    Enemy(string name1,int hp1,int att1,int speed1);
+    virtual void skill(Role* p)=0;
 };
 
 #endif // ENEMY_H

@@ -18,19 +18,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     Enemy.cpp \
     Hero.cpp \
-    Herowindow.cpp \
+    Jiachong.cpp \
+    MainWidget.cpp \
     Role.cpp \
     User.cpp \
     Xing.cpp \
     login.cpp \
-    main.cpp \
-    Mainwindow.cpp
+    main.cpp 
+
 
 HEADERS += \
     Enemy.h \
     Hero.h \
-    Herowindow.h \
-    Mainwindow.h \
+    Jiachong.h \
+    MainWidget.h \
     Role.h \
     User.h \
     Xing.h \
@@ -38,7 +39,7 @@ HEADERS += \
     star.h
 
 FORMS += \
-    Mainwindow.ui \
+    MainWidget.ui \
     login.ui
 
 TRANSLATIONS += \

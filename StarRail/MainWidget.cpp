@@ -1,5 +1,5 @@
-#include "Mainwindow.h"
-#include "ui_Mainwindow.h"
+#include "MainWidget.h"
+#include "ui_MainWidget.h"
 
 #include"star.h"
 #include"Role.h"
@@ -9,26 +9,21 @@
 #include"Enemy.h"
 #include"Jiachong.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
-{
-    ui->setupUi(this);
-//    this->GameView.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    this->GameView.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
+
+MainWidget::MainWidget(QWidget *parent)
+    : QWidget(parent)
+    , ui(new Ui::MainWidget)
+{
     initRole();     //初始化人物
     initWindow();   //初始化窗口
 }
 
-MainWindow::~MainWindow()
+void MainWidget::initWindow()
 {
-    delete ui;
-}
-
-void MainWindow::initWindow()
-{
-    this->setFixedSize(GAME_WIDTH,GAME_HEIGHT); //设置窗口大小
+    //设置窗口大小
+    this->setFixedSize(GAME_WIDTH,GAME_HEIGHT);
+    //设置图标
     this->setWindowIcon(QIcon(":/Image/StarRail.ico"));
     //设置场景
     QGraphicsScene* scene = new QGraphicsScene();
@@ -36,12 +31,16 @@ void MainWindow::initWindow()
     //设置背景图片
     scene->setBackgroundBrush(QBrush(QPixmap(":/Image/BK2.png")));
 
-    GameView.setSceneRect(QRect(0,0,1600,900));
-    Scene.setSceneRect(QRect(0,0,1600,900));
+    GameView.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
+    Scene.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
     Background1.setPixmap(QPixmap(":/Image/BK2.png"));
+    test1.setPixmap(QPixmap(":/Image/StarRail.ico"));
 
     //图片元素添加到场景
     Scene.addItem(&Background1);
+    //添加人物
+//    Scene.addItem(xing);
+    Scene.addItem(&test1);
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
     //设置视图的父亲
@@ -66,20 +65,17 @@ void MainWindow::initWindow()
     this->skillBbtn->setFlat(true);
     this->skillBbtn->setFocusPolicy(Qt::NoFocus);
     this->skillBbtn->move(width()/3,height()/3);
-
-    //添加人物
-    scene->addItem(xing);
-
 }
 
-void MainWindow::initRole()
+void MainWidget::initRole()
 {
     xing = new Xing();
     jiachong = new Jiachong();
 }
 
-void MainWindow::paintEvent(QPaintEvent *event)
+void MainWidget::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     painter.drawPixmap(0,0,BackGround);
 }
+
