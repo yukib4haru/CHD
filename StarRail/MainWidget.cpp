@@ -23,6 +23,7 @@ void MainWidget::initRole()
 {
     jiachong = new Jiachong();
     xing = new Xing();
+    xing->bindFunc();
     xing->setPixmap(QPixmap(":/Image/Xing.png"));
 //    test1 = new Role("星",100,15,5);
 //    test1->setPixmap(QPixmap(":/Image/Xing.png"));
@@ -53,7 +54,7 @@ void MainWidget::initWindow()
     //添加人物
 //    Scene.addItem(test1);
     Scene.addItem(xing);
-    xing->bindFunc();
+
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
     //设置视图的父亲

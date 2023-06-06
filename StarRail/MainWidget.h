@@ -39,7 +39,8 @@ private:
     QVBoxLayout* vboxlayout;
 
     //testHero
-    Hero* xing;
+//    QGraphicsPixmapItem* xing;
+    Xing* xing;
 
     //testEnemy
     QGraphicsPixmapItem* jiachong;

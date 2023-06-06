@@ -24,7 +24,7 @@ SOURCES += \
     User.cpp \
     Xing.cpp \
     login.cpp \
-    main.cpp 
+    main.cpp
 
 
 HEADERS += \

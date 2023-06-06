@@ -7,6 +7,11 @@ Xing::Xing():Hero("星",100,15,5,1)
 
 }
 
+Xing::~Xing()
+{
+
+}
+
 void Xing::skillA(Role* p)
 {
 
