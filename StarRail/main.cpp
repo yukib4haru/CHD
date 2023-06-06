@@ -9,8 +9,10 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
-    login *login1 = new login;
-    login1->show();
+//    login *login1 = new login;
+//    login1->show();
+    MainWidget w;
+    w.show();
 
     return a.exec();
 

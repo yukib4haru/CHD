@@ -18,6 +18,8 @@ signals:
     void useBSignal(Role* p);
     void useCSignal(Role* p);
 public slots:
+    //信号广播
+    void skillABroadcast(Role* p){emit useASignal(p);};
     //技能
     virtual void skillA(Role* p)=0;
     virtual void skillB(Role* p)=0;

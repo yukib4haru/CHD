@@ -5,6 +5,7 @@
 #include<star.h>
 #include<Xing.h>
 #include<Jiachong.h>
+#include<Button.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -14,6 +15,7 @@ class MainWidget : public QWidget
 {
     Q_OBJECT
 public:
+    //explicit关键字  修饰函数 参数 无法自动转换类型 防止隐式转换
     explicit MainWidget(QWidget *parent = nullptr);
     void initWindow();
     void paintEvent(QPaintEvent *event);
@@ -33,9 +35,9 @@ private:
     QGraphicsPixmapItem* test1;
 
     //testBtn
-    QPushButton* skillAbtn;
-    QPushButton* skillBbtn;
-    QPushButton* skillCbtn;
+    Button* skillAbtn;
+    Button* skillBbtn;
+    Button* skillCbtn;
     QVBoxLayout* vboxlayout;
 
     //testHero
