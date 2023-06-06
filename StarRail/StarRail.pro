@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT       += core sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -21,8 +21,11 @@ SOURCES += \
     Jiachong.cpp \
     MainWidget.cpp \
     Role.cpp \
+    User.cpp \
     Xing.cpp \
-    main.cpp
+    login.cpp \
+    main.cpp 
+
 
 HEADERS += \
     Enemy.h \
@@ -30,11 +33,14 @@ HEADERS += \
     Jiachong.h \
     MainWidget.h \
     Role.h \
+    User.h \
     Xing.h \
+    login.h \
     star.h
 
 FORMS += \
-    MainWidget.ui
+    MainWidget.ui \
+    login.ui
 
 TRANSLATIONS += \
     StarRail_zh_CN.ts
