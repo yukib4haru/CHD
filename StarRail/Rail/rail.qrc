@@ -9,8 +9,10 @@
         <file>StarRail.ico</file>
         <file>BK2.png</file>
 
+
         <file>login2.gif</file>
         <file>background.jpg</file>
+
 
         <file>BK1.jpg</file>
         <file>rail.qrc</file>
@@ -19,7 +21,6 @@
         <file>Xing0.png</file>
         <file>jiachong0.png</file>
         <file>jiachong1.png</file>
-
     </qresource>
     <qresource prefix="/"/>
 </RCC>

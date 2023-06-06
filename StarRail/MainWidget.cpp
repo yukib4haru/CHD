@@ -19,10 +19,12 @@ MainWidget::MainWidget(QWidget *parent)
     initWindow();   //初始化窗口
 }
 
+
 MainWidget::~MainWidget()
 {
     delete ui;
 }
+
 
 
 //初始化人物
@@ -39,7 +41,6 @@ void MainWidget::initRole()
 }
 
 //初始化窗口
-
 void MainWidget::initWindow()
 {
     //设置窗口大小
