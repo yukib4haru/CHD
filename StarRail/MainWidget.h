@@ -39,7 +39,7 @@ private:
     QVBoxLayout* vboxlayout;
 
     //testHero
-    Xing* xing;
+    Xing xing;
 
     //testEnemy
     Jiachong* jiachong;

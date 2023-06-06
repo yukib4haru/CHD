@@ -19,6 +19,11 @@ MainWidget::MainWidget(QWidget *parent)
     initWindow();   //初始化窗口
 }
 
+void MainWidget::initRole()
+{
+    jiachong = new Jiachong();
+}
+
 void MainWidget::initWindow()
 {
     //设置窗口大小
@@ -28,19 +33,26 @@ void MainWidget::initWindow()
     //设置场景
     QGraphicsScene* scene = new QGraphicsScene();
 
-    //设置背景图片
-    scene->setBackgroundBrush(QBrush(QPixmap(":/Image/BK2.png")));
+    //初始化人物测试
+//    xing = new Xing();
 
+    //设置视图
     GameView.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
+    //设置场景
     Scene.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
+    //设置背景图片
     Background1.setPixmap(QPixmap(":/Image/BK2.png"));
-    test1.setPixmap(QPixmap(":/Image/StarRail.ico"));
+    test1.setPixmap(QPixmap(":/Image/Xing.png"));
 
     //图片元素添加到场景
     Scene.addItem(&Background1);
     //添加人物
-//    Scene.addItem(xing);
-    Scene.addItem(&test1);
+
+//    Scene.addItem(&test1);
+    Scene.addItem(&xing);
+    xing.show();
+    xing.setFlag(QGraphicsItem::ItemIgnoresTransformations);
+
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
     //设置视图的父亲
@@ -65,12 +77,6 @@ void MainWidget::initWindow()
     this->skillBbtn->setFlat(true);
     this->skillBbtn->setFocusPolicy(Qt::NoFocus);
     this->skillBbtn->move(width()/3,height()/3);
-}
-
-void MainWidget::initRole()
-{
-    xing = new Xing();
-    jiachong = new Jiachong();
 }
 
 void MainWidget::paintEvent(QPaintEvent *event)

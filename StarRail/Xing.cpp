@@ -4,6 +4,7 @@
 Xing::Xing():Hero("星",100,15,5,1)
 {
     this->setPixmap(QPixmap(":/Image/Xing.png"));   // 设置图像
+
 }
 
 void Xing::skillA(Role* p)
