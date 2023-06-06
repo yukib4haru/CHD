@@ -1,5 +1,5 @@
 QT       += core gui
-
+QT       += core sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -16,33 +16,33 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Button.cpp \
     Enemy.cpp \
     Hero.cpp \
     Jiachong.cpp \
     MainWidget.cpp \
     Role.cpp \
-    dialoglogin.cpp \
+    User.cpp \
     Xing.cpp \
-    main.cpp \
-    star.cpp
+    login.cpp \
+    main.cpp
+
 
 HEADERS += \
+    Button.h \
     Enemy.h \
     Hero.h \
     Jiachong.h \
     MainWidget.h \
     Role.h \
-    dialoglogin.h \
+    User.h \
     Xing.h \
+    login.h \
     star.h
 
 FORMS += \
     MainWidget.ui \
-    dialoglogin.ui
-
-    dialoglogin.ui
-    MainWidget.ui
-
+    login.ui
 
 TRANSLATIONS += \
     StarRail_zh_CN.ts
@@ -53,17 +53,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    Rail/rail.qrc \
     Rail/rail.qrc
 
 DISTFILES += \
-    Rail/BK1.jpg \
-    Rail/BK2.png \
-    Rail/JiaChong.png \
-    Rail/StarRail.ico \
-    Rail/XiEr.png \
-    Rail/Xing.png \
-    Rail/bgTest.png \
-    Rail/xierE0.png \
-    Rail/xierIcon.png \
-    Rail/xierQ1.png
+    Rail/JiaChong.png

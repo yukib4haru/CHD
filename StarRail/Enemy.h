@@ -6,6 +6,7 @@ class Enemy : public Role
 {
 public:
     Enemy(string name1,int hp1,int att1,int speed1);
+    virtual void bindFunc()=0;
     virtual void skill(Role* p)=0;
 };
 

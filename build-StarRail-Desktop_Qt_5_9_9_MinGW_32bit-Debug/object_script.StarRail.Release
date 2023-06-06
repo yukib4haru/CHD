@@ -1,0 +1,15 @@
+INPUT(
+./release\Enemy.o
+./release\Hero.o
+./release\Jiachong.o
+./release\MainWidget.o
+./release\Role.o
+./release\User.o
+./release\Xing.o
+./release\login.o
+./release\main.o
+./release\qrc_rail.o
+./release\moc_MainWidget.o
+./release\moc_User.o
+./release\moc_login.o
+);

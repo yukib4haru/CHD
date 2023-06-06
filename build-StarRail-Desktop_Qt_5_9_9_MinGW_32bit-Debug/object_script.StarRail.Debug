@@ -1,0 +1,15 @@
+INPUT(
+./debug\Enemy.o
+./debug\Hero.o
+./debug\Jiachong.o
+./debug\MainWidget.o
+./debug\Role.o
+./debug\User.o
+./debug\Xing.o
+./debug\login.o
+./debug\main.o
+./debug\qrc_rail.o
+./debug\moc_MainWidget.o
+./debug\moc_User.o
+./debug\moc_login.o
+);

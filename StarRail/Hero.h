@@ -8,6 +8,7 @@ class Hero : public Role
 {
 public:
     Hero(string name1,int hp1,int att1,int speed1,int label1);
+    virtual void bindFunc()=0;
 private:
     int shield;
     int label;
@@ -17,6 +18,8 @@ signals:
     void useBSignal(Role* p);
     void useCSignal(Role* p);
 public slots:
+    //信号广播
+    void skillABroadcast(Role* p){emit useASignal(p);};
     //技能
     virtual void skillA(Role* p)=0;
     virtual void skillB(Role* p)=0;

@@ -4,7 +4,7 @@
 
 Jiachong::Jiachong():Enemy("甲虫",50,10,5)
 {
-
+    this->setPixmap(QPixmap(":/Image/jiachong0.png"));
 }
 
 void Jiachong::skill(Role* p)
