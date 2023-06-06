@@ -16,6 +16,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    Button.cpp \
     Enemy.cpp \
     Hero.cpp \
     Jiachong.cpp \
@@ -24,10 +25,11 @@ SOURCES += \
     User.cpp \
     Xing.cpp \
     login.cpp \
-    main.cpp 
+    main.cpp
 
 
 HEADERS += \
+    Button.h \
     Enemy.h \
     Hero.h \
     Jiachong.h \
@@ -52,3 +54,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 RESOURCES += \
     Rail/rail.qrc
+
+DISTFILES += \
+    Rail/JiaChong.png

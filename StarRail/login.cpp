@@ -1,8 +1,9 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include "Mainwindow.h"
-#include "ui_Mainwindow.h"
+#include "MainWidget.h"
+#include "ui_MainWidget.h"
+
 
 #include <User.h>
 
@@ -10,6 +11,7 @@
 #include <QIODevice>
 #include <QMessageBox>
 #include <QFile>
+#include <QMovie>
 
 
 
@@ -17,7 +19,13 @@ login::login(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::login)
 {
+
     ui->setupUi(this);
+
+    //动图播放
+    QMovie *movie = new QMovie(":/Image/login2.gif");
+    ui->login_gif->setMovie(movie);
+    movie->start();
 
     //注册
     connect(ui->pushButton_register,&QPushButton::clicked,[this](){
@@ -60,7 +68,7 @@ login::login(QWidget *parent) :
             case 0:
                { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
-                MainWindow* w = new MainWindow;
+                MainWidget* w = new MainWidget;
                 w->show();
                 break;}
             case 1:
