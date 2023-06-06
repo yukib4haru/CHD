@@ -1,17 +1,14 @@
 #ifndef ROLE_H
 #define ROLE_H
 
-<<<<<<< HEAD
-=======
 #include<star.h>
-// #include<Mainwindow.h>
 
->>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
-class Role:public QGraphicsItem
+class Role:public QGraphicsPixmapItem
 {
 public:
-    Role();
+    Role(string name1,int hp1,int att1,int speed1);
     ~Role();
+
     //动画
     void showRole();
     void death();
@@ -19,8 +16,8 @@ public:
     void entryOrder(Role* p);
 private:
     string name;
-    double hp;
-    double att;
+    int hp;
+    int att;
     int speed;
     bool isAlive;
 signals:

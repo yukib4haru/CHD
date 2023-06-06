@@ -1,8 +1,5 @@
-#include "Mainwindow.h"
-<<<<<<< HEAD
 #include "dialoglogin.h"
-=======
->>>>>>> 467955446d0fa92a1d4dc5804647c6bee5277964
+#include"MainWidget.h"
 #include <QApplication>
 
 int main(int argc, char *argv[])
@@ -12,9 +9,9 @@ int main(int argc, char *argv[])
     DialogLogin *dialog = new DialogLogin;
     if(dialog->exec() == QDialog::Accepted)
     {
-        MainWindow w;
-        w.show();
-        return a.exec();
+        MainWidget x;
+    	x.show();
+    	return a.exec();
     }
     return 0;
 }
