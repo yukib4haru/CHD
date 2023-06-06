@@ -8,6 +8,7 @@ class Hero : public Role
 {
 public:
     Hero(string name1,int hp1,int att1,int speed1,int label1);
+    virtual void bindFunc()=0;
 private:
     int shield;
     int label;

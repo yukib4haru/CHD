@@ -1,8 +1,8 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include "Mainwindow.h"
-#include "ui_Mainwindow.h"
+#include "MainWidget.h"
+#include "ui_MainWidget.h"
 
 #include <User.h>
 
@@ -60,7 +60,7 @@ login::login(QWidget *parent) :
             case 0:
                { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
-                MainWindow* w = new MainWindow;
+                MainWidget* w = new MainWidget;
                 w->show();
                 break;}
             case 1:

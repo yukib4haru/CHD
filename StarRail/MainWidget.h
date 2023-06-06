@@ -30,7 +30,7 @@ private:
 
     //图形元素
     QGraphicsPixmapItem Background1;
-    QGraphicsPixmapItem test1;
+    QGraphicsPixmapItem* test1;
 
     //testBtn
     QPushButton* skillAbtn;
@@ -39,10 +39,10 @@ private:
     QVBoxLayout* vboxlayout;
 
     //testHero
-    Xing xing;
+    Hero* xing;
 
     //testEnemy
-    Jiachong* jiachong;
+    QGraphicsPixmapItem* jiachong;
 
 signals:
 

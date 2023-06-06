@@ -1,4 +1,3 @@
-
 #include "Mainwindow.h"
 #include "login.h"
 
@@ -10,14 +9,9 @@ int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
 
+    login *login1 = new login;
+    login1->show();
 
-        login *login1 = new login;
-        login1->show();
-
-
-
-    MainWidget x;
-    x.show();
     return a.exec();
 
 }

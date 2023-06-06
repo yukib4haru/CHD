@@ -25,4 +25,5 @@ signals:
     void beAttached();
 };
 
+
 #endif // ROLE_H
