@@ -24,6 +24,7 @@ private:
 
     //图形元素
     QGraphicsPixmapItem Background1;
+    QGraphicsPixmapItem test1;
 
     //testBtn
     QPushButton* skillAbtn;
