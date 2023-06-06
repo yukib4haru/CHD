@@ -1,5 +1,4 @@
-#include "Mainwindow.h"
-#include "ui_Mainwindow.h"
+#include "MainWidget.h"
 
 #include"star.h"
 #include"Role.h"
@@ -9,24 +8,14 @@
 #include"Enemy.h"
 #include"Jiachong.h"
 
-MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+MainWidget::MainWidget(QWidget *parent) : QWidget(parent)
 {
-    ui->setupUi(this);
-//    this->GameView.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-//    this->GameView.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     initRole();     //初始化人物
     initWindow();   //初始化窗口
 }
 
-MainWindow::~MainWindow()
-{
-    delete ui;
-}
-
-void MainWindow::initWindow()
+void MainWidget::initWindow()
 {
     this->setFixedSize(GAME_WIDTH,GAME_HEIGHT); //设置窗口大小
     this->setWindowIcon(QIcon(":/Image/StarRail.ico"));
@@ -72,14 +61,15 @@ void MainWindow::initWindow()
 
 }
 
-void MainWindow::initRole()
+void MainWidget::initRole()
 {
     xing = new Xing();
     jiachong = new Jiachong();
 }
 
-void MainWindow::paintEvent(QPaintEvent *event)
+void MainWidget::paintEvent(QPaintEvent *event)
 {
     QPainter painter(this);
     painter.drawPixmap(0,0,BackGround);
 }
+

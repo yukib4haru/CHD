@@ -1,30 +1,22 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
+#ifndef MAINWIDGET_H
+#define MAINWIDGET_H
 
+#include <QWidget>
 #include<star.h>
 #include<Xing.h>
 #include<Jiachong.h>
 
-QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
-QT_END_NAMESPACE
-
-class MainWindow : public QMainWindow
+class MainWidget : public QWidget
 {
     Q_OBJECT
-
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
-
+    explicit MainWidget(QWidget *parent = nullptr);
     void initWindow();
     void paintEvent(QPaintEvent *event);
 
     void initRole();
 
 private:
-    Ui::MainWindow *ui;
-
     QGraphicsView GameView;//游戏视图
     QGraphicsScene Scene;//场景
 
@@ -44,5 +36,9 @@ private:
 
     //testEnemy
     Jiachong* jiachong;
+
+signals:
+
 };
-#endif // MAINWINDOW_H
+
+#endif // MAINWIDGET_H

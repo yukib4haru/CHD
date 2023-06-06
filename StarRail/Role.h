@@ -3,7 +3,7 @@
 
 #include<star.h>
 
-class Role:public QGraphicsItem
+class Role:public QGraphicsPixmapItem
 {
 public:
     Role(string name1,int hp1,int att1,int speed1);
