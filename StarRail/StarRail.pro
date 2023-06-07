@@ -1,8 +1,13 @@
 QT       += core gui
-QT       += core sql
+
+QT += multimedia
+QT += multimediawidgets
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
+TARGET = StarRail
+TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -26,7 +31,8 @@ SOURCES += \
     User.cpp \
     Xing.cpp \
     login.cpp \
-    main.cpp
+    main.cpp \
+    player.cpp
 
 
 HEADERS += \
@@ -39,11 +45,13 @@ HEADERS += \
     User.h \
     Xing.h \
     login.h \
+    player.h \
     star.h
 
 FORMS += \
     MainWidget.ui \
-    login.ui
+    login.ui \
+    player.ui
 
 TRANSLATIONS += \
     StarRail_zh_CN.ts
