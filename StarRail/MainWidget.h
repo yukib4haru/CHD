@@ -48,11 +48,17 @@ private:
     //testEnemy
     Jiachong* jiachong;
 
+    //一些数值
+    int skillPoint = 3;
+
 public slots:
     //信号广播槽函数
     void skillAbroadcast();
     void skillBbroadcast();
     void skillCbroadcast();
+    //战技点槽函数
+    void skillPointUp();
+    void skillPointDown();
 signals:
 
 };

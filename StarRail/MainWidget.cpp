@@ -106,13 +106,15 @@ void MainWidget::buttonBond()
     //实现星的A按钮
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
     connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
+    connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
     connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
-    connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttached);
+    connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
     //实现星的B按钮
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
     connect(skillBbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
+    connect(skillBbtn,&Button::clicked,this,&MainWidget::skillPointDown);
     connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
-    connect(xing,&Xing::skillBbuff,jiachong,&Jiachong::beGivenShieldBuff);
+    connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
 }
 
 void MainWidget::skillAbroadcast()
@@ -131,4 +133,16 @@ void MainWidget::skillCbroadcast()
 {
     emit xing->skillCsignal();
     qDebug()<<"发送星的C技能的信号\n";
+}
+
+void MainWidget::skillPointUp()
+{
+    if(skillPoint<SKILL_POINT_MAX) skillPoint++;
+    qDebug()<<"战技点："<<skillPoint<<"\n";
+}
+
+void MainWidget::skillPointDown()
+{
+    if(skillPoint>SKILL_POINT_LEAST) skillPoint--;
+    qDebug()<<"战技点："<<skillPoint<<"\n";
 }
