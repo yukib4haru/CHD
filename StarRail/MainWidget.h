@@ -17,18 +17,17 @@ public:
     //explicit关键字  修饰函数 参数 无法自动转换类型 防止隐式转换
     explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
+    //各种初始化函数
     void initWindow();
-    void paintEvent(QPaintEvent *event);
-
     void initRole();
+    void initButton();
+    void buttonBond();
 
 private:
     Ui::MainWidget *ui;
 
     QGraphicsView GameView;//游戏视图
     QGraphicsScene Scene;//场景
-
-    QPixmap BackGround;
 
     //图形元素
     QGraphicsPixmapItem Background1;

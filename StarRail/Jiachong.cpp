@@ -2,12 +2,13 @@
 
 //(string name1,int hp1,int att1,int speed1)
 
-Jiachong::Jiachong():Enemy("甲虫",50,10,5)
+Jiachong::Jiachong():Enemy("甲虫",50,10,5,10)
 {
-    this->/*image.*/setPixmap(QPixmap(":/Image/jiachong0.png"));
+    this->setPixmap(QPixmap(":/Image/jiachong0.png"));
+    this->setPos(1000,200);
 }
 
-void Jiachong::skill(Role* p)
+void Jiachong::skill()
 {
 
 }

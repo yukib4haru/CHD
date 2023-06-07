@@ -1,12 +1,13 @@
 #include "Role.h"
 #include"star.h"
 
-Role::Role(QString name1,int hp1,int att1,int speed1)
+Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
 {
     name=name1;
     hp=hp1;
     att=att1;
     speed=speed1;
+    shield=shield1;
     isAlive=1;
 }
 
@@ -19,5 +20,31 @@ void Role::showBasicStatus()
 {
     qDebug()<<"NAME:"<<name<<"\n";
     qDebug()<<"HP:"<<hp<<"\n";
+    qDebug()<<"Shield:"<<shield<<"\n";
+}
 
+void Role::beAttached(int damage)
+{
+    if(shield>0)
+    {
+        int temp;
+        temp=shield-damage;
+        if(temp<0)
+        {
+            shield=0;
+            hp += temp;
+        }
+        else
+        {
+            shield=temp;
+        }
+    }
+    else    hp-=damage;
+    qDebug()<<"挨打后"<<"\n";
+    showBasicStatus();
+}
+
+void Role::beGivenShieldBuff(int effect)
+{
+    shield+=effect;
 }

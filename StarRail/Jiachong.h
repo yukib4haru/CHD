@@ -9,7 +9,7 @@ class Jiachong : public Enemy
     Q_OBJECT
 public:
     Jiachong();
-    void skill(Role* p);
+    void skill();
     virtual void bindFunc(){ }
 
 //    - boundingRect():返回人物在场景中的 Bounding Rect(包围盒),用于确定人物的位置与大小。

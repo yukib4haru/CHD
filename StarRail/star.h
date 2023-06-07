@@ -4,12 +4,13 @@
 #include<iostream>
 #include<string>
 #include <ctime>
+#include<cmath>
 
 #include<QWidget>
 #include<QObject>
 #include <QMainWindow>  //继承自QWidget
 #include<QGraphicsPixmapItem>   //图形元素
-#include<QGraphicsItem> //图形元素？
+#include<QGraphicsItem> //图形元素
 #include<QGraphicsView>//视图
 #include<QGraphicsScene>//场景
 
