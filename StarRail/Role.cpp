@@ -1,6 +1,7 @@
 #include "Role.h"
+#include"star.h"
 
-Role::Role(string name1,int hp1,int att1,int speed1)
+Role::Role(QString name1,int hp1,int att1,int speed1)
 {
     name=name1;
     hp=hp1;
@@ -14,7 +15,9 @@ Role::~Role()
 
 }
 
-void Role::showRole()
+void Role::showBasicStatus()
 {
+    qDebug()<<"NAME:"<<name<<"\n";
+    qDebug()<<"HP:"<<hp<<"\n";
 
 }

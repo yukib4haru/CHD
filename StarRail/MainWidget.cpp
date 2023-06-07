@@ -101,8 +101,9 @@ void MainWidget::initWindow()
     skillBbtn->setAutoExclusive(true);
 
     //连接按钮
-    connect(skillAbtn,&Button::released,this,&MainWidget::skillAbroadcast);
+    connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
     connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
+    connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::showBasicStatus);
 
 }
 
@@ -115,7 +116,7 @@ void MainWidget::paintEvent(QPaintEvent *event)
 void MainWidget::skillAbroadcast()
 {
     emit xing->skillAsignal();
-    qDebug()<<"释放星的A技能的信号"<<endl;
+    qDebug()<<"发送星的A技能的信号\n";
 }
 
 void MainWidget::skillBbroadcast()

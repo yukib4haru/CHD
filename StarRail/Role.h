@@ -10,7 +10,7 @@ class Role:public QObject,public QGraphicsPixmapItem
     Q_OBJECT
 public:
     Role(){ }
-    Role(string name1,int hp1,int att1,int speed1);
+    Role(QString name1,int hp1,int att1,int speed1);
     ~Role();
 
     //动画
@@ -21,7 +21,7 @@ public:
 
 //    QGraphicsPixmapItem image;
 private:
-    string name;
+    QString name;
     int hp;
     int att;
     int speed;
@@ -31,7 +31,8 @@ signals:
     void beAttached();
 
 public slots:
-
+    //显示角色基本状态 用于调试
+    void showBasicStatus();
 };
 
 

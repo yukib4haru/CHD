@@ -14,12 +14,14 @@ Xing::~Xing()
 
 void Xing::skillA()
 {
-    qDebug()<<"释放A技能"<<endl;
+    qDebug()<<"释放A技能\n";
 }
+
 void Xing::skillB()
 {
 
 }
+
 void Xing::skillC()
 {
 

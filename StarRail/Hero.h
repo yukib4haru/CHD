@@ -9,7 +9,7 @@ class Hero : public Role
     Q_OBJECT
 public:
     Hero(){ }
-    Hero(string name1,int hp1,int att1,int speed1,int label1);
+    Hero(QString name1,int hp1,int att1,int speed1,int label1);
     virtual void bindFunc()=0;
 private:
     int shield;
