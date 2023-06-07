@@ -58,10 +58,30 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    Rail/rail.qrc \
     Rail/rail.qrc
 
 DISTFILES += \
-    Rail/JiaChong.png
+    Rail/BK1.jpg \
+    Rail/BK2.png \
+    Rail/JiaChong.png \
+    Rail/StarRail.ico \
+    Rail/XiEr.png \
+    Rail/Xing.png \
+    Rail/Xing0.png \
+    Rail/background.jpg \
+    Rail/bgTest.png \
+    Rail/jiachong0.png \
+    Rail/jiachong1.png \
+    Rail/login2.gif \
+    Rail/march0.png \
+    Rail/xier0.png \
+    Rail/xierE0.png \
+    Rail/xierIcon.png \
+    Rail/xierQ1.png \
+    Rail/xingT.png
 
 LIBS += -lz
+
+CONFIG += resources_big
 

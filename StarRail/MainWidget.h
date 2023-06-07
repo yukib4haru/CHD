@@ -1,10 +1,12 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include<star.h>
-#include<Xing.h>
-#include<Jiachong.h>
-#include<Button.h>
+#include"star.h"
+#include"Xing.h"
+#include"Jiachong.h"
+#include"Button.h"
+
+#include"Turnmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -21,6 +23,7 @@ public:
     void initWindow();
     void initRole();
     void initButton();
+    void initManager();
     void buttonBond();
 
 private:
@@ -48,9 +51,16 @@ private:
     //testEnemy
     Jiachong* jiachong;
 
+    //对象向量组
+    vector<Hero*> heroes = {xing};
+    vector<Enemy*> enermies = {jiachong};
+
     //一些数值
     int skillPoint = 3;
 
+    //事件处理
+    //轮次处理
+    TurnManager* turnmanager;
 public slots:
     //信号广播槽函数
     void skillAbroadcast();

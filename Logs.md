@@ -1,5 +1,15 @@
 23  
 6.7  
+21：00
+问题
+cc1plus.exe:-1: error: out of memory allocating 1073745919 bytes  
+cc1plus.exe占用过多内存。
+方案
+在项目工程文件（.pro）里面输入下面这句话  
+CONFIG += resources_big  
+原因  
+资源文件过大   
+
 13:00  
 问题  
 程序异常结束  

@@ -21,6 +21,8 @@ public:
 
     //私有变量接口
     int getAtt(){return att;}
+    int getSpeed(){return speed;}
+
 private:
     QString name;
     int hp;
