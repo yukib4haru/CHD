@@ -24,7 +24,7 @@ public slots:
     void skillC();
 signals:
     void skillAdamage(int att);
-    void skillBbuff(int att);
+    void skillBdamage(int att);
 };
 
 #endif // XIER_H

@@ -21,7 +21,7 @@ void Xier::skillA()
 void Xier::skillB()
 {
     qDebug()<<"希尔释放B技能\n";
-    emit this->skillBbuff(getAtt());
+    emit this->skillBdamage(2*getAtt());
 }
 
 void Xier::skillC()

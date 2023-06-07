@@ -43,7 +43,7 @@ static constexpr auto qt_meta_stringdata_CLASSXierENDCLASS = QtMocHelpers::strin
     "skillAdamage",
     "",
     "att",
-    "skillBbuff",
+    "skillBdamage",
     "skillA",
     "skillB",
     "skillC"
@@ -55,7 +55,7 @@ struct qt_meta_stringdata_CLASSXierENDCLASS_t {
     char stringdata1[13];
     char stringdata2[1];
     char stringdata3[4];
-    char stringdata4[11];
+    char stringdata4[13];
     char stringdata5[7];
     char stringdata6[7];
     char stringdata7[7];
@@ -68,16 +68,16 @@ Q_CONSTINIT static const qt_meta_stringdata_CLASSXierENDCLASS_t qt_meta_stringda
         QT_MOC_LITERAL(5, 12),  // "skillAdamage"
         QT_MOC_LITERAL(18, 0),  // ""
         QT_MOC_LITERAL(19, 3),  // "att"
-        QT_MOC_LITERAL(23, 10),  // "skillBbuff"
-        QT_MOC_LITERAL(34, 6),  // "skillA"
-        QT_MOC_LITERAL(41, 6),  // "skillB"
-        QT_MOC_LITERAL(48, 6)   // "skillC"
+        QT_MOC_LITERAL(23, 12),  // "skillBdamage"
+        QT_MOC_LITERAL(36, 6),  // "skillA"
+        QT_MOC_LITERAL(43, 6),  // "skillB"
+        QT_MOC_LITERAL(50, 6)   // "skillC"
     },
     "Xier",
     "skillAdamage",
     "",
     "att",
-    "skillBbuff",
+    "skillBdamage",
     "skillA",
     "skillB",
     "skillC"
@@ -132,7 +132,7 @@ Q_CONSTINIT const QMetaObject Xier::staticMetaObject = { {
         // method 'skillAdamage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
-        // method 'skillBbuff'
+        // method 'skillBdamage'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>,
         // method 'skillA'
@@ -152,7 +152,7 @@ void Xier::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         (void)_t;
         switch (_id) {
         case 0: _t->skillAdamage((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 1: _t->skillBbuff((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 1: _t->skillBdamage((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
         case 2: _t->skillA(); break;
         case 3: _t->skillB(); break;
         case 4: _t->skillC(); break;
@@ -169,7 +169,7 @@ void Xier::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         }
         {
             using _t = void (Xier::*)(int );
-            if (_t _q_method = &Xier::skillBbuff; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
+            if (_t _q_method = &Xier::skillBdamage; *reinterpret_cast<_t *>(_a[1]) == _q_method) {
                 *result = 1;
                 return;
             }
@@ -215,7 +215,7 @@ void Xier::skillAdamage(int _t1)
 }
 
 // SIGNAL 1
-void Xier::skillBbuff(int _t1)
+void Xier::skillBdamage(int _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 1, _a);
