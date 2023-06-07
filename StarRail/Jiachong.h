@@ -6,6 +6,7 @@
 
 class Jiachong : public Enemy
 {
+    Q_OBJECT
 public:
     Jiachong();
     void skill(Role* p);

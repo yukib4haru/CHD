@@ -13,3 +13,8 @@ Role::~Role()
 {
 
 }
+
+void Role::showRole()
+{
+
+}

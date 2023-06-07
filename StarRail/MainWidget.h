@@ -1,7 +1,6 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include <QWidget>
 #include<star.h>
 #include<Xing.h>
 #include<Jiachong.h>
@@ -41,12 +40,20 @@ private:
     Button* skillCbtn;
     QVBoxLayout* vboxlayout;
 
+    //BtnGroup
+    QButtonGroup* box1 ;
+
     //testHero
-    Xing* xing;
+    Hero* xing;
 
     //testEnemy
-    Jiachong* jiachong;
+    Enemy* jiachong;
 
+public slots:
+    //信号广播槽函数
+    void skillAbroadcast();
+    void skillBbroadcast();
+    void skillCbroadcast();
 signals:
 
 };

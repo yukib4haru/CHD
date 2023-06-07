@@ -6,20 +6,16 @@
 #include <ctime>
 
 #include<QWidget>
+#include<QObject>
 #include <QMainWindow>  //继承自QWidget
 #include<QGraphicsPixmapItem>   //图形元素
 #include<QGraphicsItem> //图形元素？
 #include<QGraphicsView>//视图
 #include<QGraphicsScene>//场景
 
-#include <QIcon>
-#include <QKeyEvent>
-#include <ctime>
-#include <QFontDatabase>
-#include <QString>
-
 #include<QLabel>//标签
 #include<QPushButton>//按钮
+#include<QButtonGroup>//按钮组
 #include<QVBoxLayout>//布局
 
 #include<QDebug>//调试用

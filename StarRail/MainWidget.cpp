@@ -36,9 +36,6 @@ void MainWidget::initRole()
 
     xing = new Xing();
     xing->bindFunc();
-
-//    test1 = new Role("星",100,15,5);
-//    test1->setPixmap(QPixmap(":/Image/Xing.png"));
 }
 
 //初始化窗口
@@ -64,10 +61,9 @@ void MainWidget::initWindow()
 
     //添加人物
 //    Scene.addItem(test1);
-    Scene.addItem(xing);
-    Scene.addItem(jiachong);
-    jiachong->setPos(600,0);
-
+    Scene.addItem(/*&*/xing/*->image*/);
+    Scene.addItem(/*&*/jiachong/*->image*/);
+    jiachong->/*image.*/setPos(600,0);
 
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
@@ -80,19 +76,14 @@ void MainWidget::initWindow()
     this->skillAbtn = new Button(this);
     this->skillAbtn->setIcon(QIcon(":/Image/xierQ1.png"));//设置技能图标
     this->skillAbtn->setIconSize(QSize(300,300));//设置技能大小
+    //使其成为一个可选按钮
+    skillAbtn->setCheckable(true);
+
     //设置透明边框
     this->skillAbtn->setFlat(true);
     this->skillAbtn->setFocusPolicy(Qt::NoFocus);
     //移动按钮
     this->skillAbtn->move(width()/2,height()/2);
-    //使其成为一个可选按钮
-    skillAbtn->setCheckable(true);
-    //连接按钮的toggled信号，检测其选中状态变化
-    connect(skillAbtn, &Button::toggled, [=](bool checked) {
-        // skillAbtn选中状态变化时调用
-        });
-    //连接按钮
-//    connect(skillAbtn,&Button::clicked,xing,&Xing::skillA);
 
     //同理创建B
     this->skillBbtn = new Button(this);
@@ -101,6 +92,19 @@ void MainWidget::initWindow()
     this->skillBbtn->setFlat(true);
     this->skillBbtn->setFocusPolicy(Qt::NoFocus);
     this->skillBbtn->move(width()/3,height()/3);
+    skillBbtn->setCheckable(true);
+
+    //顺序错了，还没创建B怎么连接呢？
+
+    //使两个按钮自动互斥
+    skillAbtn->setAutoExclusive(true);
+//  skillAbtn->setChecked(true);
+    skillBbtn->setAutoExclusive(true);
+
+//    连接按钮
+//    connect(skillAbtn,&Button::released,this,&MainWidget::skillAbroadcast);
+
+
 }
 
 void MainWidget::paintEvent(QPaintEvent *event)
@@ -109,3 +113,17 @@ void MainWidget::paintEvent(QPaintEvent *event)
     painter.drawPixmap(0,0,BackGround);
 }
 
+void MainWidget::skillAbroadcast()
+{
+//    emit xing->skillAsignal();
+}
+
+void MainWidget::skillBbroadcast()
+{
+
+}
+
+void MainWidget::skillCbroadcast()
+{
+
+}
