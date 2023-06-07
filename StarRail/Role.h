@@ -22,6 +22,8 @@ public:
     //私有变量接口
     int getAtt(){return att;}
     int getMaxiumHealth(){return maximumHealth;}
+    int getSpeed(){return speed;}
+
 private:
     QString name;
     int hp;

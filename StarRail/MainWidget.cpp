@@ -16,6 +16,7 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
 {
+    initManager();
     initRole();     //初始化人物 必须放在初始化窗口前面
     initWindow();   //初始化窗口
     initButton();   //初始化按钮
@@ -28,6 +29,11 @@ MainWidget::~MainWidget()
     delete ui;
 }
 
+//初始化事件
+void MainWidget::initManager()
+{
+    turnmanager = new TurnManager(heroes,enermies);
+}
 
 //初始化人物
 void MainWidget::initRole()

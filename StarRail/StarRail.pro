@@ -87,3 +87,5 @@ DISTFILES += \
 
 LIBS += -lz
 
+CONFIG += resources_big
+
