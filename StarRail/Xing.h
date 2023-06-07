@@ -19,9 +19,9 @@ public slots:
 //    virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option,QWidget *widget)
 //    { /* implement */ }
     //技能槽函数
-    virtual void skillA();
-    virtual void skillB();
-    virtual void skillC();
+    void skillA();
+    void skillB();
+    void skillC();
 signals:
 
 };

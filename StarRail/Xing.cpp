@@ -14,7 +14,7 @@ Xing::~Xing()
 
 void Xing::skillA()
 {
-
+    qDebug()<<"释放A技能"<<endl;
 }
 void Xing::skillB()
 {

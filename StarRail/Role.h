@@ -27,9 +27,11 @@ private:
     int speed;
     bool isAlive;
 
-//signals:
-    void attOthers(Role* p);
+signals:
     void beAttached();
+
+public slots:
+
 };
 
 

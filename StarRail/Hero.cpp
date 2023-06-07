@@ -5,3 +5,4 @@ Hero::Hero(string name1,int hp1,int att1,int speed1,int label1):Role(name1,hp1,a
     label=label1;
     shield=0;
 }
+

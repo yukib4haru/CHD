@@ -44,10 +44,10 @@ private:
     QButtonGroup* box1 ;
 
     //testHero
-    Hero* xing;
+    Xing* xing;
 
     //testEnemy
-    Enemy* jiachong;
+    Jiachong* jiachong;
 
 public slots:
     //信号广播槽函数

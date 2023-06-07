@@ -3,14 +3,13 @@
 
 #include"star.h"
 
+#include"Button.h"
+
 #include"Role.h"
 #include"Hero.h"
 #include"Xing.h"
 #include"Enemy.h"
 #include"Jiachong.h"
-
-#include<Button.h>
-
 
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
@@ -101,9 +100,9 @@ void MainWidget::initWindow()
 //  skillAbtn->setChecked(true);
     skillBbtn->setAutoExclusive(true);
 
-//    连接按钮
-//    connect(skillAbtn,&Button::released,this,&MainWidget::skillAbroadcast);
-
+    //连接按钮
+    connect(skillAbtn,&Button::released,this,&MainWidget::skillAbroadcast);
+    connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
 
 }
 
@@ -115,7 +114,8 @@ void MainWidget::paintEvent(QPaintEvent *event)
 
 void MainWidget::skillAbroadcast()
 {
-//    emit xing->skillAsignal();
+    emit xing->skillAsignal();
+    qDebug()<<"释放星的A技能的信号"<<endl;
 }
 
 void MainWidget::skillBbroadcast()

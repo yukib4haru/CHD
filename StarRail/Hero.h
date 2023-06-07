@@ -20,7 +20,7 @@ signals:
     void skillBsignal();
     void skillCsignal();
 public slots:
-    //信号广播槽函数
+    //信号广播槽函数 之前于主窗口的重复了 从而报错
 //    void skillAbroadcast();
 //    void skillBbroadcast();
 //    void skillCbroadcast();
