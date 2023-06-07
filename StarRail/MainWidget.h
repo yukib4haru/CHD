@@ -3,6 +3,8 @@
 
 #include<star.h>
 #include<Xing.h>
+#include<xier.h>
+#include"Natasha.h"
 #include<Jiachong.h>
 #include<Button.h>
 
@@ -44,6 +46,8 @@ private:
 
     //testHero
     Xing* xing;
+    Xier* xier;
+    Natasha* natasha;
 
     //testEnemy
     Jiachong* jiachong;

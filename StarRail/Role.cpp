@@ -5,6 +5,7 @@ Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
 {
     name=name1;
     hp=hp1;
+    maximumHealth=hp1;
     att=att1;
     speed=speed1;
     shield=shield1;
@@ -47,7 +48,18 @@ void Role::beAttacked(int damage)
         isAlive=0;
     }
 
-    qDebug()<<"挨打后"<<"\n";
+    qDebug()<<"挨打后\n";
+    showBasicStatus();
+}
+
+void Role::beCured(int health)
+{
+    hp+=health;
+    if(hp>getMaxiumHealth())
+    {
+        hp=getMaxiumHealth();
+    }
+    qDebug()<<"被奶后\n";
     showBasicStatus();
 }
 
@@ -55,3 +67,4 @@ void Role::beGivenShieldBuff(int effect)
 {
     shield+=effect;
 }
+

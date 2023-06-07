@@ -21,9 +21,11 @@ public:
 
     //私有变量接口
     int getAtt(){return att;}
+    int getMaxiumHealth(){return maximumHealth;}
 private:
     QString name;
     int hp;
+    int maximumHealth;
     int att;
     int speed;
     int shield;
@@ -38,6 +40,8 @@ public slots:
     void beAttacked(int damage);
     //获得增益效果
     void beGivenShieldBuff(int effect);
+    //收到治疗效果
+    void beCured(int health);
 };
 
 

@@ -3,6 +3,7 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QList>
+#include <QRegularExpression>
 
 QFile file("D:/user.txt");
 
@@ -38,14 +39,14 @@ int User::judgeUsernameAndpassword(UserInfo user)
             }
 
             //debug检测一下是否有信息
-            qDebug() << str << endl;
+            qDebug() << str << "\n";
             file.close();
         }
 
         //解析存储
         QString coun = (QString)str;
         QString newstr = coun.simplified();
-        QStringList arr = newstr.split(QRegExp("(username)|(password)|( )|(:)"));
+        QStringList arr = newstr.split(QRegularExpression("(username)|(password)|( )|(:)"));
         //for循环存储list对象
         for (int i = 0; i < arr.length(); ++i) {
             UserInfo uc;
@@ -88,8 +89,8 @@ int User::registerUser(UserInfo user)
         if(file.open(QIODevice::Append))
         {
             QTextStream in(&file);
-            in << n << endl;
-            in << p << endl;
+            in << n << "\n";
+            in << p << "\n";
 
             //如果乱码
             //            file.write(n.toUtf8());

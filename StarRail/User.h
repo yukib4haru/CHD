@@ -1,7 +1,7 @@
 #ifndef USER_H
 #define USER_H
 
-#include <QWidget>
+#include "Hero.h"
 
 typedef struct
 {
