@@ -21,9 +21,10 @@ void Role::showBasicStatus()
     qDebug()<<"NAME:"<<name<<"\n";
     qDebug()<<"HP:"<<hp<<"\n";
     qDebug()<<"Shield:"<<shield<<"\n";
+    qDebug()<<"isALive:"<<isAlive<<"\n";
 }
 
-void Role::beAttached(int damage)
+void Role::beAttacked(int damage)
 {
     if(shield>0)
     {
@@ -40,6 +41,12 @@ void Role::beAttached(int damage)
         }
     }
     else    hp-=damage;
+
+    if(hp<=0)
+    {
+        isAlive=0;
+    }
+
     qDebug()<<"挨打后"<<"\n";
     showBasicStatus();
 }

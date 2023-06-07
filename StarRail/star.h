@@ -31,6 +31,8 @@ using namespace std;
 #define GAME_WIDTH  1600
 #define GAME_HEIGHT  900
 #define FLOOR_HEIGHT  150
+#define SKILL_POINT_MAX 5
+#define SKILL_POINT_LEAST 0
 
 
 #endif // STAR_H

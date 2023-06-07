@@ -22,7 +22,9 @@ SOURCES += \
     Hero.cpp \
     Jiachong.cpp \
     MainWidget.cpp \
+    Manager.cpp \
     Role.cpp \
+    TurnManager.cpp \
     User.cpp \
     Xing.cpp \
     login.cpp \
@@ -35,7 +37,9 @@ HEADERS += \
     Hero.h \
     Jiachong.h \
     MainWidget.h \
+    Manager.h \
     Role.h \
+    TurnManager.h \
     User.h \
     Xing.h \
     login.h \

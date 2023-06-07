@@ -16,7 +16,6 @@ public:
     //动画
     void showRole();
     void death();
-
     //登场顺序
     void entryOrder(Role* p);
 
@@ -36,7 +35,7 @@ public slots:
     //显示角色基本状态 用于调试
     void showBasicStatus();
     //收到伤害
-    void beAttached(int damage);
+    void beAttacked(int damage);
     //获得增益效果
     void beGivenShieldBuff(int effect);
 };
