@@ -1,4 +1,24 @@
 6.8  
+
+在基类中定义虚方法,由派生类实现并返回自身类型:  
+cpp  
+class Role {  
+public:  
+    virtual std::string getType() = 0;   
+};  
+
+class Xing: public Role {  
+public:  
+    std::string getType() override { return "Xing"; }   
+};    
+  
+std::string type = curRole->getType();  
+if (type == "Xing") {  
+    // curRole最初是Xing类型    
+}   
+这种方法比较清晰,可以直接通过调用基类方法获取对象类型。但是需要在各个派生类中实现该虚方法。   
+    
+    
 往vector<基类> push_back了一个派生类对象，现在如何从这个vector中取出这个派生类对象？并且可以使用派生类中的接口函数？    
 解决方案   
 1.对象切割（Object slicing）   

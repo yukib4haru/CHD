@@ -34,6 +34,7 @@ void MainWidget::initManager()
 {
     turnmanager = new TurnManager(heroes,enermies,roles);
     turnmanager->init();
+//    turnmanager->curRole = /*(Xing*)*/ xier;
 }
 
 //初始化人物
@@ -132,6 +133,7 @@ void MainWidget::buttonBond()
     //接收到的信号为娜塔莎，则由娜塔莎发动
     connect(natasha,&Natasha::skillAsignal,natasha,&Natasha::skillA);
     connect(natasha,&Natasha::skillAdamage,jiachong,&Jiachong::beAttacked);
+
     //实现B按钮
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
     connect(skillBbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
@@ -147,6 +149,7 @@ void MainWidget::buttonBond()
     connect(natasha,&Natasha::skillBcure,jiachong,&Jiachong::beCured);
 }
 
+//技能A广播
 void MainWidget::skillAbroadcast()
 {
     qDebug()<<"是谁的A技能的信号被发送了呢\n";
@@ -165,9 +168,9 @@ void MainWidget::skillAbroadcast()
         emit xier->skillAsignal();
         qDebug()<<"发送希尔的A技能的信号\n";
     }
-    turnmanager->update();
 }
 
+//技能B广播
 void MainWidget::skillBbroadcast()
 {
     if(skillPoint>0)
@@ -192,9 +195,11 @@ void MainWidget::skillBbroadcast()
     {
         qDebug()<<"战技点不足\n";
     }
-    turnmanager->update();
+    //update函数里的getname存在问题
+//    turnmanager->update();
 }
 
+//技能C广播
 void MainWidget::skillCbroadcast()
 {
     if(turnmanager->getCurRole()==xing)
@@ -215,12 +220,14 @@ void MainWidget::skillCbroadcast()
     turnmanager->update();
 }
 
+//战技点增加
 void MainWidget::skillPointUp()
 {
     if(skillPoint<SKILL_POINT_MAX) skillPoint++;
     qDebug()<<"战技点："<<skillPoint<<"\n";
 }
 
+//战技点减少
 void MainWidget::skillPointDown()
 {
     if(skillPoint>SKILL_POINT_LEAST) skillPoint--;

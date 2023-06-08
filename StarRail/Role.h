@@ -13,6 +13,8 @@ public:
     Role(QString name1,int hp1,int att1,int speed1,int shield1);
     ~Role();
 
+    virtual void bindFunc()=0;
+
     //动画
     void showRole();
     void death();
@@ -24,6 +26,9 @@ public:
     int getMaxiumHealth(){return maximumHealth;}
     int getSpeed(){return speed;}
     QString getName(){return name;}
+
+    //返回类型信息以便强制类型转换
+    virtual string getType() = 0;
 
 private:
     QString name;

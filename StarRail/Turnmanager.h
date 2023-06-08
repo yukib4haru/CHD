@@ -5,6 +5,7 @@
 #include"star.h"
 #include"Hero.h"
 #include"Enemy.h"
+#include"Xing.h"
 
 class TurnManager : public Manager
 {
@@ -15,6 +16,9 @@ public:
     void update() override;
     //私有成员变量接口
     Role* getCurRole(){return curRole;}
+    Hero* getCurHero(){return curHero;}
+    Xing* curXing;
+    Role* curRole;
 private:
     int currentTurn;
 
@@ -23,11 +27,20 @@ private:
 
     // 方法1:使用基类指针
     vector<Role*> roles;
+
+    //当前进行动作的角色
+//    Role* curRole;
+
     //迭代器用于遍历容器内元素
     vector<Role*>::iterator turnIterator;
 
-    //当前进行动作的角色
-    Role* curRole;
+    //测试用
+//    Xing* curXing;
+
+    Hero* curHero;
+    vector<Hero*>::iterator testIterator;
+
+
 //    // 方法2:独立列表
 //    vector<Hero*> heroes;
 //    vector<Enemy*> enemies;

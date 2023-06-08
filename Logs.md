@@ -1,12 +1,16 @@
 23  
 6.8  
+7:00-16:00 Warning!!   
+Role* curRole = xier; 可以正常使用，说明动态绑定可以  
+roles={xing,xier,natasha}   
+Role* curRole = (Xier*) roles[1]; 无法正常使用，说明强制类型转换没用
 8：00  
 问题  
 写完了换人系统之后 点击按钮直接崩溃   
 分析  
 基类指针啊啊啊 一开始以为是指到空指针了 一通爆改 后来发现可能是子类放到基类容器里出问题了 用了一个dynamic_cast<Hero*>(curRole)  
 结果还是不行 又想着用vector<shared_ptr<Role>>  
-但是感觉非常麻烦  最后决定使用variant
+但是感觉非常麻烦  最后决定使用variant 曾试过dynamic_cast  
 
 6.7  
 21：00   
