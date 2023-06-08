@@ -28,13 +28,17 @@ public:
     void initButton();
     void initManager();
     void initMoveTimer();
+    void initPen();
     void buttonBond();
+    //实现血条变化
+//    void lifebarChanged();
 
 private:
     Ui::MainWidget *ui;
 
     QGraphicsView GameView;//游戏视图
     QGraphicsScene Scene;//场景
+    QPen pen;//画笔
 
     //图形元素
     QGraphicsPixmapItem Background1;

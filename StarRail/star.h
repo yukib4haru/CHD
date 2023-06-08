@@ -10,9 +10,11 @@
 #include<QObject>
 #include <QMainWindow>  //继承自QWidget
 #include<QGraphicsPixmapItem>   //图形元素
+#include<QGraphicsRectItem>
 #include<QGraphicsItem> //图形元素
 #include<QGraphicsView>//视图
 #include<QGraphicsScene>//场景
+#include<QPen>
 
 #include<QLabel>//标签
 #include<QPushButton>//按钮
@@ -20,7 +22,6 @@
 #include<QVBoxLayout>//布局
 
 #include<QDebug>//调试用
-#include<QBrush>
 #include <QIcon>
 #include <QKeyEvent>
 #include <QFontDatabase>

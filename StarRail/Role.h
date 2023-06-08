@@ -1,7 +1,8 @@
 #ifndef ROLE_H
 #define ROLE_H
 
-#include<star.h>
+#include "star.h"
+#include "Lifebar.h"
 
 class Role:public QObject,public QGraphicsPixmapItem
 {
@@ -12,6 +13,7 @@ public:
     Role(){ }
     Role(QString name1,int hp1,int att1,int speed1,int shield1);
     ~Role();
+    Lifebar *lifebar;
 
     //动画
     void showRole();
@@ -22,6 +24,7 @@ public:
     //私有变量接口
     int getAtt(){return att;}
     int getMaxiumHealth(){return maximumHealth;}
+    int getNowHealth(){return hp;}
     int getSpeed(){return speed;}
     float getXSite(){return xSite;}
     float getYSite(){return ySite;}
@@ -48,7 +51,7 @@ private:
     float yMove;
 
 signals:
-
+    void lifebarShortenedSignal(int nowhp,int maximumhp);
 public slots:
     //显示角色基本状态 用于调试
     void showBasicStatus();
@@ -58,6 +61,7 @@ public slots:
     void beGivenShieldBuff(int effect);
     //收到治疗效果
     void beCured(int health);
+
 };
 
 

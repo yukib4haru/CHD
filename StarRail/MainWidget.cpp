@@ -17,6 +17,7 @@ MainWidget::MainWidget(QWidget *parent)
     , ui(new Ui::MainWidget)
 {
     initManager();
+    initPen();      //初始化画笔
     initRole();     //初始化人物 必须放在初始化窗口前面
     initWindow();   //初始化窗口
     initButton();   //初始化按钮
@@ -36,19 +37,30 @@ void MainWidget::initManager()
     turnmanager = new TurnManager(heroes,enermies);
 }
 
+//初始化画笔
+void MainWidget::initPen()
+{
+    pen.setColor(QColor(0,0,0));
+    pen.setWidth(2);
+}
+
 //初始化人物
 void MainWidget::initRole()
 {
     jiachong = new Jiachong();
+    jiachong->lifebar->setPen(pen);
     jiachong->bindFunc();
 
     xing = new Xing();
+    jiachong->lifebar->setPen(pen);
     xing->bindFunc();
 
     xier = new Xier();
+    jiachong->lifebar->setPen(pen);
     xier->bindFunc();
 
     natasha = new Natasha();
+    jiachong->lifebar->setPen(pen);
     natasha->bindFunc();
 }
 
@@ -74,6 +86,11 @@ void MainWidget::initWindow()
     Scene.addItem(xier);
     Scene.addItem(natasha);
     Scene.addItem(jiachong);
+
+    Scene.addItem(jiachong->lifebar);
+    Scene.addItem(xing->lifebar);
+    Scene.addItem(xier->lifebar);
+    Scene.addItem(natasha->lifebar);
 
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
@@ -129,7 +146,7 @@ void MainWidget::buttonBond()
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
     connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
-    connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
+    connect(xing,&Xing::moveOver,xing,&Xing::skillA);
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
     //实现星A技能移动
     connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::beMoved);
@@ -144,7 +161,15 @@ void MainWidget::buttonBond()
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillPointDown);
     connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
     connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
+
+    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
 }
+
+//实现血条变化
+//void MainWidget::lifebarChanged()
+//{
+//    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
+//}
 
 void MainWidget::skillAbroadcast()
 {

@@ -5,7 +5,14 @@
 Jiachong::Jiachong():Enemy("甲虫",50,10,5,10)
 {
     this->setPixmap(QPixmap(":/Image/jiachong0.png"));
-    this->setPos(1000,200);
+    this->setXSite(1000);
+    this->setYSite(200);
+    this->setPos(getXSite(),getYSite());
+
+    this->lifebar->setWidth(320);
+    this->lifebar->setBarXSite(getXSite());
+    this->lifebar->setBarYSite(getYSite());
+    this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),320,10);
 }
 
 void Jiachong::skill()

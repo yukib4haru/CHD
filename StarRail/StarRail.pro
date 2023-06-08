@@ -21,6 +21,7 @@ SOURCES += \
     Enemy.cpp \
     Hero.cpp \
     Jiachong.cpp \
+    Lifebar.cpp \
     MainWidget.cpp \
     Manager.cpp \
     Movetimer.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     Enemy.h \
     Hero.h \
     Jiachong.h \
+    Lifebar.h \
     MainWidget.h \
     Manager.h \
     Movetimer.h \

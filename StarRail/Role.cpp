@@ -10,6 +10,8 @@ Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
     speed=speed1;
     shield=shield1;
     isAlive=1;
+    lifebar = new Lifebar();
+    lifebar->setBrush(QColor(255,0,0));
 }
 
 Role::~Role()
@@ -41,14 +43,19 @@ void Role::beAttacked(int damage)
             shield=temp;
         }
     }
-    else    hp-=damage;
+    else
+    {
+        hp-=damage;
+
+    }
 
     if(hp<=0)
     {
         isAlive=0;
     }
-
     qDebug()<<"挨打后\n";
+    emit lifebarShortenedSignal(getNowHealth(),getMaxiumHealth());
+
     showBasicStatus();
 }
 
@@ -87,3 +94,4 @@ void Role::setYMove(float ymove)
 {
     yMove=ymove;
 }
+
