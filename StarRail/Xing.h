@@ -28,6 +28,7 @@ public slots:
 signals:
     void skillAdamage(int att);
     void skillBbuff(int att);
+    void moveOver();
 };
 
 #endif // XING_H

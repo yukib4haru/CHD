@@ -134,8 +134,9 @@ void MainWidget::buttonBond()
     //实现星A技能移动
     connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::beMoved);
     connect(movetimer,&MoveTimer::timeout,xing,&Xing::moveTo);
-    connect(jiachong,&Jiachong::getValueXing,movetimer,&MoveTimer::beTriggeredStart);
     connect(jiachong,&Jiachong::getValueXing,xing,&Xing::setDistance);
+    connect(jiachong,&Jiachong::getValueXing,movetimer,&MoveTimer::beTriggeredStart);
+    connect(xing,&Xing::moveOver,movetimer,&MoveTimer::beTriggeredStop);
 
     //实现星的B按钮
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
