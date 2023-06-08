@@ -16,13 +16,15 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
 {
+
+    initPen();      //初始化画笔
     initRole();     //初始化人物 必须放在初始化窗口前面
     initManager();  //初始化事件，应该要放在人物后边吧
     initWindow();   //初始化窗口
     initButton();   //初始化按钮
+    initMoveTimer();//初始化移动计时器
     buttonBond();   //连接
 }
-
 
 MainWidget::~MainWidget()
 {
@@ -40,19 +42,30 @@ void MainWidget::initManager()
     turnmanager->init();
 }
 
+//初始化画笔
+void MainWidget::initPen()
+{
+    pen.setColor(QColor(0,0,0));
+    pen.setWidth(2);
+}
+
 //初始化人物
 void MainWidget::initRole()
 {
     jiachong = new Jiachong();
+    jiachong->lifebar->setPen(pen);
     jiachong->bindFunc();
 
     xing = new Xing();
+    jiachong->lifebar->setPen(pen);
     xing->bindFunc();
 
     xier = new Xier();
+    jiachong->lifebar->setPen(pen);
     xier->bindFunc();
 
     natasha = new Natasha();
+    jiachong->lifebar->setPen(pen);
     natasha->bindFunc();
 }
 
@@ -78,6 +91,11 @@ void MainWidget::initWindow()
     Scene.addItem(xier);
     Scene.addItem(natasha);
     Scene.addItem(jiachong);
+
+    Scene.addItem(jiachong->lifebar);
+    Scene.addItem(xing->lifebar);
+    Scene.addItem(xier->lifebar);
+    Scene.addItem(natasha->lifebar);
 
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
@@ -119,6 +137,13 @@ void MainWidget::initButton()
 //    skillBbtn->setAutoExclusive(true);
 }
 
+//初始化移动计时器
+void MainWidget::initMoveTimer()
+{
+    movetimer = new MoveTimer;
+}
+
+
 //信号和槽连接
 void MainWidget::buttonBond()
 {
@@ -126,8 +151,12 @@ void MainWidget::buttonBond()
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
     connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
+//<<<<<<< HEAD
+    connect(xing,&Xing::moveOver,xing,&Xing::skillA);
+//=======
     //接收到的信号为星，则由星发动
     connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
+//>>>>>>> 59d05eeb99e8189911ed6d48d6d9f77413c24953
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
     //实现星A技能移动
 
@@ -145,6 +174,18 @@ void MainWidget::buttonBond()
     //接收到的信号为星，则由星发动
     connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
     connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
+//<<<<<<< HEAD
+
+    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
+
+
+//实现血条变化
+//void MainWidget::lifebarChanged()
+//{
+//    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
+//}
+
+//=======
     //接收到的信号为希尔，则由希尔发动
     connect(xier,&Xier::skillBsignal,xier,&Xier::skillB);
     connect(xier,&Xier::skillBdamage,jiachong,&Jiachong::beAttacked);
@@ -157,6 +198,7 @@ void MainWidget::buttonBond()
 }
 
 //技能A广播
+//>>>>>>> 59d05eeb99e8189911ed6d48d6d9f77413c24953
 void MainWidget::skillAbroadcast()
 {
     qDebug()<<"是谁的A技能的信号被发送了呢\n";

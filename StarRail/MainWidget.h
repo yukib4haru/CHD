@@ -7,7 +7,7 @@
 #include"Natasha.h"
 #include"Jiachong.h"
 #include"Button.h"
-
+#include"Movetimer.h"
 #include"Turnmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -26,13 +26,18 @@ public:
     void initRole();
     void initButton();
     void initManager();
+    void initMoveTimer();
+    void initPen();
     void buttonBond();
+    //实现血条变化
+//    void lifebarChanged();
 
 private:
     Ui::MainWidget *ui;
 
     QGraphicsView GameView;//游戏视图
     QGraphicsScene Scene;//场景
+    QPen pen;//画笔
 
     //图形元素
     QGraphicsPixmapItem Background1;
@@ -43,6 +48,9 @@ private:
     Button* skillBbtn;
     Button* skillCbtn;
     QVBoxLayout* vboxlayout;
+
+    //移动计时器
+    MoveTimer *movetimer;
 
     //BtnGroup
     QButtonGroup* box1 ;

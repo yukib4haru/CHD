@@ -21,7 +21,11 @@ SOURCES += \
     Enemy.cpp \
     Hero.cpp \
     Jiachong.cpp \
+    Lifebar.cpp \
     MainWidget.cpp \
+
+    Movetimer.cpp \
+
     Natasha.cpp \
     Role.cpp \
     TurnManager.cpp \
@@ -37,7 +41,12 @@ HEADERS += \
     Enemy.h \
     Hero.h \
     Jiachong.h \
+    Lifebar.h \
     MainWidget.h \
+
+
+    Movetimer.h \
+
     Natasha.h \
     Role.h \
     TurnManager.h \

@@ -11,6 +11,10 @@ Role::Role(QString name1,int hp1,int att1,int speed1,int shield1,int label1,QStr
     shield=shield1;
     isAlive=1;
     skillAiconPath=skillAiconPath1;
+
+    lifebar = new Lifebar();
+    lifebar->setBrush(QColor(255,0,0));
+
 }
 
 Role::~Role()
@@ -42,7 +46,11 @@ void Role::beAttacked(int damage)
             shield=temp;
         }
     }
-    else    hp-=damage;
+    else
+    {
+        hp-=damage;
+
+    }
 
     if(hp<=0)
     {
@@ -50,8 +58,9 @@ void Role::beAttacked(int damage)
         emit this->imKilled(this);
 //        delete this;
     }
-
     qDebug()<<"挨打后\n";
+    emit lifebarShortenedSignal(getNowHealth(),getMaxiumHealth());
+
     showBasicStatus();
 }
 
@@ -71,3 +80,22 @@ void Role::beGivenShieldBuff(int effect)
     shield+=effect;
 }
 
+void Role::setXSite(float xsite)
+{
+    xSite=xsite;
+}
+
+void Role::setYSite(float ysite)
+{
+    ySite=ysite;
+}
+
+void Role::setXMove(float xmove)
+{
+    xMove=xmove;
+}
+
+void Role::setYMove(float ymove)
+{
+    yMove=ymove;
+}
