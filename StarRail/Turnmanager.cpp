@@ -30,7 +30,20 @@ void TurnManager::init()
 
 void TurnManager::update()
 {
-    // 如果回合结束,开始新回合,重置turn列表,并且按照速度排序
+    // 如果是敌方角色,处理输入事件释放技能
+    if (std::find(enemies.begin(), enemies.end(), curRole) != enemies.end())
+    {
+        // 处理敌方技能等
+        int cur = rand()%3;
+        heroes[cur]->beAttacked(curRole->getAtt());
+    }
+
+    // 执行当前角色的行动
+//    curRole->act();
+
+    // 迭代器指向下一个角色
+    turnIterator++;
+
     if (turnIterator == roles.end()) {
         currentTurn++;
         //实现从大到小排序，使用lamda函数？
@@ -42,21 +55,6 @@ void TurnManager::update()
 
     // 获取当前角色
     curRole = *turnIterator;
-
-    // 如果是敌方角色,处理输入事件释放技能
-    if (std::find(enemies.begin(), enemies.end(), curRole) != enemies.end())
-    {
-        // 处理敌方技能等
-        int cur = rand()%3;
-        heroes[cur]->beAttacked(curRole->getAtt());
-        heroes[cur]->showBasicStatus();
-    }
-
-    // 执行当前角色的行动
-//    curRole->act();
-
-    // 迭代器指向下一个角色
-    turnIterator++;
 
     //调试用
     qDebug()<<"当前角色是"<<curRole->getName()<<"\n";
