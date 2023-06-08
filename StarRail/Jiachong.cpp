@@ -15,11 +15,6 @@ Jiachong::Jiachong():Enemy("甲虫",50,10,5,10)
     this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),320,10);
 }
 
-void Jiachong::skill()
-{
-
-}
-
 void Jiachong::beMoved()
 {
     float moveDistanceX0;
@@ -31,4 +26,9 @@ void Jiachong::beMoved()
     moveDistanceX0=(x20-x10)/30;
     moveDistanceY0=(y20-y10)/30;
     emit this->getValueXing(moveDistanceX0,moveDistanceY0,x10,y10,x20,y20);
+}
+
+void Jiachong::skill()
+{
+
 }

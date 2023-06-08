@@ -15,6 +15,8 @@ public:
     ~Role();
     Lifebar *lifebar;
 
+    virtual void bindFunc()=0;
+
     //动画
     void showRole();
     void death();
@@ -26,6 +28,9 @@ public:
     int getMaxiumHealth(){return maximumHealth;}
     int getNowHealth(){return hp;}
     int getSpeed(){return speed;}
+    QString getName(){return name;}
+
+    //私有变量运动属性
     float getXSite(){return xSite;}
     float getYSite(){return ySite;}
     float getXMove(){return xMove;}
@@ -37,6 +42,9 @@ public:
     void setXMove(float xmove);
     void setYMove(float ymove);
 
+    //返回类型信息以便强制类型转换
+    virtual string getType() = 0;
+
 private:
     QString name;
     int hp;
@@ -45,6 +53,8 @@ private:
     int speed;
     int shield;
     bool isAlive;
+
+    //运动属性变量
     float xSite;
     float ySite;
     float xMove;

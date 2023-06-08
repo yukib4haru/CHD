@@ -1,9 +1,12 @@
+release/qrc_rail.o
 release/Button.o
 release/Enemy.o
 release/Hero.o
 release/Jiachong.o
+release/Lifebar.o
 release/MainWidget.o
 release/Manager.o
+release/Movetimer.o
 release/Natasha.o
 release/Role.o
 release/TurnManager.o
@@ -12,12 +15,12 @@ release/Xing.o
 release/login.o
 release/main.o
 release/xier.o
-release/qrc_rail.o
 release/moc_Button.o
 release/moc_Enemy.o
 release/moc_Hero.o
 release/moc_Jiachong.o
 release/moc_MainWidget.o
+release/moc_Movetimer.o
 release/moc_Natasha.o
 release/moc_Role.o
 release/moc_User.o

@@ -1,9 +1,12 @@
+debug/qrc_rail.o
 debug/Button.o
 debug/Enemy.o
 debug/Hero.o
 debug/Jiachong.o
+debug/Lifebar.o
 debug/MainWidget.o
 debug/Manager.o
+debug/Movetimer.o
 debug/Natasha.o
 debug/Role.o
 debug/TurnManager.o
@@ -12,12 +15,12 @@ debug/Xing.o
 debug/login.o
 debug/main.o
 debug/xier.o
-debug/qrc_rail.o
 debug/moc_Button.o
 debug/moc_Enemy.o
 debug/moc_Hero.o
 debug/moc_Jiachong.o
 debug/moc_MainWidget.o
+debug/moc_Movetimer.o
 debug/moc_Natasha.o
 debug/moc_Role.o
 debug/moc_User.o

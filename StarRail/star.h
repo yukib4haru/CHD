@@ -3,7 +3,7 @@
 
 #include<iostream>
 #include<string>
-#include <ctime>
+#include<ctime>
 #include<cmath>
 
 #include<QWidget>
@@ -11,6 +11,7 @@
 #include <QMainWindow>  //继承自QWidget
 #include<QGraphicsPixmapItem>   //图形元素
 #include<QGraphicsRectItem>
+#include<QTimer>
 #include<QGraphicsItem> //图形元素
 #include<QGraphicsView>//视图
 #include<QGraphicsScene>//场景
@@ -26,7 +27,6 @@
 #include <QKeyEvent>
 #include <QFontDatabase>
 #include <QString>
-#include <QTimer>
 
 using namespace std;
 

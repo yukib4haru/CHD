@@ -94,4 +94,3 @@ void Role::setYMove(float ymove)
 {
     yMove=ymove;
 }
-

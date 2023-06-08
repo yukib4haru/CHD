@@ -1,3 +1,32 @@
+6.8  
+
+在基类中定义虚方法,由派生类实现并返回自身类型:  
+cpp  
+class Role {  
+public:  
+    virtual std::string getType() = 0;   
+};  
+
+class Xing: public Role {  
+public:  
+    std::string getType() override { return "Xing"; }   
+};    
+  
+std::string type = curRole->getType();  
+if (type == "Xing") {  
+    // curRole最初是Xing类型    
+}   
+这种方法比较清晰,可以直接通过调用基类方法获取对象类型。但是需要在各个派生类中实现该虚方法。   
+    
+    
+往vector<基类> push_back了一个派生类对象，现在如何从这个vector中取出这个派生类对象？并且可以使用派生类中的接口函数？    
+解决方案   
+1.对象切割（Object slicing）   
+一般来说，衍生类所占的存储空间一般都比基础类大。当用基础类强制转换派生类物件（对象）指標时就会产生对象切割（Object slicing），即： 当把一个派生类对象赋给一个基类对象时或者 用基类对象强制转换派生类对象就会发生对象切割。    
+2.解决方案： 多态的实现是通过指针和引用    
+
+
+6.7
 我有一个小问题，那就是我们为什么不直接创建一个私有变量Button而往往使用一个指针，然后在成员函数中在初始化它呢  
 this->skillAbtn = new Button(this);  
 ——  

@@ -54,8 +54,10 @@ SOURCES       = ..\StarRail\Button.cpp \
 		..\StarRail\Enemy.cpp \
 		..\StarRail\Hero.cpp \
 		..\StarRail\Jiachong.cpp \
+		..\StarRail\Lifebar.cpp \
 		..\StarRail\MainWidget.cpp \
 		..\StarRail\Manager.cpp \
+		..\StarRail\Movetimer.cpp \
 		..\StarRail\Natasha.cpp \
 		..\StarRail\Role.cpp \
 		..\StarRail\TurnManager.cpp \
@@ -63,24 +65,27 @@ SOURCES       = ..\StarRail\Button.cpp \
 		..\StarRail\Xing.cpp \
 		..\StarRail\login.cpp \
 		..\StarRail\main.cpp \
-		..\StarRail\xier.cpp release\qrc_rail.cpp \
-		release\moc_Button.cpp \
+		..\StarRail\xier.cpp release\moc_Button.cpp \
 		release\moc_Enemy.cpp \
 		release\moc_Hero.cpp \
 		release\moc_Jiachong.cpp \
 		release\moc_MainWidget.cpp \
+		release\moc_Movetimer.cpp \
 		release\moc_Natasha.cpp \
 		release\moc_Role.cpp \
 		release\moc_User.cpp \
 		release\moc_Xing.cpp \
 		release\moc_login.cpp \
 		release\moc_xier.cpp
-OBJECTS       = release/Button.o \
+OBJECTS       = release/qrc_rail.o \
+		release/Button.o \
 		release/Enemy.o \
 		release/Hero.o \
 		release/Jiachong.o \
+		release/Lifebar.o \
 		release/MainWidget.o \
 		release/Manager.o \
+		release/Movetimer.o \
 		release/Natasha.o \
 		release/Role.o \
 		release/TurnManager.o \
@@ -89,12 +94,12 @@ OBJECTS       = release/Button.o \
 		release/login.o \
 		release/main.o \
 		release/xier.o \
-		release/qrc_rail.o \
 		release/moc_Button.o \
 		release/moc_Enemy.o \
 		release/moc_Hero.o \
 		release/moc_Jiachong.o \
 		release/moc_MainWidget.o \
+		release/moc_Movetimer.o \
 		release/moc_Natasha.o \
 		release/moc_Role.o \
 		release/moc_User.o \
@@ -123,8 +128,10 @@ DIST          = Rail/BK1.jpg \
 		..\StarRail\Enemy.h \
 		..\StarRail\Hero.h \
 		..\StarRail\Jiachong.h \
+		..\StarRail\Lifebar.h \
 		..\StarRail\MainWidget.h \
 		..\StarRail\Manager.h \
+		..\StarRail\Movetimer.h \
 		..\StarRail\Natasha.h \
 		..\StarRail\Role.h \
 		..\StarRail\TurnManager.h \
@@ -136,8 +143,10 @@ DIST          = Rail/BK1.jpg \
 		..\StarRail\Enemy.cpp \
 		..\StarRail\Hero.cpp \
 		..\StarRail\Jiachong.cpp \
+		..\StarRail\Lifebar.cpp \
 		..\StarRail\MainWidget.cpp \
 		..\StarRail\Manager.cpp \
+		..\StarRail\Movetimer.cpp \
 		..\StarRail\Natasha.cpp \
 		..\StarRail\Role.cpp \
 		..\StarRail\TurnManager.cpp \
@@ -165,10 +174,10 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) StarRail.zip $(SOURCES) $(DIST) ..\StarRail\StarRail.pro ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\spec_pre.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\device_config.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\sanitize.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\gcc-base.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\g++-base.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\windows-vulkan.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\g++-win32.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\windows-desktop.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\qconfig.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_ext_freetype.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_ext_libpng.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core5compat.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core5compat_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_help.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssettings.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_linguist.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_network.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_png_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3d.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_shadertools.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_tools_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qt_functions.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qt_config.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\win32-g++\qmake.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\exclusive_builds.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\toolchain.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\default_pre.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\default_pre.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\resolve_config.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\default_post.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\build_pass.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qml_debug.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\entrypoint.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\precompile_header.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\warn_on.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qt.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\resources_functions.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\resources.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\moc.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\opengl.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\uic.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qmake_use.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\file_copies.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\windows.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\testcase_targets.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\exceptions.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\yacc.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\lex.prf ..\StarRail\StarRail.pro ..\StarRail\Rail\rail.qrc ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Widgets.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Gui.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Sql.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Core.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6EntryPoint.prl StarRail_zh_CN.ts StarRail_zh_CN.ts  ..\StarRail\Rail\rail.qrc ..\StarRail\Rail\rail.qrc ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\data\dummy.cpp ..\StarRail\Button.h ..\StarRail\Enemy.h ..\StarRail\Hero.h ..\StarRail\Jiachong.h ..\StarRail\MainWidget.h ..\StarRail\Manager.h ..\StarRail\Natasha.h ..\StarRail\Role.h ..\StarRail\TurnManager.h ..\StarRail\User.h ..\StarRail\Xing.h ..\StarRail\login.h ..\StarRail\star.h ..\StarRail\xier.h  ..\StarRail\Button.cpp ..\StarRail\Enemy.cpp ..\StarRail\Hero.cpp ..\StarRail\Jiachong.cpp ..\StarRail\MainWidget.cpp ..\StarRail\Manager.cpp ..\StarRail\Natasha.cpp ..\StarRail\Role.cpp ..\StarRail\TurnManager.cpp ..\StarRail\User.cpp ..\StarRail\Xing.cpp ..\StarRail\login.cpp ..\StarRail\main.cpp ..\StarRail\xier.cpp ..\StarRail\MainWidget.ui ..\StarRail\login.ui    
+	$(ZIP) StarRail.zip $(SOURCES) $(DIST) ..\StarRail\StarRail.pro ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\spec_pre.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\device_config.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\sanitize.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\gcc-base.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\g++-base.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\windows-vulkan.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\g++-win32.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\common\windows-desktop.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\qconfig.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_ext_freetype.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_ext_libjpeg.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_ext_libpng.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_concurrent.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core5compat.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core5compat_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_core_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_dbus.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_designer.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_designer_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_freetype_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_gui.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_gui_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_harfbuzz_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_help.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_help_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_jpeg_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssettings.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_linguist.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_network.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_network_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_opengl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_png_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_printsupport.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qml.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qml_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlintegration_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmltest.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmltyperegistrar_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3d.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3d_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetimport_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dassetutils_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3deffects.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3deffects_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dglslparser_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpers_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dhelpersimpl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3diblbaker_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticleeffects_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticles.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dparticles_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3druntimerender_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dutils.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick3dutils_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quick_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickeffects_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktimeline.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quicktimeline_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_shadertools.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_shadertools_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_sql.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_sql_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svg.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svg_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_testlib.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_tools_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_uitools.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_widgets.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_xml.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_xml_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qt_functions.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qt_config.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\win32-g++\qmake.conf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\spec_post.prf .qmake.stash ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\exclusive_builds.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\toolchain.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\default_pre.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\default_pre.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\resolve_config.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\exclusive_builds_post.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\default_post.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\build_pass.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qml_debug.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\entrypoint.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\precompile_header.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\warn_on.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qt.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\resources_functions.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\resources.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\moc.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\opengl.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\uic.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\qmake_use.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\file_copies.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\win32\windows.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\testcase_targets.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\exceptions.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\yacc.prf ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\lex.prf ..\StarRail\StarRail.pro ..\StarRail\Rail\rail.qrc ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Widgets.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Gui.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Sql.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6Core.prl ..\..\..\QT\6.5.0\mingw_64\lib\Qt6EntryPoint.prl StarRail_zh_CN.ts StarRail_zh_CN.ts  ..\StarRail\Rail\rail.qrc ..\StarRail\Rail\rail.qrc ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\data\dummy.cpp ..\StarRail\Button.h ..\StarRail\Enemy.h ..\StarRail\Hero.h ..\StarRail\Jiachong.h ..\StarRail\Lifebar.h ..\StarRail\MainWidget.h ..\StarRail\Manager.h ..\StarRail\Movetimer.h ..\StarRail\Natasha.h ..\StarRail\Role.h ..\StarRail\TurnManager.h ..\StarRail\User.h ..\StarRail\Xing.h ..\StarRail\login.h ..\StarRail\star.h ..\StarRail\xier.h  ..\StarRail\Button.cpp ..\StarRail\Enemy.cpp ..\StarRail\Hero.cpp ..\StarRail\Jiachong.cpp ..\StarRail\Lifebar.cpp ..\StarRail\MainWidget.cpp ..\StarRail\Manager.cpp ..\StarRail\Movetimer.cpp ..\StarRail\Natasha.cpp ..\StarRail\Role.cpp ..\StarRail\TurnManager.cpp ..\StarRail\User.cpp ..\StarRail\Xing.cpp ..\StarRail\login.cpp ..\StarRail\main.cpp ..\StarRail\xier.cpp ..\StarRail\MainWidget.ui ..\StarRail\login.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\Button.o release\Enemy.o release\Hero.o release\Jiachong.o release\MainWidget.o release\Manager.o release\Natasha.o release\Role.o release\TurnManager.o release\User.o release\Xing.o release\login.o release\main.o release\xier.o release\qrc_rail.o release\moc_Button.o release\moc_Enemy.o release\moc_Hero.o release\moc_Jiachong.o release\moc_MainWidget.o release\moc_Natasha.o release\moc_Role.o release\moc_User.o release\moc_Xing.o release\moc_login.o release\moc_xier.o
+	-$(DEL_FILE) release\qrc_rail.o release\Button.o release\Enemy.o release\Hero.o release\Jiachong.o release\Lifebar.o release\MainWidget.o release\Manager.o release\Movetimer.o release\Natasha.o release\Role.o release\TurnManager.o release\User.o release\Xing.o release\login.o release\main.o release\xier.o release\moc_Button.o release\moc_Enemy.o release\moc_Hero.o release\moc_Jiachong.o release\moc_MainWidget.o release\moc_Movetimer.o release\moc_Natasha.o release\moc_Role.o release\moc_User.o release\moc_Xing.o release\moc_login.o release\moc_xier.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -185,10 +194,10 @@ benchmark: first
 
 compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
-compiler_rcc_make_all: release/qrc_rail.cpp release/qrc_rail.cpp
+compiler_rcc_make_all: release/qrc_rail.o release/qrc_rail.o
 compiler_rcc_clean:
-	-$(DEL_FILE) release\qrc_rail.cpp release\qrc_rail.cpp
-release/qrc_rail.cpp: ../StarRail/Rail/rail.qrc \
+	-$(DEL_FILE) release\qrc_rail.cpp release\qrc_rail.tmp.o release\qrc_rail.cpp release\qrc_rail.tmp.o
+release/qrc_rail.o: ../StarRail/Rail/rail.qrc \
 		../../../QT/6.5.0/mingw_64/bin/rcc.exe \
 		../StarRail/Rail/StarRail.ico \
 		../StarRail/Rail/rail.qrc \
@@ -210,9 +219,11 @@ release/qrc_rail.cpp: ../StarRail/Rail/rail.qrc \
 		../StarRail/Rail/jiachong0.png \
 		../StarRail/Rail/xierQ1.png \
 		../StarRail/Rail/background.jpg
-	E:\QT\6.5.0\mingw_64\bin\rcc.exe -name rail --no-zstd ..\StarRail\Rail\rail.qrc -o release\qrc_rail.cpp
+	E:\QT\6.5.0\mingw_64\bin\rcc.exe -name rail --no-zstd ..\StarRail\Rail\rail.qrc -pass 1 -o release/qrc_rail.cpp 
+	 g++ $(CXXFLAGS) -c release/qrc_rail.cpp -o release/qrc_rail.tmp.o 
+	 E:\QT\6.5.0\mingw_64\bin\rcc.exe -name rail --no-zstd ..\StarRail\Rail\rail.qrc -pass 2 -temp release/qrc_rail.tmp.o -o release\qrc_rail.o
 
-release/qrc_rail.cpp: ../StarRail/Rail/rail.qrc \
+release/qrc_rail.o: ../StarRail/Rail/rail.qrc \
 		../../../QT/6.5.0/mingw_64/bin/rcc.exe \
 		../StarRail/Rail/StarRail.ico \
 		../StarRail/Rail/rail.qrc \
@@ -234,7 +245,9 @@ release/qrc_rail.cpp: ../StarRail/Rail/rail.qrc \
 		../StarRail/Rail/jiachong0.png \
 		../StarRail/Rail/xierQ1.png \
 		../StarRail/Rail/background.jpg
-	E:\QT\6.5.0\mingw_64\bin\rcc.exe -name rail --no-zstd ..\StarRail\Rail\rail.qrc -o release\qrc_rail.cpp
+	E:\QT\6.5.0\mingw_64\bin\rcc.exe -name rail --no-zstd ..\StarRail\Rail\rail.qrc -pass 1 -o release/qrc_rail.cpp 
+	 g++ $(CXXFLAGS) -c release/qrc_rail.cpp -o release/qrc_rail.tmp.o 
+	 E:\QT\6.5.0\mingw_64\bin\rcc.exe -name rail --no-zstd ..\StarRail\Rail\rail.qrc -pass 2 -temp release/qrc_rail.tmp.o -o release\qrc_rail.o
 
 compiler_moc_predefs_make_all: release/moc_predefs.h
 compiler_moc_predefs_clean:
@@ -242,9 +255,9 @@ compiler_moc_predefs_clean:
 release/moc_predefs.h: ../../../QT/6.5.0/mingw_64/mkspecs/features/data/dummy.cpp
 	g++ -fno-keep-inline-dllexport -O2 -Wall -Wextra -Wextra -dM -E -o release\moc_predefs.h ..\..\..\QT\6.5.0\mingw_64\mkspecs\features\data\dummy.cpp
 
-compiler_moc_header_make_all: release/moc_Button.cpp release/moc_Enemy.cpp release/moc_Hero.cpp release/moc_Jiachong.cpp release/moc_MainWidget.cpp release/moc_Natasha.cpp release/moc_Role.cpp release/moc_User.cpp release/moc_Xing.cpp release/moc_login.cpp release/moc_xier.cpp
+compiler_moc_header_make_all: release/moc_Button.cpp release/moc_Enemy.cpp release/moc_Hero.cpp release/moc_Jiachong.cpp release/moc_MainWidget.cpp release/moc_Movetimer.cpp release/moc_Natasha.cpp release/moc_Role.cpp release/moc_User.cpp release/moc_Xing.cpp release/moc_login.cpp release/moc_xier.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) release\moc_Button.cpp release\moc_Enemy.cpp release\moc_Hero.cpp release\moc_Jiachong.cpp release\moc_MainWidget.cpp release\moc_Natasha.cpp release\moc_Role.cpp release\moc_User.cpp release\moc_Xing.cpp release\moc_login.cpp release\moc_xier.cpp
+	-$(DEL_FILE) release\moc_Button.cpp release\moc_Enemy.cpp release\moc_Hero.cpp release\moc_Jiachong.cpp release\moc_MainWidget.cpp release\moc_Movetimer.cpp release\moc_Natasha.cpp release\moc_Role.cpp release\moc_User.cpp release\moc_Xing.cpp release\moc_login.cpp release\moc_xier.cpp
 release/moc_Button.cpp: ../StarRail/Button.h \
 		../StarRail/star.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QWidget \
@@ -410,6 +423,10 @@ release/moc_Button.cpp: ../StarRail/Button.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -421,6 +438,7 @@ release/moc_Button.cpp: ../StarRail/Button.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -436,7 +454,6 @@ release/moc_Button.cpp: ../StarRail/Button.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -612,6 +629,10 @@ release/moc_Enemy.cpp: ../StarRail/Enemy.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -623,6 +644,7 @@ release/moc_Enemy.cpp: ../StarRail/Enemy.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -638,12 +660,12 @@ release/moc_Enemy.cpp: ../StarRail/Enemy.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Enemy.h -o release\moc_Enemy.cpp
@@ -813,6 +835,10 @@ release/moc_Hero.cpp: ../StarRail/Hero.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -824,6 +850,7 @@ release/moc_Hero.cpp: ../StarRail/Hero.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -839,13 +866,13 @@ release/moc_Hero.cpp: ../StarRail/Hero.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Hero.h -o release\moc_Hero.cpp
@@ -1017,6 +1044,10 @@ release/moc_Jiachong.cpp: ../StarRail/Jiachong.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -1028,6 +1059,7 @@ release/moc_Jiachong.cpp: ../StarRail/Jiachong.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -1043,12 +1075,12 @@ release/moc_Jiachong.cpp: ../StarRail/Jiachong.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Jiachong.h -o release\moc_Jiachong.cpp
@@ -1218,6 +1250,10 @@ release/moc_MainWidget.cpp: ../StarRail/MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -1229,6 +1265,7 @@ release/moc_MainWidget.cpp: ../StarRail/MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -1244,7 +1281,6 @@ release/moc_MainWidget.cpp: ../StarRail/MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -1253,13 +1289,116 @@ release/moc_MainWidget.cpp: ../StarRail/MainWidget.h \
 		../StarRail/Xing.h \
 		../StarRail/Hero.h \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		../StarRail/xier.h \
+		../StarRail/Natasha.h \
 		../StarRail/Jiachong.h \
 		../StarRail/Enemy.h \
 		../StarRail/Button.h \
+		../StarRail/Movetimer.h \
+		../StarRail/Turnmanager.h \
+		../StarRail/Manager.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\MainWidget.h -o release\moc_MainWidget.cpp
+
+release/moc_Movetimer.cpp: ../StarRail/Movetimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qglobal.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtversionchecks.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qconfig.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtcore-config.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtnoop.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qassert.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtypes.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtversion.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsysinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qlogging.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qflags.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qconstructormacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdarwinhelpers.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qexceptionhandling.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qforeach.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qttypetraits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qfunctionpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmalloc.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qminmax.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnumeric.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qoverload.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qswap.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtresource.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qttranslation.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qversiontagging.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnamespace.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobject.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstring.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qchar.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearray.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qrefcount.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydata.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qpair.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydataops.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qxptype_traits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringfwd.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/q20type_traits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringliteral.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qanystringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qlist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qhashfunctions.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiterator.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringlist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringmatcher.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcoreevent.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmetatype.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompare.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdatastream.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiodevicebase.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qfloat16.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmath.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiterable.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qscopeguard.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobject_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbindingstorage.h \
+		release/moc_predefs.h \
+		../../../QT/6.5.0/mingw_64/bin/moc.exe
+	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Movetimer.h -o release\moc_Movetimer.cpp
 
 release/moc_Natasha.cpp: ../StarRail/Natasha.h \
 		../StarRail/Hero.h \
@@ -1427,6 +1566,10 @@ release/moc_Natasha.cpp: ../StarRail/Natasha.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -1438,6 +1581,7 @@ release/moc_Natasha.cpp: ../StarRail/Natasha.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -1453,13 +1597,13 @@ release/moc_Natasha.cpp: ../StarRail/Natasha.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Natasha.h -o release\moc_Natasha.cpp
@@ -1629,6 +1773,10 @@ release/moc_Role.cpp: ../StarRail/Role.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -1640,6 +1788,7 @@ release/moc_Role.cpp: ../StarRail/Role.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -1655,12 +1804,12 @@ release/moc_Role.cpp: ../StarRail/Role.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Role.h -o release\moc_Role.cpp
@@ -1831,6 +1980,10 @@ release/moc_User.cpp: ../StarRail/User.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -1842,6 +1995,7 @@ release/moc_User.cpp: ../StarRail/User.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -1857,13 +2011,13 @@ release/moc_User.cpp: ../StarRail/User.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\User.h -o release\moc_User.cpp
@@ -2034,6 +2188,10 @@ release/moc_Xing.cpp: ../StarRail/Xing.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -2045,6 +2203,7 @@ release/moc_Xing.cpp: ../StarRail/Xing.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -2060,13 +2219,13 @@ release/moc_Xing.cpp: ../StarRail/Xing.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\Xing.h -o release\moc_Xing.cpp
@@ -2399,6 +2558,10 @@ release/moc_xier.cpp: ../StarRail/xier.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -2410,6 +2573,7 @@ release/moc_xier.cpp: ../StarRail/xier.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -2425,13 +2589,13 @@ release/moc_xier.cpp: ../StarRail/xier.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		release/moc_predefs.h \
 		../../../QT/6.5.0/mingw_64/bin/moc.exe
 	E:\QT\6.5.0\mingw_64\bin\moc.exe $(DEFINES) --include E:/asd/CHD/build-StarRail-Desktop_Qt_6_5_0_MinGW_64_bit-Debug/release/moc_predefs.h -IE:/QT/6.5.0/mingw_64/mkspecs/win32-g++ -IE:/asd/CHD/StarRail -IE:/QT/6.5.0/mingw_64/include -IE:/QT/6.5.0/mingw_64/include/QtWidgets -IE:/QT/6.5.0/mingw_64/include/QtGui -IE:/QT/6.5.0/mingw_64/include/QtSql -IE:/QT/6.5.0/mingw_64/include/QtCore -I. -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++ -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/x86_64-w64-mingw32 -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include/c++/backward -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include -IE:/QT/Tools/mingw1120_64/lib/gcc/x86_64-w64-mingw32/11.2.0/include-fixed -IE:/QT/Tools/mingw1120_64/x86_64-w64-mingw32/include ..\StarRail\xier.h -o release\moc_xier.cpp
@@ -2628,6 +2792,10 @@ release/Button.o: ../StarRail/Button.cpp ../StarRail/Button.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -2639,6 +2807,7 @@ release/Button.o: ../StarRail/Button.cpp ../StarRail/Button.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -2654,7 +2823,6 @@ release/Button.o: ../StarRail/Button.cpp ../StarRail/Button.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -2828,6 +2996,10 @@ release/Enemy.o: ../StarRail/Enemy.cpp ../StarRail/Enemy.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -2839,6 +3011,7 @@ release/Enemy.o: ../StarRail/Enemy.cpp ../StarRail/Enemy.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -2854,12 +3027,12 @@ release/Enemy.o: ../StarRail/Enemy.cpp ../StarRail/Enemy.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
-		../../../QT/6.5.0/mingw_64/include/QtCore/QString
+		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
+		../StarRail/Lifebar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Enemy.o ..\StarRail\Enemy.cpp
 
 release/Hero.o: ../StarRail/Hero.cpp ../StarRail/Hero.h \
@@ -3027,6 +3200,10 @@ release/Hero.o: ../StarRail/Hero.cpp ../StarRail/Hero.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -3038,6 +3215,7 @@ release/Hero.o: ../StarRail/Hero.cpp ../StarRail/Hero.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -3053,13 +3231,13 @@ release/Hero.o: ../StarRail/Hero.cpp ../StarRail/Hero.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
-		../StarRail/Role.h
+		../StarRail/Role.h \
+		../StarRail/Lifebar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Hero.o ..\StarRail\Hero.cpp
 
 release/Jiachong.o: ../StarRail/Jiachong.cpp ../StarRail/Jiachong.h \
@@ -3229,6 +3407,10 @@ release/Jiachong.o: ../StarRail/Jiachong.cpp ../StarRail/Jiachong.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -3240,6 +3422,7 @@ release/Jiachong.o: ../StarRail/Jiachong.cpp ../StarRail/Jiachong.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -3255,13 +3438,216 @@ release/Jiachong.o: ../StarRail/Jiachong.cpp ../StarRail/Jiachong.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
+		../StarRail/Lifebar.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Jiachong.o ..\StarRail\Jiachong.cpp
+
+release/Lifebar.o: ../StarRail/Lifebar.cpp ../StarRail/Lifebar.h \
+		../StarRail/star.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QWidget \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qwidget.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qtwidgetsglobal.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qtguiglobal.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qglobal.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtversionchecks.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qconfig.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtcore-config.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtnoop.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qassert.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtypes.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtversion.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsysinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qlogging.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qflags.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qconstructormacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdarwinhelpers.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qexceptionhandling.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qforeach.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qttypetraits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qfunctionpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmalloc.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qminmax.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnumeric.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qoverload.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qswap.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtresource.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qttranslation.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qversiontagging.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qtgui-config.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qtguiexports.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qtwidgets-config.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qtwidgetsexports.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qwindowdefs.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnamespace.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qwindowdefs_win.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobject.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstring.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qchar.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearray.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qrefcount.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydata.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qpair.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydataops.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qxptype_traits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringfwd.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/q20type_traits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringliteral.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qanystringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qlist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qhashfunctions.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiterator.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringlist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringmatcher.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcoreevent.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmetatype.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompare.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdatastream.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiodevicebase.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qfloat16.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmath.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiterable.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qscopeguard.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobject_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbindingstorage.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmargins.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qaction.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qkeysequence.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qicon.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsize.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpixmap.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpaintdevice.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qrect.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qpoint.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qcolor.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qrgb.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qrgba64.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsharedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qshareddata.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsharedpointer_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qimage.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpixelformat.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qtransform.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpolygon.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qregion.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qline.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qvariant.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdebug.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtextstream.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringconverter_base.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontiguouscache.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmap.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qshareddata_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qset.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qhash.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qvarlengtharray.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/q20memory.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpalette.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qbrush.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qfont.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qfontmetrics.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qfontinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qsizepolicy.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qcursor.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qbitmap.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qevent.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiodevice.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qurl.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qeventpoint.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qvector2d.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qvectornd.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpointingdevice.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qinputdevice.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qscreen.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QList \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QObject \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QRect \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QSize \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QSizeF \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QTransform \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnativeinterface.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QMainWindow \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qmainwindow.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qtabwidget.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpainter.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qtextoption.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpen.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qscrollarea.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
+		../../../QT/6.5.0/mingw_64/include/QtGui/qtextdocument.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QPushButton \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qpushbutton.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qabstractbutton.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QButtonGroup \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qbuttongroup.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QVBoxLayout \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qboxlayout.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayout.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Jiachong.o ..\StarRail\Jiachong.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Lifebar.o ..\StarRail\Lifebar.cpp
 
 release/MainWidget.o: ../StarRail/MainWidget.cpp ../StarRail/MainWidget.h \
 		../StarRail/star.h \
@@ -3428,6 +3814,10 @@ release/MainWidget.o: ../StarRail/MainWidget.cpp ../StarRail/MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -3439,6 +3829,7 @@ release/MainWidget.o: ../StarRail/MainWidget.cpp ../StarRail/MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -3454,7 +3845,6 @@ release/MainWidget.o: ../StarRail/MainWidget.cpp ../StarRail/MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -3463,10 +3853,15 @@ release/MainWidget.o: ../StarRail/MainWidget.cpp ../StarRail/MainWidget.h \
 		../StarRail/Xing.h \
 		../StarRail/Hero.h \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		../StarRail/xier.h \
+		../StarRail/Natasha.h \
 		../StarRail/Jiachong.h \
 		../StarRail/Enemy.h \
 		../StarRail/Button.h \
+		../StarRail/Movetimer.h \
+		../StarRail/Turnmanager.h \
+		../StarRail/Manager.h \
 		ui_MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QVariant \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QApplication \
@@ -3663,6 +4058,10 @@ release/Manager.o: ../StarRail/Manager.cpp ../StarRail/Manager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -3674,6 +4073,7 @@ release/Manager.o: ../StarRail/Manager.cpp ../StarRail/Manager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -3689,13 +4089,108 @@ release/Manager.o: ../StarRail/Manager.cpp ../StarRail/Manager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Manager.o ..\StarRail\Manager.cpp
+
+release/Movetimer.o: ../StarRail/Movetimer.cpp ../StarRail/Movetimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qglobal.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtversionchecks.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qconfig.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtcore-config.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtconfigmacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtcoreexports.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtpreprocessorsupport.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtnoop.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsystemdetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qprocessordetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompilerdetection.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qassert.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtypes.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtclasshelpermacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtversion.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtypeinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainerfwd.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qsysinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qlogging.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qflags.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompare_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasicatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qatomic_cxx11.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qgenericatomic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qconstructormacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdarwinhelpers.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qexceptionhandling.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qforeach.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtdeprecationmarkers.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qttypetraits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qfunctionpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qglobalstatic.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmalloc.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qminmax.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnumeric.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qoverload.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qswap.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtenvironmentvariables.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtresource.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qttranslation.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qversiontagging.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qnamespace.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtmetamacros.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobject.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobjectdefs.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobjectdefs_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstring.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qchar.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearray.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qrefcount.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydata.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qpair.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydatapointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qarraydataops.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainertools_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qxptype_traits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearrayalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearrayview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringfwd.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/q20type_traits.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringliteral.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qanystringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qutf8stringview.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringtokenizer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringbuilder.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qlist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qhashfunctions.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiterator.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbytearraylist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringlist.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qalgorithms.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qstringmatcher.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcoreevent.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qscopedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmetatype.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcompare.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qdatastream.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiodevicebase.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qfloat16.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmath.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qiterable.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qmetacontainer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qcontainerinfo.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtaggedpointer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qscopeguard.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qobject_impl.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbindingstorage.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Movetimer.o ..\StarRail\Movetimer.cpp
 
 release/Natasha.o: ../StarRail/Natasha.cpp ../StarRail/Natasha.h \
 		../StarRail/Hero.h \
@@ -3863,6 +4358,10 @@ release/Natasha.o: ../StarRail/Natasha.cpp ../StarRail/Natasha.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -3874,6 +4373,7 @@ release/Natasha.o: ../StarRail/Natasha.cpp ../StarRail/Natasha.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -3889,13 +4389,13 @@ release/Natasha.o: ../StarRail/Natasha.cpp ../StarRail/Natasha.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
-		../StarRail/Role.h
+		../StarRail/Role.h \
+		../StarRail/Lifebar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Natasha.o ..\StarRail\Natasha.cpp
 
 release/Role.o: ../StarRail/Role.cpp ../StarRail/Role.h \
@@ -4063,6 +4563,10 @@ release/Role.o: ../StarRail/Role.cpp ../StarRail/Role.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -4074,6 +4578,7 @@ release/Role.o: ../StarRail/Role.cpp ../StarRail/Role.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -4089,15 +4594,15 @@ release/Role.o: ../StarRail/Role.cpp ../StarRail/Role.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
-		../../../QT/6.5.0/mingw_64/include/QtCore/QString
+		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
+		../StarRail/Lifebar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Role.o ..\StarRail\Role.cpp
 
-release/TurnManager.o: ../StarRail/TurnManager.cpp ../StarRail/TurnManager.h \
+release/TurnManager.o: ../StarRail/TurnManager.cpp ../StarRail/Turnmanager.h \
 		../StarRail/Manager.h \
 		../StarRail/star.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QWidget \
@@ -4263,6 +4768,10 @@ release/TurnManager.o: ../StarRail/TurnManager.cpp ../StarRail/TurnManager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -4274,6 +4783,7 @@ release/TurnManager.o: ../StarRail/TurnManager.cpp ../StarRail/TurnManager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -4289,7 +4799,6 @@ release/TurnManager.o: ../StarRail/TurnManager.cpp ../StarRail/TurnManager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -4297,7 +4806,10 @@ release/TurnManager.o: ../StarRail/TurnManager.cpp ../StarRail/TurnManager.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Hero.h \
 		../StarRail/Role.h \
-		../StarRail/Enemy.h
+		../StarRail/Lifebar.h \
+		../StarRail/Enemy.h \
+		../StarRail/Xing.h \
+		../StarRail/xier.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\TurnManager.o ..\StarRail\TurnManager.cpp
 
 release/User.o: ../StarRail/User.cpp ../StarRail/User.h \
@@ -4466,6 +4978,10 @@ release/User.o: ../StarRail/User.cpp ../StarRail/User.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -4477,6 +4993,7 @@ release/User.o: ../StarRail/User.cpp ../StarRail/User.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -4492,13 +5009,13 @@ release/User.o: ../StarRail/User.cpp ../StarRail/User.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QFile \
 		../../../QT/6.5.0/mingw_64/include/QtCore/qfile.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/qfiledevice.h \
@@ -4673,6 +5190,10 @@ release/Xing.o: ../StarRail/Xing.cpp ../StarRail/Xing.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -4684,6 +5205,7 @@ release/Xing.o: ../StarRail/Xing.cpp ../StarRail/Xing.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -4699,13 +5221,13 @@ release/Xing.o: ../StarRail/Xing.cpp ../StarRail/Xing.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
-		../StarRail/Role.h
+		../StarRail/Role.h \
+		../StarRail/Lifebar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\Xing.o ..\StarRail\Xing.cpp
 
 release/login.o: ../StarRail/login.cpp ../StarRail/login.h \
@@ -4919,6 +5441,10 @@ release/login.o: ../StarRail/login.cpp ../StarRail/login.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -4927,10 +5453,10 @@ release/login.o: ../StarRail/login.cpp ../StarRail/login.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qabstractscrollarea.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QButtonGroup \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qbuttongroup.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -4939,10 +5465,15 @@ release/login.o: ../StarRail/login.cpp ../StarRail/login.h \
 		../StarRail/Xing.h \
 		../StarRail/Hero.h \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		../StarRail/xier.h \
+		../StarRail/Natasha.h \
 		../StarRail/Jiachong.h \
 		../StarRail/Enemy.h \
 		../StarRail/Button.h \
+		../StarRail/Movetimer.h \
+		../StarRail/Turnmanager.h \
+		../StarRail/Manager.h \
 		ui_MainWidget.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QMenuBar \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qmenubar.h \
@@ -5145,6 +5676,10 @@ release/main.o: ../StarRail/main.cpp ../StarRail/login.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -5156,6 +5691,7 @@ release/main.o: ../StarRail/main.cpp ../StarRail/login.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -5171,7 +5707,6 @@ release/main.o: ../StarRail/main.cpp ../StarRail/login.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
@@ -5180,10 +5715,15 @@ release/main.o: ../StarRail/main.cpp ../StarRail/login.h \
 		../StarRail/Xing.h \
 		../StarRail/Hero.h \
 		../StarRail/Role.h \
+		../StarRail/Lifebar.h \
 		../StarRail/xier.h \
+		../StarRail/Natasha.h \
 		../StarRail/Jiachong.h \
 		../StarRail/Enemy.h \
 		../StarRail/Button.h \
+		../StarRail/Movetimer.h \
+		../StarRail/Turnmanager.h \
+		../StarRail/Manager.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QApplication \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qapplication.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/qcoreapplication.h \
@@ -5374,6 +5914,10 @@ release/xier.o: ../StarRail/xier.cpp ../StarRail/xier.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsPixmapItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpainterpath.h \
+		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsRectItem \
+		../../../QT/6.5.0/mingw_64/include/QtCore/QTimer \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qtimer.h \
+		../../../QT/6.5.0/mingw_64/include/QtCore/qbasictimer.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsItem \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsView \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsview.h \
@@ -5385,6 +5929,7 @@ release/xier.o: ../StarRail/xier.cpp ../StarRail/xier.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qframe.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QGraphicsScene \
+		../../../QT/6.5.0/mingw_64/include/QtGui/QPen \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/QLabel \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlabel.h \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qpicture.h \
@@ -5400,17 +5945,14 @@ release/xier.o: ../StarRail/xier.cpp ../StarRail/xier.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qlayoutitem.h \
 		../../../QT/6.5.0/mingw_64/include/QtWidgets/qgridlayout.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QDebug \
-		../../../QT/6.5.0/mingw_64/include/QtGui/QBrush \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QIcon \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QKeyEvent \
 		../../../QT/6.5.0/mingw_64/include/QtGui/QFontDatabase \
 		../../../QT/6.5.0/mingw_64/include/QtGui/qfontdatabase.h \
 		../../../QT/6.5.0/mingw_64/include/QtCore/QString \
-		../StarRail/Role.h
+		../StarRail/Role.h \
+		../StarRail/Lifebar.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\xier.o ..\StarRail\xier.cpp
-
-release/qrc_rail.o: release/qrc_rail.cpp 
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qrc_rail.o release\qrc_rail.cpp
 
 release/moc_Button.o: release/moc_Button.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_Button.o release\moc_Button.cpp
@@ -5426,6 +5968,9 @@ release/moc_Jiachong.o: release/moc_Jiachong.cpp
 
 release/moc_MainWidget.o: release/moc_MainWidget.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_MainWidget.o release\moc_MainWidget.cpp
+
+release/moc_Movetimer.o: release/moc_Movetimer.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_Movetimer.o release\moc_Movetimer.cpp
 
 release/moc_Natasha.o: release/moc_Natasha.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\moc_Natasha.o release\moc_Natasha.cpp

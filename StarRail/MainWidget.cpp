@@ -16,15 +16,15 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
 {
-    initManager();
+
     initPen();      //初始化画笔
     initRole();     //初始化人物 必须放在初始化窗口前面
+    initManager();  //初始化事件，应该要放在人物后边吧
     initWindow();   //初始化窗口
     initButton();   //初始化按钮
     initMoveTimer();//初始化移动计时器
     buttonBond();   //连接
 }
-
 
 MainWidget::~MainWidget()
 {
@@ -34,7 +34,9 @@ MainWidget::~MainWidget()
 //初始化事件
 void MainWidget::initManager()
 {
-    turnmanager = new TurnManager(heroes,enermies);
+    turnmanager = new TurnManager(heroes,enermies,roles);
+    turnmanager->init();
+//    turnmanager->curRole = /*(Xing*)*/ xier;
 }
 
 //初始化画笔
@@ -139,31 +141,39 @@ void MainWidget::initMoveTimer()
     movetimer = new MoveTimer;
 }
 
+
 //信号和槽连接
 void MainWidget::buttonBond()
 {
-    //实现星的A按钮
+    //实现A按钮
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
     connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
+//<<<<<<< HEAD
     connect(xing,&Xing::moveOver,xing,&Xing::skillA);
+//=======
+    //接收到的信号为星，则由星发动
+    connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
+//>>>>>>> 59d05eeb99e8189911ed6d48d6d9f77413c24953
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
-    //实现星A技能移动
-    connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::beMoved);
-    connect(movetimer,&MoveTimer::timeout,xing,&Xing::moveTo);
-    connect(jiachong,&Jiachong::getValueXing,xing,&Xing::setDistance);
-    connect(jiachong,&Jiachong::getValueXing,movetimer,&MoveTimer::beTriggeredStart);
-    connect(xing,&Xing::moveOver,movetimer,&MoveTimer::beTriggeredStop);
+    //接收到的信号为希尔，则由希尔发动
+    connect(xier,&Xier::skillAsignal,xier,&Xier::skillA);
+    connect(xier,&Xier::skillAdamage,jiachong,&Jiachong::beAttacked);
+    //接收到的信号为娜塔莎，则由娜塔莎发动
+    connect(natasha,&Natasha::skillAsignal,natasha,&Natasha::skillA);
+    connect(natasha,&Natasha::skillAdamage,jiachong,&Jiachong::beAttacked);
 
-    //实现星的B按钮
+    //实现B按钮
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
     connect(skillBbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillPointDown);
+    //接收到的信号为星，则由星发动
     connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
     connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
+//<<<<<<< HEAD
 
     connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
-}
+
 
 //实现血条变化
 //void MainWidget::lifebarChanged()
@@ -171,71 +181,95 @@ void MainWidget::buttonBond()
 //    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
 //}
 
+//=======
+    //接收到的信号为希尔，则由希尔发动
+    connect(xier,&Xier::skillBsignal,xier,&Xier::skillB);
+    connect(xier,&Xier::skillBdamage,jiachong,&Jiachong::beAttacked);
+    //接收到的信号为娜塔莎，则由娜塔莎发动
+    connect(natasha,&Natasha::skillBsignal,natasha,&Natasha::skillB);
+    connect(natasha,&Natasha::skillBcure,jiachong,&Jiachong::beCured);
+}
+
+//技能A广播
+//>>>>>>> 59d05eeb99e8189911ed6d48d6d9f77413c24953
 void MainWidget::skillAbroadcast()
 {
-    emit xing->skillAsignal();
-    qDebug()<<"发送星的A技能的信号\n";
+    qDebug()<<"是谁的A技能的信号被发送了呢\n";
+    if(turnmanager->getCurRole()==xing)
+    {
+        emit xing->skillAsignal();
+        qDebug()<<"发送星的A技能的信号\n";
+    }
+    if(turnmanager->getCurRole()==natasha)
+    {
+        emit natasha->skillAsignal();
+        qDebug()<<"发送娜塔莎的A技能的信号\n";
+    }
+    if(turnmanager->getCurRole()==xier)
+    {
+        emit xier->skillAsignal();
+        qDebug()<<"发送希尔的A技能的信号\n";
+    }
 }
 
+//技能B广播
 void MainWidget::skillBbroadcast()
 {
-    emit xing->skillBsignal();
-    qDebug()<<"发送星的B技能的信号\n";
+    if(skillPoint>0)
+    {
+        if(turnmanager->getCurRole()==xing)
+        {
+            emit xing->skillBsignal();
+            qDebug()<<"发送星的B技能的信号\n";
+        }
+        if(turnmanager->getCurRole()==natasha)
+        {
+            emit natasha->skillBsignal();
+            qDebug()<<"发送娜塔莎的B技能的信号\n";
+        }
+        if(turnmanager->getCurRole()==xier)
+        {
+            emit xier->skillBsignal();
+            qDebug()<<"发送希尔的B技能的信号\n";
+        }
+    }
+    else
+    {
+        qDebug()<<"战技点不足\n";
+    }
+    //update函数里的getname存在问题
+//    turnmanager->update();
 }
 
+//技能C广播
 void MainWidget::skillCbroadcast()
 {
-    emit xing->skillCsignal();
-    qDebug()<<"发送星的C技能的信号\n";
+    if(turnmanager->getCurRole()==xing)
+    {
+        emit xing->skillCsignal();
+        qDebug()<<"发送星的C技能的信号\n";
+    }
+    if(turnmanager->getCurRole()==natasha)
+    {
+        emit natasha->skillCsignal();
+        qDebug()<<"发送娜塔莎的C技能的信号\n";
+    }
+    if(turnmanager->getCurRole()==xier)
+    {
+        emit xier->skillCsignal();
+        qDebug()<<"发送希尔的C技能的信号\n";
+    }
+    turnmanager->update();
 }
 
-//void MainWidget::buttonBond()
-//{
-//    //实现娜塔莎的A按钮
-//    connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
-//    connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
-//    connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
-//    connect(natasha,&Natasha::skillAsignal,natasha,&Natasha::skillA);
-//    connect(natasha,&Natasha::skillAdamage,jiachong,&Jiachong::beAttacked);
-//    //实现星的B按钮
-//    connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
-//    connect(skillBbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
-//    connect(skillBbtn,&Button::clicked,this,&MainWidget::skillPointDown);
-//    connect(natasha,&Natasha::skillBsignal,natasha,&Natasha::skillB);
-//    connect(natasha,&Natasha::skillBcure,xing,&Xing::beCured);
-//}
-
-//void MainWidget::skillAbroadcast()
-//{
-//    emit natasha->skillAsignal();
-//    qDebug()<<"发送娜塔莎的A技能的信号\n";
-//}
-
-//void MainWidget::skillBbroadcast()
-//{
-//    if(skillPoint>0)
-//    {
-//        emit natasha->skillBsignal();
-//        qDebug()<<"发送娜塔莎的B技能的信号\n";
-//    }
-//    else
-//    {
-//        qDebug()<<"战技点不足\n";
-//    }
-//}
-
-//void MainWidget::skillCbroadcast()
-//{
-//    emit xing->skillCsignal();
-//    qDebug()<<"发送星的C技能的信号\n";
-//}
-
+//战技点增加
 void MainWidget::skillPointUp()
 {
     if(skillPoint<SKILL_POINT_MAX) skillPoint++;
     qDebug()<<"战技点："<<skillPoint<<"\n";
 }
 
+//战技点减少
 void MainWidget::skillPointDown()
 {
     if(skillPoint>SKILL_POINT_LEAST) skillPoint--;

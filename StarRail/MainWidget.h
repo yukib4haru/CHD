@@ -7,8 +7,7 @@
 #include"Natasha.h"
 #include"Jiachong.h"
 #include"Button.h"
-#include "Movetimer.h"
-
+#include"Movetimer.h"
 #include"Turnmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -65,8 +64,9 @@ private:
     Jiachong* jiachong;
 
     //对象向量组
-    vector<Hero*> heroes = {xing};
+    vector<Hero*> heroes = {xing,xier,natasha};
     vector<Enemy*> enermies = {jiachong};
+    vector<Role*> roles = {xing,xier,natasha,jiachong};
 
     //一些数值
     int skillPoint = 3;
