@@ -23,9 +23,13 @@ void TurnManager::init()
     currentTurn = 1;
     turnIterator = roles.begin();   //指向第一个角色
 
+
     curRole = *turnIterator;   // 可选,初始化当前角色
 
-//    std::srand(std::time(nullptr));  // 初始化随机数种子
+
+    //之前这一行代码有问题，访问了空容器
+    //真正的问题是Role* Hero* 转化继承派生的问题……
+
 }
 
 void TurnManager::update()
@@ -39,7 +43,10 @@ void TurnManager::update()
     }
 
     // 执行当前角色的行动
-//    curRole->act();
+
+
+    //    curRole->act();
+
 
     // 迭代器指向下一个角色
     turnIterator++;
@@ -57,6 +64,5 @@ void TurnManager::update()
     curRole = *turnIterator;
 
     //调试用
-    qDebug()<<"当前角色是"<<curRole->getName()<<"\n";
     qDebug()<<"现在是第"<<currentTurn<<"回合\n";
 }

@@ -25,9 +25,13 @@ public slots:
     void skillA();
     void skillB();
     void skillC();
+    //移动槽函数
+    void setDistance(float moveDistanceX,float moveDistanceY);
+    void moveTo();
 signals:
     void skillAdamage(int att);
     void skillBbuff(int att);
+    void moveOver();
 };
 
 #endif // XING_H

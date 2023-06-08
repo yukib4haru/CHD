@@ -31,9 +31,6 @@ private:
     //迭代器用于遍历容器内元素
     vector<Role*>::iterator turnIterator;
 
-    //测试用
-//    Xing* curXing;
-
 //    // 方法2:独立列表
 //    vector<Hero*> heroes;
 //    vector<Enemy*> enemies;

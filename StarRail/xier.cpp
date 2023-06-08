@@ -4,7 +4,14 @@
 Xier::Xier():Hero("希尔",80,20,10,0,1,":/Image/xierQ1.png")
 {
     this->setPixmap(QPixmap(":/Image/xier01.png"));   // 设置图像
+    this->setXSite(50);
+    this->setYSite(400);
     this->setPos(50,400);
+
+    this->lifebar->setWidth(400);
+    this->lifebar->setBarXSite(getXSite()+100);
+    this->lifebar->setBarYSite(getYSite());
+    this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),lifebar->getWidth(),10);
 }
 
 Xier::~Xier()
