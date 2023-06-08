@@ -23,7 +23,6 @@ SOURCES += \
     Jiachong.cpp \
     Lifebar.cpp \
     MainWidget.cpp \
-    Manager.cpp \
     Movetimer.cpp \
     Natasha.cpp \
     Role.cpp \
@@ -42,7 +41,6 @@ HEADERS += \
     Jiachong.h \
     Lifebar.h \
     MainWidget.h \
-    Manager.h \
     Movetimer.h \
     Natasha.h \
     Role.h \

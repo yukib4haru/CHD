@@ -29,8 +29,6 @@ public:
     void initMoveTimer();
     void initPen();
     void buttonBond();
-    //实现血条变化
-//    void lifebarChanged();
 
 private:
     Ui::MainWidget *ui;
@@ -64,9 +62,9 @@ private:
     Jiachong* jiachong;
 
     //对象向量组
-    vector<Hero*> heroes = {xing,xier,natasha};
-    vector<Enemy*> enermies = {jiachong};
-    vector<Role*> roles = {xing,xier,natasha,jiachong};
+    vector<Role*> heroes ;
+    vector<Role*> enermies ;
+    vector<Role*> roles ;
 
     //一些数值
     int skillPoint = 3;

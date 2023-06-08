@@ -34,9 +34,11 @@ MainWidget::~MainWidget()
 //初始化事件
 void MainWidget::initManager()
 {
+    heroes = {xing,xier,natasha};
+    enermies = {jiachong};
+    roles = {xing,xier,natasha,jiachong};
     turnmanager = new TurnManager(heroes,enermies,roles);
     turnmanager->init();
-//    turnmanager->curRole = /*(Xing*)*/ xier;
 }
 
 //初始化画笔
@@ -110,7 +112,7 @@ void MainWidget::initButton()
     this->skillAbtn->setIcon(QIcon(":/Image/xierQ1.png"));//设置技能图标
     this->skillAbtn->setIconSize(QSize(300,300));//设置技能大小
     //使其成为一个可选按钮
-    skillAbtn->setCheckable(true);
+//    skillAbtn->setCheckable(true);
 
     //设置透明边框
     this->skillAbtn->setFlat(true);
@@ -125,14 +127,14 @@ void MainWidget::initButton()
     this->skillBbtn->setFlat(true);
     this->skillBbtn->setFocusPolicy(Qt::NoFocus);
     this->skillBbtn->move(width()*3/4 - 50,height()*2/3 - 75);
-    skillBbtn->setCheckable(true);
+//    skillBbtn->setCheckable(true);
 
     //顺序错了，还没创建B怎么连接呢？
 
-    //使两个按钮自动互斥
-    skillAbtn->setAutoExclusive(true);
-//  skillAbtn->setChecked(true);
-    skillBbtn->setAutoExclusive(true);
+//    //使两个按钮自动互斥
+//    skillAbtn->setAutoExclusive(true);
+////  skillAbtn->setChecked(true);
+//    skillBbtn->setAutoExclusive(true);
 }
 
 //初始化移动计时器
@@ -154,9 +156,9 @@ void MainWidget::buttonBond()
     connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::beMoved);
     connect(movetimer,&MoveTimer::timeout,xing,&Xing::moveTo);
     connect(jiachong,&Jiachong::getValueXing,movetimer,&MoveTimer::beTriggeredStart);
+    connect(xing,&Xing::moveOver,movetimer,&MoveTimer::beTriggeredStop);
     connect(jiachong,&Jiachong::getValueXing,xing,&Xing::setDistance);
     connect(xing,&Xing::moveOver,xing,&Xing::skillA);
-
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
     //接收到的信号为希尔，则由希尔发动
     connect(xier,&Xier::skillAsignal,xier,&Xier::skillA);
@@ -173,21 +175,15 @@ void MainWidget::buttonBond()
     connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
     connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
 
-    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
-
-
-//实现血条变化
-//void MainWidget::lifebarChanged()
-//{
-//    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
-//}
-
     //接收到的信号为希尔，则由希尔发动
     connect(xier,&Xier::skillBsignal,xier,&Xier::skillB);
     connect(xier,&Xier::skillBdamage,jiachong,&Jiachong::beAttacked);
     //接收到的信号为娜塔莎，则由娜塔莎发动
     connect(natasha,&Natasha::skillBsignal,natasha,&Natasha::skillB);
     connect(natasha,&Natasha::skillBcure,jiachong,&Jiachong::beCured);
+
+    //实现血条变化
+    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
 }
 
 //技能A广播
@@ -210,6 +206,7 @@ void MainWidget::skillAbroadcast()
         emit xier->skillAsignal();
         qDebug()<<"发送希尔的A技能的信号\n";
     }
+    turnmanager->update();
 }
 
 //技能B广播
@@ -238,7 +235,7 @@ void MainWidget::skillBbroadcast()
         qDebug()<<"战技点不足\n";
     }
     //update函数里的getname存在问题
-//    turnmanager->update();
+    turnmanager->update();
 }
 
 //技能C广播

@@ -5,6 +5,7 @@
 #include<string>
 #include<ctime>
 #include<cmath>
+#include<random>
 
 #include<QWidget>
 #include<QObject>

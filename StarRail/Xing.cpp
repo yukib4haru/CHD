@@ -50,4 +50,11 @@ void Xing::moveTo()
     int y=this->getYSite()+this->getYMove();
     this->setYSite(y);
     this->setPos(x,y);
+    if(x>800)
+    {
+        emit this->moveOver();
+        this->setXSite(50);
+        this->setYSite(-50);
+        this->setPos(this->getXSite(),this->getYSite());
+    }
 }

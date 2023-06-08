@@ -26,7 +26,16 @@ void Lifebar::setBarYSite(float y)
 
 void Lifebar::lifebarShortened(int nowhp,int maximumhp)
 {
-    this->setWidth(nowhp*getWidth()/maximumhp);
-    this->setRect(barXSite,barYSite,width,10);
-    qDebug()<<"血条变换血条变换血条变换血条变换"<<nowhp<<"  "<<maximumhp;
+    int nowWidth;
+    nowWidth=(nowhp*getWidth()/maximumhp);
+    if(nowhp>0)
+    {
+        this->setRect(barXSite,barYSite,nowWidth,10);
+        qDebug()<<"血条变换血条变换血条变换血条变换\n"<<"当前生命值为："<<nowhp<<"  最大生命值为："<<maximumhp<<"\n";
+    }
+    else
+    {
+        this->hide();
+        qDebug()<<"受击对象已死亡";
+    }
 }

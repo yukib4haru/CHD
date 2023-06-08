@@ -14,3 +14,7 @@ void MoveTimer::beTriggeredStart()
 {
     this->start(30);
 }
+void MoveTimer::beTriggeredStop()
+{
+    this->stop();
+}
