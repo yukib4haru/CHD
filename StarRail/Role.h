@@ -23,6 +23,7 @@ public:
     int getAtt(){return att;}
     int getMaxiumHealth(){return maximumHealth;}
     int getSpeed(){return speed;}
+    QString getName(){return name;}
 
 private:
     QString name;
