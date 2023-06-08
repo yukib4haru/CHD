@@ -30,14 +30,6 @@ void TurnManager::init()
 
 void TurnManager::update()
 {
-    // 如果是敌方角色,处理输入事件释放技能
-    if (std::find(enemies.begin(), enemies.end(), curRole) != enemies.end())
-    {
-        // 处理敌方技能等
-        int cur = rand()%3;
-        heroes[cur]->beAttacked(curRole->getAtt());
-    }
-
     // 执行当前角色的行动
 //    curRole->act();
 
@@ -55,6 +47,17 @@ void TurnManager::update()
 
     // 获取当前角色
     curRole = *turnIterator;
+
+    // 如果是敌方角色,处理输入事件释放技能
+    if (std::find(enemies.begin(), enemies.end(), curRole) != enemies.end())
+    {
+        // 处理敌方技能等
+        qDebug()<<"敌方攻击\n";
+        int cur = rand()%3;
+        heroes[cur]->beAttacked(curRole->getAtt());
+        turnIterator++;
+        curRole = *turnIterator;
+    }
 
     //调试用
     qDebug()<<"当前角色是"<<curRole->getName()<<"\n";
