@@ -48,17 +48,17 @@ private:
     QButtonGroup* box1 ;
 
     //testHero
-    Xing* xing;
-    Xier* xier;
-    Natasha* natasha;
+    shared_ptr<Xing> xing;
+    shared_ptr<Xier> xier;
+    shared_ptr<Natasha> natasha;
 
     //testEnemy
-    Jiachong* jiachong;
+    shared_ptr<Jiachong> jiachong;
 
     //对象向量组
-    vector<Hero*> heroes = {xing,xier,natasha};
-    vector<Enemy*> enermies = {jiachong};
-    vector<Role*> roles = {xing,xier,natasha,jiachong};
+    vector<shared_ptr<Hero>> heroes;
+    vector<shared_ptr<Enemy>> enermies;
+    vector<shared_ptr<Role>> roles;
 
     //一些数值
     int skillPoint = 3;

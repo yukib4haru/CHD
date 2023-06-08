@@ -5,6 +5,7 @@
 #include<string>
 #include <ctime>
 #include<cmath>
+#include <memory>
 
 #include<QWidget>
 #include<QObject>

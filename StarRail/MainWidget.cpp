@@ -39,16 +39,24 @@ void MainWidget::initManager()
 //初始化人物
 void MainWidget::initRole()
 {
-    jiachong = new Jiachong();
+    Jiachong* jiachongTemp;
+    jiachongTemp = new Jiachong();
+    shared_ptr<Jiachong> jiachong(jiachongTemp);
     jiachong->bindFunc();
 
-    xing = new Xing();
+    Xing* xingTemp;
+    xingTemp = new Xing();
+    shared_ptr<Xing> xing(xingTemp);
     xing->bindFunc();
 
-    xier = new Xier();
+    Xier* xierTemp;
+    xierTemp = new Xier();
+    shared_ptr<Xier> xier(xierTemp);
     xier->bindFunc();
 
-    natasha = new Natasha();
+    Natasha* natashaTemp;
+    natashaTemp = new Natasha();
+    shared_ptr<Natasha> natasha(natashaTemp);
     natasha->bindFunc();
 }
 
@@ -70,10 +78,10 @@ void MainWidget::initWindow()
     Scene.addItem(&Background1);
 
     //添加人物
-    Scene.addItem(xing);
-    Scene.addItem(xier);
-    Scene.addItem(natasha);
-    Scene.addItem(jiachong);
+    Scene.addItem(xing.get());
+    Scene.addItem(xier.get());
+    Scene.addItem(natasha.get());
+    Scene.addItem(jiachong.get());
 
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
@@ -121,30 +129,30 @@ void MainWidget::buttonBond()
 {
     //实现A按钮
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
-    connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
+    connect(skillAbtn,&Button::clicked,jiachong.get(),&Jiachong::showBasicStatus);
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
     //接收到的信号为星，则由星发动
-    connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
-    connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
+    connect(xing.get(),&Xing::skillAsignal,xing.get(),&Xing::skillA);
+    connect(xing.get(),&Xing::skillAdamage,jiachong.get(),&Jiachong::beAttacked);
     //接收到的信号为希尔，则由希尔发动
-    connect(xier,&Xier::skillAsignal,xier,&Xier::skillA);
-    connect(xier,&Xier::skillAdamage,jiachong,&Jiachong::beAttacked);
+    connect(xier.get(),&Xier::skillAsignal,xier.get(),&Xier::skillA);
+    connect(xier.get(),&Xier::skillAdamage,jiachong.get(),&Jiachong::beAttacked);
     //接收到的信号为娜塔莎，则由娜塔莎发动
-    connect(natasha,&Natasha::skillAsignal,natasha,&Natasha::skillA);
-    connect(natasha,&Natasha::skillAdamage,jiachong,&Jiachong::beAttacked);
+    connect(natasha.get(),&Natasha::skillAsignal,natasha.get(),&Natasha::skillA);
+    connect(natasha.get(),&Natasha::skillAdamage,jiachong.get(),&Jiachong::beAttacked);
     //实现B按钮
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
-    connect(skillBbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
+    connect(skillBbtn,&Button::clicked,jiachong.get(),&Jiachong::showBasicStatus);
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillPointDown);
     //接收到的信号为星，则由星发动
-    connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
-    connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
+    connect(xing.get(),&Xing::skillBsignal,xing.get(),&Xing::skillB);
+    connect(xing.get(),&Xing::skillBbuff,xing.get(),&Xing::beGivenShieldBuff);
     //接收到的信号为希尔，则由希尔发动
-    connect(xier,&Xier::skillBsignal,xier,&Xier::skillB);
-    connect(xier,&Xier::skillBdamage,jiachong,&Jiachong::beAttacked);
+    connect(xier.get(),&Xier::skillBsignal,xier.get(),&Xier::skillB);
+    connect(xier.get(),&Xier::skillBdamage,jiachong.get(),&Jiachong::beAttacked);
     //接收到的信号为娜塔莎，则由娜塔莎发动
-    connect(natasha,&Natasha::skillBsignal,natasha,&Natasha::skillB);
-    connect(natasha,&Natasha::skillBcure,jiachong,&Jiachong::beCured);
+    connect(natasha.get(),&Natasha::skillBsignal,natasha.get(),&Natasha::skillB);
+    connect(natasha.get(),&Natasha::skillBcure,jiachong.get(),&Jiachong::beCured);
 }
 
 void MainWidget::skillAbroadcast()

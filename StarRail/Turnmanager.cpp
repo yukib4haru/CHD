@@ -4,7 +4,7 @@
 #include"Enemy.h"
 #include"Role.h"
 
-TurnManager::TurnManager(vector<Hero*> heroes1,vector<Enemy*> enemies1,vector<Role*> roles1)
+TurnManager::TurnManager(vector<shared_ptr<Hero>> heroes1,vector<shared_ptr<Enemy>> enemies1,vector<shared_ptr<Role>> roles1)
 {
     heroes=heroes1;
     enemies=enemies1;
@@ -14,14 +14,14 @@ TurnManager::TurnManager(vector<Hero*> heroes1,vector<Enemy*> enemies1,vector<Ro
 void TurnManager::init()
 {
     //先按速度大小进行排序
-    sort(roles.begin(), roles.end(), [](Role* c1, Role* c2){
+    sort(roles.begin(), roles.end(), [](shared_ptr<Role> c1, shared_ptr<Role> c2){
         return c1->getSpeed() > c2->getSpeed();
     });
 
     currentTurn = 1;
     turnIterator = roles.begin();   //指向第一个角色
 
-    curRole = *turnIterator;   // 可选,初始化当前角色
+//    curRole = *turnIterator;   // 可选,初始化当前角色
 
     std::srand(std::time(nullptr));  // 初始化随机数种子
 
@@ -46,14 +46,14 @@ void TurnManager::update()
     if (turnIterator == roles.end()) {
         currentTurn++;
         //实现从大到小排序，使用lamda函数？
-        sort(roles.begin(), roles.end(), [](Role* c1, Role* c2){
+        sort(roles.begin(), roles.end(), [](shared_ptr<Role> c1, shared_ptr<Role> c2){
             return c1->getSpeed() > c2->getSpeed();
         });
         turnIterator = roles.begin();
     }
 
     // 获取当前角色
-    curRole = *turnIterator;
+//    curRole = *turnIterator;
 
     // 如果是我方角色,处理输入事件释放技能
     if (std::find(heroes.begin(), heroes.end(), curRole) != heroes.end()) {
