@@ -23,6 +23,16 @@ public:
     int getAtt(){return att;}
     int getMaxiumHealth(){return maximumHealth;}
     int getSpeed(){return speed;}
+    float getXSite(){return xSite;}
+    float getYSite(){return ySite;}
+    float getXMove(){return xMove;}
+    float getYMove(){return yMove;}
+
+    //改变运动信息
+    void setXSite(float xsite);
+    void setYSite(float ysite);
+    void setXMove(float xmove);
+    void setYMove(float ymove);
 
 private:
     QString name;
@@ -32,6 +42,10 @@ private:
     int speed;
     int shield;
     bool isAlive;
+    float xSite;
+    float ySite;
+    float xMove;
+    float yMove;
 
 signals:
 

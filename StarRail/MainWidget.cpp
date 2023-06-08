@@ -20,6 +20,7 @@ MainWidget::MainWidget(QWidget *parent)
     initRole();     //初始化人物 必须放在初始化窗口前面
     initWindow();   //初始化窗口
     initButton();   //初始化按钮
+    initMoveTimer();//初始化移动计时器
     buttonBond();   //连接
 }
 
@@ -115,6 +116,12 @@ void MainWidget::initButton()
     skillBbtn->setAutoExclusive(true);
 }
 
+//初始化移动计时器
+void MainWidget::initMoveTimer()
+{
+    movetimer = new MoveTimer;
+}
+
 //信号和槽连接
 void MainWidget::buttonBond()
 {
@@ -124,6 +131,12 @@ void MainWidget::buttonBond()
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
     connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
+    //实现星A技能移动
+    connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::beMoved);
+    connect(movetimer,&MoveTimer::timeout,xing,&Xing::moveTo);
+    connect(jiachong,&Jiachong::getValueXing,movetimer,&MoveTimer::beTriggeredStart);
+    connect(jiachong,&Jiachong::getValueXing,xing,&Xing::setDistance);
+
     //实现星的B按钮
     connect(skillBbtn,&Button::clicked,this,&MainWidget::skillBbroadcast);
     connect(skillBbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);

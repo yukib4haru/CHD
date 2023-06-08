@@ -4,7 +4,9 @@
 Xing::Xing():Hero("星",100,15,5,0,1)
 {
     this->setPixmap(QPixmap(":/Image/Xing.png"));   // 设置图像
-    this->setPos(50,-50);
+    this->setXSite(50);
+    this->setYSite(-50);
+    this->setPos(this->getXSite(),this->getYSite());
 }
 
 Xing::~Xing()
@@ -29,5 +31,17 @@ void Xing::skillC()
 
 }
 
+void Xing::moveTo()
+{
+    int x=this->getXSite()+this->getXMove();
+    this->setXSite(x);
+    int y=this->getYSite()+this->getYMove();
+    this->setYSite(y);
+    this->setPos(x,y);
+}
 
-
+void Xing::setDistance(float moveDistanceX,float moveDistanceY)
+{
+    this->setXMove(moveDistanceX);
+    this->setYMove(moveDistanceY);
+}
