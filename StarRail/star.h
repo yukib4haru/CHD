@@ -5,6 +5,7 @@
 #include<string>
 #include<ctime>
 #include<cmath>
+#include <random>
 
 #include<QWidget>
 #include<QObject>
@@ -21,6 +22,7 @@
 #include<QPushButton>//按钮
 #include<QButtonGroup>//按钮组
 #include<QVBoxLayout>//布局
+#include<QTimer>
 
 #include<QDebug>//调试用
 #include <QIcon>

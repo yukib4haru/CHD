@@ -2,7 +2,7 @@ QT       += core gui
 QT       += core sql
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-CONFIG += c++11
+CONFIG += c++17
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -23,8 +23,9 @@ SOURCES += \
     Jiachong.cpp \
     Lifebar.cpp \
     MainWidget.cpp \
-    Manager.cpp \
+
     Movetimer.cpp \
+
     Natasha.cpp \
     Role.cpp \
     TurnManager.cpp \
@@ -42,8 +43,10 @@ HEADERS += \
     Jiachong.h \
     Lifebar.h \
     MainWidget.h \
-    Manager.h \
+
+
     Movetimer.h \
+
     Natasha.h \
     Role.h \
     TurnManager.h \
@@ -77,6 +80,8 @@ DISTFILES += \
     Rail/XiEr.png \
     Rail/Xing.png \
     Rail/Xing0.png \
+    Rail/XingE0.png \
+    Rail/XingQ0.png \
     Rail/background.jpg \
     Rail/bgTest.png \
     Rail/jiachong0.png \
