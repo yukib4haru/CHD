@@ -151,14 +151,12 @@ void MainWidget::buttonBond()
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
     connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
-
-    //接收到的信号为星，则由星发动,实现星A技能移动
-    connect(xing,&Xing::skillAsignal,jiachong,&Jiachong::beMoved);
-    connect(movetimer,&MoveTimer::timeout,xing,&Xing::moveTo);
-    connect(jiachong,&Jiachong::getValueXing,movetimer,&MoveTimer::beTriggeredStart);
-    connect(jiachong,&Jiachong::getValueXing,xing,&Xing::setDistance);
+//<<<<<<< HEAD
     connect(xing,&Xing::moveOver,xing,&Xing::skillA);
-
+//=======
+    //接收到的信号为星，则由星发动
+    connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
+//>>>>>>> 59d05eeb99e8189911ed6d48d6d9f77413c24953
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
     //实现星A技能移动
 
@@ -176,6 +174,7 @@ void MainWidget::buttonBond()
     //接收到的信号为星，则由星发动
     connect(xing,&Xing::skillBsignal,xing,&Xing::skillB);
     connect(xing,&Xing::skillBbuff,xing,&Xing::beGivenShieldBuff);
+//<<<<<<< HEAD
 
     connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
 
@@ -186,6 +185,7 @@ void MainWidget::buttonBond()
 //    connect(jiachong,&Jiachong::lifebarShortenedSignal,jiachong->lifebar,&Lifebar::lifebarShortened);
 //}
 
+//=======
     //接收到的信号为希尔，则由希尔发动
     connect(xier,&Xier::skillBsignal,xier,&Xier::skillB);
     connect(xier,&Xier::skillBdamage,jiachong,&Jiachong::beAttacked);
@@ -198,7 +198,7 @@ void MainWidget::buttonBond()
 }
 
 //技能A广播
-
+//>>>>>>> 59d05eeb99e8189911ed6d48d6d9f77413c24953
 void MainWidget::skillAbroadcast()
 {
     qDebug()<<"是谁的A技能的信号被发送了呢\n";
