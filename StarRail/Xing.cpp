@@ -12,7 +12,11 @@ Xing::Xing():Hero("星",100,15,7,0/*,1*/)
     this->lifebar->setBarXSite(getXSite()+100);
     this->lifebar->setBarYSite(getYSite()+100);
     this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),lifebar->getWidth(),10);
-    this->setPos(50,-50);
+
+    this->shieldbar->setWidth(0);
+    this->shieldbar->setBarXSite(getXSite()+100);
+    this->shieldbar->setBarYSite(getYSite()+100-10);
+    this->shieldbar->setRect(shieldbar->getBarXSite(),shieldbar->getBarYSite(),shieldbar->getWidth(),10);
 }
 
 Xing::~Xing()

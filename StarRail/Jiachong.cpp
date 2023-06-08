@@ -13,6 +13,11 @@ Jiachong::Jiachong():Enemy("甲虫",50,10,5,10)
     this->lifebar->setBarXSite(getXSite());
     this->lifebar->setBarYSite(getYSite());
     this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),320,10);
+
+    this->shieldbar->setWidth(0);
+    this->shieldbar->setBarXSite(getXSite());
+    this->shieldbar->setBarYSite(getYSite()-10);
+    this->shieldbar->setRect(shieldbar->getBarXSite(),shieldbar->getBarYSite(),shieldbar->getWidth(),10);
 }
 
 void Jiachong::beMoved()

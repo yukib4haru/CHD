@@ -14,6 +14,7 @@ public:
     Role(QString name1,int hp1,int att1,int speed1,int shield1);
     ~Role();
     Lifebar *lifebar;
+    Lifebar *shieldbar;
 
     virtual void bindFunc()=0;
 

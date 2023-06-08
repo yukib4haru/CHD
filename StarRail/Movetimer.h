@@ -2,7 +2,6 @@
 #define MOVETIMER_H
 
 #include <QTimer>
-#include "star.h"
 
 class MoveTimer : public QTimer
 {
@@ -12,7 +11,6 @@ public:
     ~MoveTimer();
 public slots:
     void beTriggeredStart();
-    void beTriggeredStop();
 signals:
 
 };

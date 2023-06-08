@@ -10,8 +10,12 @@ Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
     speed=speed1;
     shield=shield1;
     isAlive=1;
+
     lifebar = new Lifebar();
     lifebar->setBrush(QColor(255,0,0));
+
+    shieldbar = new Lifebar();
+    shieldbar->setBrush(QColor(0,0,255));
 }
 
 Role::~Role()

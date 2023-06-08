@@ -12,6 +12,11 @@ Xier::Xier():Hero("希尔",80,20,10,0/*,1*/)
     this->lifebar->setBarXSite(getXSite()+100);
     this->lifebar->setBarYSite(getYSite());
     this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),lifebar->getWidth(),10);
+
+    this->shieldbar->setWidth(0);
+    this->shieldbar->setBarXSite(getXSite()+100);
+    this->shieldbar->setBarYSite(getYSite()-10);
+    this->shieldbar->setRect(shieldbar->getBarXSite(),shieldbar->getBarYSite(),shieldbar->getWidth(),10);
 }
 
 Xier::~Xier()

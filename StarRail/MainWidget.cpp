@@ -55,6 +55,7 @@ void MainWidget::initRole()
 
     xing = new Xing();
     jiachong->lifebar->setPen(pen);
+    jiachong->shieldbar->setPen(pen);
     xing->bindFunc();
 
     xier = new Xier();
@@ -93,6 +94,11 @@ void MainWidget::initWindow()
     Scene.addItem(xing->lifebar);
     Scene.addItem(xier->lifebar);
     Scene.addItem(natasha->lifebar);
+
+    Scene.addItem(jiachong->shieldbar);
+    Scene.addItem(xing->shieldbar);
+    Scene.addItem(xier->shieldbar);
+    Scene.addItem(natasha->shieldbar);
 
     //场景添加到视图 or 设置视图场景
     GameView.setScene(&Scene);
