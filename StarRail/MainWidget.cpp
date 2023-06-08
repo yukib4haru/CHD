@@ -20,6 +20,7 @@ MainWidget::MainWidget(QWidget *parent)
     initManager();  //初始化事件，应该要放在人物后边吧
     initWindow();   //初始化窗口
     initButton();   //初始化按钮
+    initMoveTimer();//初始化移动计时器
     buttonBond();   //连接
 }
 
@@ -115,6 +116,12 @@ void MainWidget::initButton()
     skillAbtn->setAutoExclusive(true);
 //  skillAbtn->setChecked(true);
     skillBbtn->setAutoExclusive(true);
+}
+
+//初始化移动计时器
+void MainWidget::initMoveTimer()
+{
+    movetimer = new MoveTimer;
 }
 
 //信号和槽连接
