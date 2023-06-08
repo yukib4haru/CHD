@@ -68,22 +68,3 @@ void Role::beGivenShieldBuff(int effect)
     shield+=effect;
 }
 
-void Role::setXSite(float xsite)
-{
-    xSite=xsite;
-}
-
-void Role::setYSite(float ysite)
-{
-    ySite=ysite;
-}
-
-void Role::setXMove(float xmove)
-{
-    xMove=xmove;
-}
-
-void Role::setYMove(float ymove)
-{
-    yMove=ymove;
-}

@@ -7,7 +7,6 @@
 #include"Natasha.h"
 #include"Jiachong.h"
 #include"Button.h"
-#include "Movetimer.h"
 
 #include"Turnmanager.h"
 
@@ -27,7 +26,6 @@ public:
     void initRole();
     void initButton();
     void initManager();
-    void initMoveTimer();
     void buttonBond();
 
 private:
@@ -45,9 +43,6 @@ private:
     Button* skillBbtn;
     Button* skillCbtn;
     QVBoxLayout* vboxlayout;
-
-    //移动计时器
-    MoveTimer *movetimer;
 
     //BtnGroup
     QButtonGroup* box1 ;

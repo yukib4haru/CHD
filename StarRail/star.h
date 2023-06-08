@@ -25,7 +25,6 @@
 #include <QKeyEvent>
 #include <QFontDatabase>
 #include <QString>
-#include <QTimer>
 
 using namespace std;
 

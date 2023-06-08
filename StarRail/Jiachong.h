@@ -10,12 +10,7 @@ class Jiachong : public Enemy
 public:
     Jiachong();
     void skill();
-    //获取位置
     virtual void bindFunc(){ }
-public slots:
-    void beMoved();
-signals:
-    void getValueXing(float moveDistanceX,float moveDistanceY,float x1,float y1,float x2,float y2);
 
     string getType(){return "Jiachong";};
 
