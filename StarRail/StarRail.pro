@@ -8,6 +8,7 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 CONFIG += c++11
 TARGET = StarRail
 TEMPLATE = app
+CONFIG += c++17
 
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
@@ -26,8 +27,12 @@ SOURCES += \
     Enemy.cpp \
     Hero.cpp \
     Jiachong.cpp \
+    Lifebar.cpp \
     MainWidget.cpp \
-    Manager.cpp \
+
+    Movetimer.cpp \
+
+    Natasha.cpp \
     Role.cpp \
     TurnManager.cpp \
     User.cpp \
@@ -35,6 +40,7 @@ SOURCES += \
     login.cpp \
     main.cpp \
     player.cpp
+    xier.cpp
 
 
 HEADERS += \
@@ -42,8 +48,13 @@ HEADERS += \
     Enemy.h \
     Hero.h \
     Jiachong.h \
+    Lifebar.h \
     MainWidget.h \
-    Manager.h \
+
+
+    Movetimer.h \
+
+    Natasha.h \
     Role.h \
     TurnManager.h \
     User.h \
@@ -51,6 +62,8 @@ HEADERS += \
     login.h \
     player.h \
     star.h
+    star.h \
+    xier.h
 
 FORMS += \
     MainWidget.ui \
@@ -66,10 +79,32 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
+    Rail/rail.qrc \
     Rail/rail.qrc
 
 DISTFILES += \
-    Rail/JiaChong.png
+    Rail/BK1.jpg \
+    Rail/BK2.png \
+    Rail/JiaChong.png \
+    Rail/StarRail.ico \
+    Rail/XiEr.png \
+    Rail/Xing.png \
+    Rail/Xing0.png \
+    Rail/XingE0.png \
+    Rail/XingQ0.png \
+    Rail/background.jpg \
+    Rail/bgTest.png \
+    Rail/jiachong0.png \
+    Rail/jiachong1.png \
+    Rail/login2.gif \
+    Rail/march0.png \
+    Rail/xier0.png \
+    Rail/xierE0.png \
+    Rail/xierIcon.png \
+    Rail/xierQ1.png \
+    Rail/xingT.png
 
 LIBS += -lz
+
+CONFIG += resources_big
 

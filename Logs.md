@@ -1,5 +1,35 @@
 23  
+6.8  
+20：00
+问题解决！   
+真正的原因是！！往容器里存的时候，指针尚未初始化对象，内存尚未分配完成，构造函数也未调用！    
+自然是一个随机值    
+解决方法    
+不直接在头文件初始化成员变量，而是在初始化事件中赋值！！！    
+    
+7:00-16:00 Warning!!   
+Role* curRole = xier; 可以正常使用，说明动态绑定可以  
+roles={xing,xier,natasha}   
+Role* curRole = (Xier*) roles[1]; 无法正常使用，说明强制类型转换没用
+8：00  
+问题  
+写完了换人系统之后 点击按钮直接崩溃   
+分析  
+基类指针啊啊啊 一开始以为是指到空指针了 一通爆改 后来发现可能是子类放到基类容器里出问题了 用了一个dynamic_cast<Hero*>(curRole)  
+结果还是不行 又想着用vector<shared_ptr<Role>>  
+但是感觉非常麻烦  最后决定使用variant 曾试过dynamic_cast  
+
 6.7  
+21：00   
+问题
+cc1plus.exe:-1: error: out of memory allocating 1073745919 bytes  
+cc1plus.exe占用过多内存。
+方案
+在项目工程文件（.pro）里面输入下面这句话  
+CONFIG += resources_big  
+原因  
+资源文件过大   
+
 13:00  
 问题  
 程序异常结束  
