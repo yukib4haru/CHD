@@ -32,9 +32,12 @@ MainWidget::~MainWidget()
 //初始化事件
 void MainWidget::initManager()
 {
+    //在这里给容器赋值才是正确的
+    heroes={xing,xier,natasha};
+    enermies={jiachong};
+    roles={xing,xier,natasha,jiachong};
     turnmanager = new TurnManager(heroes,enermies,roles);
     turnmanager->init();
-//    turnmanager->curRole = /*(Xing*)*/ xier;
 }
 
 //初始化人物
@@ -89,10 +92,10 @@ void MainWidget::initButton()
 {
     //试创建按钮A
     this->skillAbtn = new Button(this);
-    this->skillAbtn->setIcon(QIcon(":/Image/xierQ1.png"));//设置技能图标
+    this->skillAbtn->setIcon(QIcon(turnmanager->curRole->getskillAiconPath()));//设置技能图标
     this->skillAbtn->setIconSize(QSize(300,300));//设置技能大小
     //使其成为一个可选按钮
-    skillAbtn->setCheckable(true);
+//    skillAbtn->setCheckable(true);
 
     //设置透明边框
     this->skillAbtn->setFlat(true);
@@ -107,14 +110,13 @@ void MainWidget::initButton()
     this->skillBbtn->setFlat(true);
     this->skillBbtn->setFocusPolicy(Qt::NoFocus);
     this->skillBbtn->move(width()*3/4 - 50,height()*2/3 - 75);
-    skillBbtn->setCheckable(true);
+//    skillBbtn->setCheckable(true);
 
     //顺序错了，还没创建B怎么连接呢？
 
-    //使两个按钮自动互斥
-    skillAbtn->setAutoExclusive(true);
-//  skillAbtn->setChecked(true);
-    skillBbtn->setAutoExclusive(true);
+//    //使两个按钮自动互斥
+//    skillAbtn->setAutoExclusive(true);
+//    skillBbtn->setAutoExclusive(true);
 }
 
 //信号和槽连接
@@ -127,6 +129,8 @@ void MainWidget::buttonBond()
     //接收到的信号为星，则由星发动
     connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
     connect(xing,&Xing::skillAdamage,jiachong,&Jiachong::beAttacked);
+    //实现星A技能移动
+
     //接收到的信号为希尔，则由希尔发动
     connect(xier,&Xier::skillAsignal,xier,&Xier::skillA);
     connect(xier,&Xier::skillAdamage,jiachong,&Jiachong::beAttacked);
@@ -147,6 +151,9 @@ void MainWidget::buttonBond()
     //接收到的信号为娜塔莎，则由娜塔莎发动
     connect(natasha,&Natasha::skillBsignal,natasha,&Natasha::skillB);
     connect(natasha,&Natasha::skillBcure,jiachong,&Jiachong::beCured);
+
+    //连接死亡信号和移除图片函数
+    connect(jiachong,&Jiachong::imKilled,this,&MainWidget::someoneDie);
 }
 
 //技能A广播
@@ -168,6 +175,7 @@ void MainWidget::skillAbroadcast()
         emit xier->skillAsignal();
         qDebug()<<"发送希尔的A技能的信号\n";
     }
+    turnmanager->update();
 }
 
 //技能B广播
@@ -196,7 +204,7 @@ void MainWidget::skillBbroadcast()
         qDebug()<<"战技点不足\n";
     }
     //update函数里的getname存在问题
-//    turnmanager->update();
+    turnmanager->update();
 }
 
 //技能C广播
@@ -232,4 +240,30 @@ void MainWidget::skillPointDown()
 {
     if(skillPoint>SKILL_POINT_LEAST) skillPoint--;
     qDebug()<<"战技点："<<skillPoint<<"\n";
+}
+
+//死亡就移除
+void MainWidget::someoneDie(Role* p)
+{
+    Scene.removeItem(p);
+    enemiesNum--;
+    QTimer *newEnemytimer = new QTimer(this);
+    newEnemytimer->setInterval(1000);  // 1秒
+
+    newEnemytimer->start();
+
+    Jiachong* newEnemy;
+    newEnemy = new Jiachong();
+
+    turnmanager->enemies.pop_back();
+    turnmanager->enemies.push_back(newEnemy);
+
+    connect(newEnemytimer, &QTimer::timeout, [=](){
+        // 1秒后,实例化新敌人
+        if(enemiesNum>0)
+        {
+            // 添加到场景等...
+            Scene.addItem(newEnemy);
+        }
+    });
 }

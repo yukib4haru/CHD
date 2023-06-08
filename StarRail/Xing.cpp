@@ -1,7 +1,7 @@
 #include "Xing.h"
 #include"star.h"
 
-Xing::Xing():Hero("星",100,15,7,0/*,1*/)
+Xing::Xing():Hero("星",100,15,7,0,2,":/Image/XingQ0.png")
 {
     this->setPixmap(QPixmap(":/Image/Xing.png"));   // 设置图像
     this->setPos(50,-50);

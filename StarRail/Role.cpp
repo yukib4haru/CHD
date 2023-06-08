@@ -1,7 +1,7 @@
 #include "Role.h"
 #include"star.h"
 
-Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
+Role::Role(QString name1,int hp1,int att1,int speed1,int shield1,int label1,QString skillAiconPath1)
 {
     name=name1;
     hp=hp1;
@@ -10,11 +10,12 @@ Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
     speed=speed1;
     shield=shield1;
     isAlive=1;
+    skillAiconPath=skillAiconPath1;
 }
 
 Role::~Role()
 {
-
+    delete this;
 }
 
 void Role::showBasicStatus()
@@ -46,6 +47,8 @@ void Role::beAttacked(int damage)
     if(hp<=0)
     {
         isAlive=0;
+        emit this->imKilled(this);
+//        delete this;
     }
 
     qDebug()<<"挨打后\n";

@@ -3,7 +3,7 @@
 
 #include"star.h"
 #include"Xing.h"
-#include<xier.h>
+#include"xier.h"
 #include"Natasha.h"
 #include"Jiachong.h"
 #include"Button.h"
@@ -56,12 +56,13 @@ private:
     Jiachong* jiachong;
 
     //对象向量组
-    vector<Hero*> heroes = {xing,xier,natasha};
-    vector<Enemy*> enermies = {jiachong};
-    vector<Role*> roles = {xing,xier,natasha,jiachong};
+    vector<Role*> heroes;
+    vector<Role*> enermies;
+    vector<Role*> roles;
 
     //一些数值
     int skillPoint = 3;
+    int enemiesNum = 3;
 
     //事件处理
     //轮次处理
@@ -74,6 +75,8 @@ public slots:
     //战技点槽函数
     void skillPointUp();
     void skillPointDown();
+    //图形处理槽函数
+    void someoneDie(Role* p);
 signals:
 
 };

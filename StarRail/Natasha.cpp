@@ -1,7 +1,7 @@
 #include "Natasha.h"
 #include"star.h"
 
-Natasha::Natasha():Hero("娜塔莎",90,10,3,0/*,1*/)
+Natasha::Natasha():Hero("娜塔莎",90,10,3,0,3,":/Image/XingQ0.png")
 {
     this->setPixmap(QPixmap(":/Image/Natasha01.png"));   // 设置图像
     this->setPos(500,-50);
