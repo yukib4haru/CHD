@@ -3,11 +3,11 @@
 
 #include"star.h"
 #include"Xing.h"
-#include"xier.h"
+#include<xier.h>
 #include"Natasha.h"
 #include"Jiachong.h"
 #include"Button.h"
-
+#include"Movetimer.h"
 #include"Turnmanager.h"
 
 QT_BEGIN_NAMESPACE
@@ -26,6 +26,8 @@ public:
     void initRole();
     void initButton();
     void initManager();
+    void initMoveTimer();
+    void initPen();
     void buttonBond();
 
     void initDate();
@@ -38,6 +40,7 @@ private:
 
     QGraphicsView GameView;//游戏视图
     QGraphicsScene Scene;//场景
+    QPen pen;//画笔
 
     //图形元素
     QGraphicsPixmapItem Background1;
@@ -50,7 +53,15 @@ private:
     Button* skillCbtn;
     QVBoxLayout* vboxlayout;
 
+
     QPushButton *restartBtn;
+
+    //移动计时器
+    MoveTimer *movetimer1;
+    MoveTimer *movetimer2a;
+    MoveTimer *movetimer3;
+    MoveTimer *movetimer2b;
+
 
     //BtnGroup
     QButtonGroup* box1 ;
@@ -66,9 +77,9 @@ private:
     Jiachong* newEnemy2;
 
     //对象向量组
-    vector<Role*> heroes;
-    vector<Role*> enermies;
-    vector<Role*> roles;
+    vector<Role*> heroes ;
+    vector<Role*> enermies ;
+    vector<Role*> roles ;
 
     //一些数值
     int skillPoint;
@@ -86,7 +97,6 @@ public slots:
     //战技点槽函数
     void skillPointUp();
     void skillPointDown();
-    //图形处理槽函数
     void someoneDie(Role* p);
 
 signals:

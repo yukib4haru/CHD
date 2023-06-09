@@ -9,6 +9,7 @@ CONFIG += c++11
 TARGET = StarRail
 TEMPLATE = app
 
+
 # The following define makes your compiler emit warnings if you use
 # any Qt feature that has been marked deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -26,7 +27,9 @@ SOURCES += \
     Enemy.cpp \
     Hero.cpp \
     Jiachong.cpp \
+    Lifebar.cpp \
     MainWidget.cpp \
+    Movetimer.cpp \
     Natasha.cpp \
     Role.cpp \
     TurnManager.cpp \
@@ -47,7 +50,9 @@ HEADERS += \
     Enemy.h \
     Hero.h \
     Jiachong.h \
+    Lifebar.h \
     MainWidget.h \
+    Movetimer.h \
     Natasha.h \
     Role.h \
     TurnManager.h \
@@ -90,8 +95,6 @@ DISTFILES += \
     Rail/XiEr.png \
     Rail/Xing.png \
     Rail/Xing0.png \
-    Rail/XingE0.png \
-    Rail/XingQ0.png \
     Rail/background.jpg \
     Rail/bgTest.png \
     Rail/gameOver1.png \

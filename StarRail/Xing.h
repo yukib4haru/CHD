@@ -25,9 +25,11 @@ public slots:
     void skillA();
     void skillB();
     void skillC();
+
 signals:
     void skillAdamage(int att);
     void skillBbuff(int att);
+
 };
 
 #endif // XING_H

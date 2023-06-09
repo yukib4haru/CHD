@@ -23,6 +23,7 @@
         <file>XingQ0.png</file>
         <file>XingE0.png</file>
         <file>gameOver1.png</file>
+
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -1,10 +1,19 @@
 #include "Natasha.h"
 #include"star.h"
 
-Natasha::Natasha():Hero("娜塔莎",90,10,3,0,3,":/Image/XingQ0.png")
+Natasha::Natasha():Hero("娜塔莎",90,10,3,0/*,1*/)
 {
     this->setPixmap(QPixmap(":/Image/Natasha01.png"));   // 设置图像
+    this->setXSite0(500);
+    this->setYSite0(-50);
+    this->setXSite(500);
+    this->setYSite(-50);
     this->setPos(500,-50);
+
+    this->lifebar->setWidth(300);
+    this->lifebar->setBarXSite(getXSite()+170);
+    this->lifebar->setBarYSite(getYSite()+100);
+    this->lifebar->setRect(lifebar->getBarXSite(),lifebar->getBarYSite(),lifebar->getWidth(),10);
 }
 
 Natasha::~Natasha()
