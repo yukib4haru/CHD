@@ -16,6 +16,7 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
 {
+    initDate();   //初始化数据
     initRole();     //初始化人物 必须放在初始化窗口前面
     initManager();  //初始化事件，应该要放在人物后边吧
     initWindow();   //初始化窗口
@@ -56,6 +57,23 @@ void MainWidget::initRole()
     natasha->bindFunc();
 }
 
+void MainWidget::initDate()
+{
+    skillPoint = 3;
+    enemiesNum = 1;
+}
+
+//释放
+void MainWidget::delAll()
+{
+    delete jiachong;
+    delete xing;
+    delete xier;
+    delete natasha;
+    delete skillAbtn;
+    delete skillBbtn;
+}
+
 //初始化窗口
 void MainWidget::initWindow()
 {
@@ -65,6 +83,9 @@ void MainWidget::initWindow()
     this->setWindowIcon(QIcon(":/Image/StarRail.ico"));
     //设置视图
     GameView.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
+
+    GameView.setParent(this);
+
     //设置场景
     Scene.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
     //设置背景图片
@@ -114,6 +135,10 @@ void MainWidget::initButton()
 
     //顺序错了，还没创建B怎么连接呢？
 
+    //设置父亲
+    skillAbtn->setParent(this);
+    skillBbtn->setParent(this);
+
 //    //使两个按钮自动互斥
 //    skillAbtn->setAutoExclusive(true);
 //    skillBbtn->setAutoExclusive(true);
@@ -124,7 +149,7 @@ void MainWidget::buttonBond()
 {
     //实现A按钮
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillAbroadcast);
-    connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
+//    connect(skillAbtn,&Button::clicked,jiachong,&Jiachong::showBasicStatus);
     connect(skillAbtn,&Button::clicked,this,&MainWidget::skillPointUp);
     //接收到的信号为星，则由星发动
     connect(xing,&Xing::skillAsignal,xing,&Xing::skillA);
@@ -154,6 +179,10 @@ void MainWidget::buttonBond()
 
     //连接死亡信号和移除图片函数
     connect(jiachong,&Jiachong::imKilled,this,&MainWidget::someoneDie);
+    //连接其他角色死亡信号
+    connect(xing,&Xing::imKilled,this,&MainWidget::someoneDie);
+    connect(xier,&Xier::imKilled,this,&MainWidget::someoneDie);
+    connect(natasha,&Natasha::imKilled,this,&MainWidget::someoneDie);
 }
 
 //技能A广播
@@ -246,24 +275,81 @@ void MainWidget::skillPointDown()
 void MainWidget::someoneDie(Role* p)
 {
     Scene.removeItem(p);
-    enemiesNum--;
     QTimer *newEnemytimer = new QTimer(this);
     newEnemytimer->setInterval(1000);  // 1秒
 
-    newEnemytimer->start();
+    if(p==jiachong)
+    {
+        enemiesNum--;
+//        newEnemy1 = new Jiachong();
+//        turnmanager->enemies.pop_back();
+//        turnmanager->enemies.push_back(newEnemy1);
+        //开始计时
+        newEnemytimer->start();
+    }
 
-    Jiachong* newEnemy;
-    newEnemy = new Jiachong();
-
-    turnmanager->enemies.pop_back();
-    turnmanager->enemies.push_back(newEnemy);
+    if(p==newEnemy1)
+    {
+        enemiesNum--;
+//        newEnemy2 = new Jiachong();
+//        turnmanager->enemies.pop_back();
+//        turnmanager->enemies.push_back(newEnemy2);
+        //开始计时
+        newEnemytimer->start();
+    }
 
     connect(newEnemytimer, &QTimer::timeout, [=](){
         // 1秒后,实例化新敌人
-        if(enemiesNum>0)
+        if(enemiesNum==2)
         {
-            // 添加到场景等...
-            Scene.addItem(newEnemy);
+//            Scene.addItem(newEnemy1);
+            newEnemytimer->stop();
+        }
+        if(enemiesNum==1)
+        {
+//            Scene.addItem(newEnemy2);
+            newEnemytimer->stop();
         }
     });
+    if(enemiesNum==0) GameOver();
+}
+
+//游戏结束
+void MainWidget::GameOver()
+{
+    QTimer *gameOverTimer = new QTimer(this);
+    gameOverTimer->setInterval(750);
+
+    gameOver = new QGraphicsPixmapItem(QPixmap(":/Image/gameOver1.png"));
+    gameOverTimer->start();
+
+    restartBtn = new QPushButton("重新开始");
+
+    connect(gameOverTimer, &QTimer::timeout, this, [=]() {
+        Scene.addItem(gameOver);
+        Scene.addWidget(restartBtn);
+        restartBtn->setGeometry(1200, 300 , 200, 50);
+        restartBtn->setFont(QFont("Courier", 15));
+        gameOverTimer->stop();
+    });
+
+    connect(restartBtn, &QPushButton::clicked, [=]() {
+        // 清空场景
+        Scene.removeItem(gameOver);
+        restartBtn->setGeometry(-200, -200, 200, 50);
+
+        // 重置变量
+        initRole();     //初始化人物 必须放在初始化窗口前面
+        initManager();  //初始化事件，应该要放在人物后边吧
+        initWindow();   //初始化窗口
+        initButton();
+        initManager();
+        initDate();
+        buttonBond();
+        jiachong->showBasicStatus();
+        xing->showBasicStatus();
+        xier->showBasicStatus();
+        natasha->showBasicStatus();
+    });
+
 }

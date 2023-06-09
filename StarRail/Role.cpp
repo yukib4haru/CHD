@@ -46,8 +46,11 @@ void Role::beAttacked(int damage)
 
     if(hp<=0)
     {
-        isAlive=0;
-        emit this->imKilled(this);
+        if(isAlive==1)
+        {
+            isAlive=0;
+            emit this->imKilled(this);
+        }
 //        delete this;
     }
 

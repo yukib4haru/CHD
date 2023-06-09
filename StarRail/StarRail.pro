@@ -75,6 +75,7 @@ DISTFILES += \
     Rail/XingQ0.png \
     Rail/background.jpg \
     Rail/bgTest.png \
+    Rail/gameOver1.png \
     Rail/jiachong0.png \
     Rail/jiachong1.png \
     Rail/login2.gif \

@@ -60,6 +60,5 @@ void TurnManager::update()
     }
 
     //调试用
-    qDebug()<<"当前角色是"<<curRole->getName()<<"\n";
     qDebug()<<"现在是第"<<currentTurn<<"回合\n";
 }
