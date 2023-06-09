@@ -1,17 +1,8 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include "MainWidget.h"
-#include "ui_MainWidget.h"
-
-
-#include <User.h>
-
-#include <QFileDialog>
-#include <QIODevice>
-#include <QMessageBox>
-#include <QFile>
-#include <QMovie>
+#include "User.h"
+#include "star.h"
 
 
 
@@ -68,8 +59,8 @@ login::login(QWidget *parent) :
             case 0:
                { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
-                MainWidget* w = new MainWidget;
-                w->show();
+                LoginVedio1* loginlogin1 = new LoginVedio1;
+                loginlogin1->show();
                 break;}
             case 1:
                 QMessageBox::question(this,"信息","登录失败");
@@ -100,3 +91,4 @@ void login::show()
 
     QApplication::exec();  // 启动事件循环
 }
+

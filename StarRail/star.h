@@ -7,6 +7,18 @@
 #include<cmath>
 #include <random>
 
+
+#include <QMediaPlayer>
+#include <QVideoWidget>
+#include <QMediaPlaylist>
+#include <QFileDialog>
+#include <QStringList>
+#include <QTimer>
+#include <QMouseEvent>
+#include <QMessageBox>
+#include <QFile>
+#include <QMovie>
+
 #include<QWidget>
 #include<QObject>
 #include <QMainWindow>  //继承自QWidget
@@ -38,3 +50,4 @@ using namespace std;
 
 
 #endif // STAR_H
+

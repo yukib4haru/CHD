@@ -2,7 +2,11 @@
 #define LOGIN_H
 
 
-#include <QWidget>
+#include "star.h"
+
+#include "loginvedio1.h"
+#include "ui_loginvedio1.h"
+
 
 namespace Ui {
 class login;
@@ -26,3 +30,5 @@ private:
 };
 
 #endif // LOGIN_H
+
+
