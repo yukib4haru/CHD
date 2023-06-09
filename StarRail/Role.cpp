@@ -1,7 +1,7 @@
 #include "Role.h"
 #include"star.h"
 
-Role::Role(QString name1,int hp1,int att1,int speed1,int shield1,int label1,QString skillAiconPath1)
+Role::Role(QString name1,int hp1,int att1,int speed1,int shield1)
 {
     name=name1;
     hp=hp1;
@@ -10,17 +10,13 @@ Role::Role(QString name1,int hp1,int att1,int speed1,int shield1,int label1,QStr
     speed=speed1;
     shield=shield1;
     isAlive=1;
-
-    skillAiconPath=skillAiconPath1;
-
     lifebar = new Lifebar();
     lifebar->setBrush(QColor(255,0,0));
-
 }
 
 Role::~Role()
 {
-    delete this;
+
 }
 
 void Role::showBasicStatus()
@@ -57,11 +53,9 @@ void Role::beAttacked(int damage)
     {
         isAlive=0;
         emit this->imKilled(this);
-//        delete this;
     }
     qDebug()<<"挨打后\n";
-    emit lifebarShortenedSignal(getNowHealth(),getMaxiumHealth());
-
+    emit this->lifebarChangedSignal(getNowHealth(),getMaxiumHealth());
     showBasicStatus();
 }
 
@@ -73,6 +67,7 @@ void Role::beCured(int health)
         hp=getMaxiumHealth();
     }
     qDebug()<<"被奶后\n";
+    emit this->lifebarChangedSignal(getNowHealth(),getMaxiumHealth());
     showBasicStatus();
 }
 
@@ -91,6 +86,16 @@ void Role::setYSite(float ysite)
     ySite=ysite;
 }
 
+void Role::setXSite0(float xsite0)
+{
+    xSite0=xsite0;
+}
+
+void Role::setYSite0(float ysite0)
+{
+    ySite0=ysite0;
+}
+
 void Role::setXMove(float xmove)
 {
     xMove=xmove;
@@ -99,4 +104,26 @@ void Role::setXMove(float xmove)
 void Role::setYMove(float ymove)
 {
     yMove=ymove;
+}
+
+void Role::setDistance(float moveDistanceX,float moveDistanceY)
+{
+    this->setXMove(moveDistanceX);
+    this->setYMove(moveDistanceY);
+}
+
+void Role::moveTo()
+{
+    int x=this->getXSite()+this->getXMove();
+    this->setXSite(x);
+    int y=this->getYSite()+this->getYMove();
+    this->setYSite(y);
+    this->setPos(x,y);
+    if(x>800)
+    {
+        emit this->moveOver();
+        this->setPos(this->getXSite0(),this->getYSite0());
+        this->setXSite(this->getXSite0());
+        this->setYSite(this->getYSite0());
+    }
 }

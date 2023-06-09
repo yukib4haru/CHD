@@ -7,10 +7,9 @@
 #include<cmath>
 #include<random>
 
-
 #include<QWidget>
 #include<QObject>
-#include<QMainWindow>  //继承自QWidget
+#include <QMainWindow>  //继承自QWidget
 #include<QGraphicsPixmapItem>   //图形元素
 #include<QGraphicsRectItem>
 #include<QTimer>
@@ -23,7 +22,6 @@
 #include<QPushButton>//按钮
 #include<QButtonGroup>//按钮组
 #include<QVBoxLayout>//布局
-#include<QTimer>
 
 #include<QDebug>//调试用
 #include <QIcon>

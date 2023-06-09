@@ -15,7 +15,7 @@ public:
     void setBarXSite(float x);
     void setBarYSite(float y);
 public slots:
-    void lifebarShortened(int nowhp,int maximumhp);
+    void lifebarchanged(int nowhp,int maximumhp);
 private:
     int width;
     float barXSite;

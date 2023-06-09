@@ -13,8 +13,6 @@ public:
 public slots:
     void beTriggeredStart();
     void beTriggeredStop();
-signals:
-
 };
 
 #endif // MOVETIMER_H

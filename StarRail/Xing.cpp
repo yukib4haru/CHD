@@ -1,9 +1,11 @@
 #include "Xing.h"
 #include"star.h"
 
-Xing::Xing():Hero("星",100,15,7,0,2,":/Image/XingQ0.png")
+Xing::Xing():Hero("星",100,15,7,0/*,1*/)
 {
     this->setPixmap(QPixmap(":/Image/Xing.png"));   // 设置图像
+    this->setXSite0(50);
+    this->setYSite0(-50);
     this->setXSite(50);
     this->setYSite(-50);
     this->setPos(this->getXSite(),this->getYSite());
@@ -37,24 +39,3 @@ void Xing::skillC()
 
 }
 
-void Xing::setDistance(float moveDistanceX,float moveDistanceY)
-{
-    this->setXMove(moveDistanceX);
-    this->setYMove(moveDistanceY);
-}
-
-void Xing::moveTo()
-{
-    int x=this->getXSite()+this->getXMove();
-    this->setXSite(x);
-    int y=this->getYSite()+this->getYMove();
-    this->setYSite(y);
-    this->setPos(x,y);
-    if(x>800)
-    {
-        emit this->moveOver();
-        this->setXSite(50);
-        this->setYSite(-50);
-        this->setPos(this->getXSite(),this->getYSite());
-    }
-}

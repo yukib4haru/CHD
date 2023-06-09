@@ -5,9 +5,11 @@
 #include"Hero.h"
 #include"Enemy.h"
 #include"Xing.h"
+#include"Movetimer.h"
 
-class TurnManager
+class TurnManager : public QObject
 {
+    Q_OBJECT
 public:
     TurnManager(vector<Role*> heroes1,vector<Role*> enemies1,vector<Role*> roles1);
     //override可写可不写？
@@ -22,8 +24,13 @@ public:
 
     // 方法1:使用基类指针
     vector<Role*> roles;
+    //初始化运动计时器
+    void initEnemyMoveTimer();
 private:
+    MoveTimer *enemyMoveTimer;
     int currentTurn;
+
+
 
     //当前进行动作的角色
 //    Role* curRole;
@@ -37,8 +44,8 @@ private:
 
     // 方法3:使用variant等
 //    vector<(Hero*|Enemy*)> roles;
-
-
+signals:
+    void enemyAttactSignal(Role *p);
 };
 
 #endif // TURNMANAGER_H

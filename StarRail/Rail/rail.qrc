@@ -20,8 +20,6 @@
         <file>xier0.png</file>
         <file>xier01.png</file>
         <file>Natasha01.png</file>
-        <file>XingQ0.png</file>
-        <file>XingE0.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -1,9 +1,11 @@
 #include "xier.h"
 #include"star.h"
 
-Xier::Xier():Hero("希尔",80,20,10,0,1,":/Image/xierQ1.png")
+Xier::Xier():Hero("希尔",80,20,10,0/*,1*/)
 {
     this->setPixmap(QPixmap(":/Image/xier01.png"));   // 设置图像
+    this->setXSite0(50);
+    this->setYSite0(400);
     this->setXSite(50);
     this->setYSite(400);
     this->setPos(50,400);

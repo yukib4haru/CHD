@@ -24,7 +24,7 @@ void Lifebar::setBarYSite(float y)
     barYSite=y;
 }
 
-void Lifebar::lifebarShortened(int nowhp,int maximumhp)
+void Lifebar::lifebarchanged(int nowhp,int maximumhp)
 {
     int nowWidth;
     nowWidth=(nowhp*getWidth()/maximumhp);
