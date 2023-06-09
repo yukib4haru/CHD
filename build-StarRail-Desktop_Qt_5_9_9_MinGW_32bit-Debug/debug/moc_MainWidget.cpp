@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_MainWidget_t {
-    QByteArrayData data[5];
-    char stringdata0[60];
+    QByteArrayData data[7];
+    char stringdata0[88];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,11 +35,14 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWidget"
 QT_MOC_LITERAL(1, 11, 15), // "skillAbroadcast"
 QT_MOC_LITERAL(2, 27, 0), // ""
 QT_MOC_LITERAL(3, 28, 15), // "skillBbroadcast"
-QT_MOC_LITERAL(4, 44, 15) // "skillCbroadcast"
+QT_MOC_LITERAL(4, 44, 15), // "skillCbroadcast"
+QT_MOC_LITERAL(5, 60, 12), // "skillPointUp"
+QT_MOC_LITERAL(6, 73, 14) // "skillPointDown"
 
     },
     "MainWidget\0skillAbroadcast\0\0skillBbroadcast\0"
-    "skillCbroadcast"
+    "skillCbroadcast\0skillPointUp\0"
+    "skillPointDown"
 };
 #undef QT_MOC_LITERAL
 
@@ -49,7 +52,7 @@ static const uint qt_meta_data_MainWidget[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       3,   14, // methods
+       5,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -57,11 +60,15 @@ static const uint qt_meta_data_MainWidget[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   29,    2, 0x0a /* Public */,
-       3,    0,   30,    2, 0x0a /* Public */,
-       4,    0,   31,    2, 0x0a /* Public */,
+       1,    0,   39,    2, 0x0a /* Public */,
+       3,    0,   40,    2, 0x0a /* Public */,
+       4,    0,   41,    2, 0x0a /* Public */,
+       5,    0,   42,    2, 0x0a /* Public */,
+       6,    0,   43,    2, 0x0a /* Public */,
 
  // slots: parameters
+    QMetaType::Void,
+    QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
@@ -78,6 +85,8 @@ void MainWidget::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 0: _t->skillAbroadcast(); break;
         case 1: _t->skillBbroadcast(); break;
         case 2: _t->skillCbroadcast(); break;
+        case 3: _t->skillPointUp(); break;
+        case 4: _t->skillPointDown(); break;
         default: ;
         }
     }
@@ -109,13 +118,13 @@ int MainWidget::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 3)
+        if (_id < 5)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 3;
+        _id -= 5;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 3)
+        if (_id < 5)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 3;
+        _id -= 5;
     }
     return _id;
 }

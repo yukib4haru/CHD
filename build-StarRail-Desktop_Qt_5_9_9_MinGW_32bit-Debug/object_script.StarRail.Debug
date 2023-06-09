@@ -4,10 +4,15 @@ INPUT(
 ./debug\Hero.o
 ./debug\Jiachong.o
 ./debug\MainWidget.o
+./debug\Manager.o
 ./debug\Role.o
+./debug\TurnManager.o
 ./debug\User.o
 ./debug\Xing.o
 ./debug\login.o
+./debug\loginvedio0.o
+./debug\loginvedio1.o
+./debug\loginvedio2.o
 ./debug\main.o
 ./debug\player.o
 ./debug\qrc_rail.o
@@ -20,5 +25,8 @@ INPUT(
 ./debug\moc_User.o
 ./debug\moc_Xing.o
 ./debug\moc_login.o
+./debug\moc_loginvedio0.o
+./debug\moc_loginvedio1.o
+./debug\moc_loginvedio2.o
 ./debug\moc_player.o
 );

@@ -4,10 +4,15 @@ INPUT(
 ./release\Hero.o
 ./release\Jiachong.o
 ./release\MainWidget.o
+./release\Manager.o
 ./release\Role.o
+./release\TurnManager.o
 ./release\User.o
 ./release\Xing.o
 ./release\login.o
+./release\loginvedio0.o
+./release\loginvedio1.o
+./release\loginvedio2.o
 ./release\main.o
 ./release\player.o
 ./release\qrc_rail.o
@@ -20,5 +25,8 @@ INPUT(
 ./release\moc_User.o
 ./release\moc_Xing.o
 ./release\moc_login.o
+./release\moc_loginvedio0.o
+./release\moc_loginvedio1.o
+./release\moc_loginvedio2.o
 ./release\moc_player.o
 );

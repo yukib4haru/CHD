@@ -1,13 +1,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
-#include <QWidget>
-#include<QMediaPlayer>
-#include <QVideoWidget>
-#include<QMediaPlaylist>
-#include<QFileDialog>
-#include<QStringList>
-#include<QDebug>
+#include "star.h"
 
 
 namespace Ui {

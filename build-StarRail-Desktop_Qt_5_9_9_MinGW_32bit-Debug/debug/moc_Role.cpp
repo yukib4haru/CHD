@@ -34,13 +34,13 @@ static const qt_meta_stringdata_Role_t qt_meta_stringdata_Role = {
 QT_MOC_LITERAL(0, 0, 4), // "Role"
 QT_MOC_LITERAL(1, 5, 15), // "showBasicStatus"
 QT_MOC_LITERAL(2, 21, 0), // ""
-QT_MOC_LITERAL(3, 22, 10), // "beAttached"
+QT_MOC_LITERAL(3, 22, 10), // "beAttacked"
 QT_MOC_LITERAL(4, 33, 6), // "damage"
 QT_MOC_LITERAL(5, 40, 17), // "beGivenShieldBuff"
 QT_MOC_LITERAL(6, 58, 6) // "effect"
 
     },
-    "Role\0showBasicStatus\0\0beAttached\0"
+    "Role\0showBasicStatus\0\0beAttacked\0"
     "damage\0beGivenShieldBuff\0effect"
 };
 #undef QT_MOC_LITERAL
@@ -78,7 +78,7 @@ void Role::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void *
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->showBasicStatus(); break;
-        case 1: _t->beAttached((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->beAttacked((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 2: _t->beGivenShieldBuff((*reinterpret_cast< int(*)>(_a[1]))); break;
         default: ;
         }

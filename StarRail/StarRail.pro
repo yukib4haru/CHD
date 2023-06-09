@@ -33,6 +33,9 @@ SOURCES += \
     User.cpp \
     Xing.cpp \
     login.cpp \
+    loginvedio0.cpp \
+    loginvedio1.cpp \
+    loginvedio2.cpp \
     main.cpp \
     player.cpp
 
@@ -49,12 +52,18 @@ HEADERS += \
     User.h \
     Xing.h \
     login.h \
+    loginvedio0.h \
+    loginvedio1.h \
+    loginvedio2.h \
     player.h \
     star.h
 
 FORMS += \
     MainWidget.ui \
     login.ui \
+    loginvedio0.ui \
+    loginvedio1.ui \
+    loginvedio2.ui \
     player.ui
 
 TRANSLATIONS += \
