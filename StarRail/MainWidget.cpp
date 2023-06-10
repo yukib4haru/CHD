@@ -12,11 +12,16 @@
 #include"Enemy.h"
 #include"Jiachong.h"
 
+#include "player.h"
+#include "ui_player.h"
+
+
 MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
 {
-
+        player *player1 = new player;
+        player1->show();
     initDate();   //初始化数据
     initPen();      //初始化画笔
     initRole();     //初始化人物 必须放在初始化窗口前面
@@ -222,7 +227,9 @@ void MainWidget::buttonBond()
     connect(xier,&Xier::skillBdamage,jiachong,&Jiachong::beAttacked);
     //接收到的信号为娜塔莎，则由娜塔莎发动
     connect(natasha,&Natasha::skillBsignal,natasha,&Natasha::skillB);
-    connect(natasha,&Natasha::skillBcure,jiachong,&Jiachong::beCured);
+    connect(natasha,&Natasha::skillBcure,natasha,&Natasha::beCured);
+    connect(natasha,&Natasha::skillBcure,xier,&Xier::beCured);
+    connect(natasha,&Natasha::skillBcure,xing,&Xing::beCured);
 
     //实现血条变化
     connect(jiachong,&Jiachong::lifebarChangedSignal,jiachong->lifebar,&Lifebar::lifebarchanged);
@@ -331,6 +338,17 @@ void MainWidget::someoneDie(Role* p)
     Scene.removeItem(p);
     QTimer *newEnemytimer = new QTimer(this);
     newEnemytimer->setInterval(1000);  // 1秒
+
+//    for (auto it = heroes.begin(); it != heroes.end(); ++it)
+//    {
+//        if (*it == p)
+//        {
+//            turnmanager->heroes.erase(it);
+//           turnmanager->roles.erase(it);
+//            roles.erase(it);
+//            break;   // 删除后跳出循环
+//        }
+//    }
 
     if(p==jiachong)
     {

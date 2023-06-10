@@ -3,7 +3,7 @@
 //(string name1,int hp1,int att1,int speed1)
 
 
-Jiachong::Jiachong():Enemy("甲虫",100,100,5,10,0,"")
+Jiachong::Jiachong():Enemy("甲虫",100,80,5,10)
 {
     this->setPixmap(QPixmap(":/Image/jiachong0.png"));
     this->setXSite0(1000);

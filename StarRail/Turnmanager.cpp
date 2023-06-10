@@ -64,7 +64,7 @@ void TurnManager::update()
     {
         // 处理敌方技能等
         qDebug()<<"敌方攻击\n";
-        int cur = rand()%3;
+        int cur = rand()%heroes.size();
         heroes[cur]->beAttacked(curRole->getAtt());
         curRole->setPos(950,200);
         enemyMoveTimer->start();
@@ -119,3 +119,17 @@ void TurnManager::update()
 //    //调试用
 //    qDebug()<<"现在是第"<<currentTurn<<"回合\n";
 //}
+
+void TurnManager::sbDie(Role* p)
+{
+//    for (auto it = roles.begin(); it != roles.end(); ++it)
+//    {
+//        if (*it == p)
+//        {
+//            heroes.erase(it);
+//            roles.erase(it);
+//            roles.erase(it);
+//            break;   // 删除后跳出循环
+//        }
+//    }
+}

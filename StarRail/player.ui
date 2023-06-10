@@ -6,52 +6,25 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1000</width>
-    <height>600</height>
+    <width>16</width>
+    <height>16</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>16</width>
+    <height>16</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1000</width>
-     <height>550</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string/>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton1">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>550</y>
-     <width>70</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>openfile</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton2">
-   <property name="geometry">
-    <rect>
-     <x>930</x>
-     <y>550</y>
-     <width>70</width>
-     <height>50</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>play</string>
-   </property>
-  </widget>
  </widget>
  <resources/>
  <connections/>

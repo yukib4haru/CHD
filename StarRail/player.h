@@ -21,8 +21,8 @@ public:
 //    void timerEvent(QTimerEvent *event);
 
 private slots:
-    void on_pushButton1_clicked();
-    void on_pushButton2_clicked();
+//    void on_pushButton1_clicked();
+//    void on_pushButton2_clicked();
 //    void on_pushButton3_clicked();
 //    void on_pushButton4_clicked();
 //    void on_pushButton5_clicked();
@@ -30,7 +30,7 @@ private slots:
 private:
     Ui::player *ui;
     QMediaPlayer *myplayer = nullptr;
-    QMediaPlaylist *myplayerlist = nullptr;
+//    QMediaPlaylist *myplayerlist = nullptr;
     QVideoWidget *mywidget = nullptr;
 //    bool isstart = false;
 

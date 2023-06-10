@@ -52,7 +52,7 @@ login::login(QWidget *parent) :
             UserInfo user = {ui->lineEdit_user->text(),ui->lineEdit_pswd->text()};
             User* call = new User();
 
-            int ret = call->judgeUsernameAndpassword(user);//调用judgeUsernameAndpassword()方法来验证用户名和密码,并将返回值存储在ret变量中
+            int ret = call->judgeUsernameAndpassword(user);//验证用户名和密码
 
             switch (ret)
             {

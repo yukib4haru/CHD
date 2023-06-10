@@ -25,12 +25,8 @@ int main(int argc, char *argv[])
 //    login *login1 = new login;
 //    login1->show();
 
-
 //    player *player1 = new player;
 //    player1->show();
-
-
-
 
 //    MainWidget w;
 //    w.show();

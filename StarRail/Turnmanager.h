@@ -30,8 +30,6 @@ private:
     MoveTimer *enemyMoveTimer;
     int currentTurn;
 
-
-
     //当前进行动作的角色
 //    Role* curRole;
 
@@ -46,6 +44,8 @@ private:
 //    vector<(Hero*|Enemy*)> roles;
 signals:
     void enemyAttactSignal(Role *p);
+public slots:
+    void sbDie(Role* p);
 };
 
 #endif // TURNMANAGER_H

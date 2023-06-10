@@ -37,7 +37,7 @@ SOURCES += \
     Xing.cpp \
     login.cpp \
     main.cpp \
-    xier.cpp
+    xier.cpp \
     loginvedio0.cpp \
     loginvedio1.cpp \
     loginvedio2.cpp \

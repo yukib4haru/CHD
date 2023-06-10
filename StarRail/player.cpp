@@ -6,22 +6,34 @@ player::player(QWidget *parent) :
     ui(new Ui::player)
 {
     ui->setupUi(this);
-
+setWindowTitle("player");
     myplayer = new QMediaPlayer;
-    myplayerlist = new QMediaPlaylist;
-    mywidget = new QVideoWidget(ui->label);
-    ui->label->show();
+//    myplayerlist = new QMediaPlaylist;
+    mywidget = new QVideoWidget(this);
+//    ui->label->show();
 
-    myplayer->setPlaylist(myplayerlist);
+//    myplayer->setPlaylist(myplayerlist);
     myplayer->setVideoOutput(mywidget);
-    mywidget->resize(ui->label->size());
-    setWindowTitle("音视频播放器");
+    mywidget->resize(1600,900);
+//    setWindowTitle("音视频播放器");
     myplayer->setVolume(50);
+    myplayer->setMedia(QUrl::fromLocalFile("D:/QTProject/GitHub/CHD/StarRail/Rail/Wildfire.mp3"));
+    mywidget->show();
+    myplayer->play();
+    connect(myplayer, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {
+        if (state == QMediaPlayer::StoppedState) {  // 播放结束后
+            myplayer->play();  // 重新播放
+        }
+    });
 }
 
 player::~player()
 {
     delete ui;
+//    delete mywidget;
+//    delete myplayer;
+    myplayer->deleteLater();
+    mywidget->deleteLater();
 }
 
 
@@ -30,18 +42,18 @@ player::~player()
 //    mywidget->resize(ui->label->size());
 //}
 
-void player::on_pushButton1_clicked()
-{
-    QStringList mylist = QFileDialog::getOpenFileNames(this,"选择播放资源","D:\\QTProject\\GitHub\\CHD\\StarRail\\Rail","allfiles(*.*);;""MP3(*.mp3);;""MP4(*.mp4)");
-    /*"allfiles(*.*);;"*/
-    myplayerlist->clear();//清空之前缓存
-    for(const auto & k : mylist)
-        myplayerlist->addMedia(QUrl(k));
-}
+//void player::on_pushButton1_clicked()
+//{
+//    QStringList mylist = QFileDialog::getOpenFileNames(this,"选择播放资源","D:\\QTProject\\GitHub\\CHD\\StarRail\\Rail","allfiles(*.*);;""MP3(*.mp3);;""MP4(*.mp4)");
+//    /*"allfiles(*.*);;"*/
+//    myplayerlist->clear();//清空之前缓存
+//    for(const auto & k : mylist)
+//        myplayerlist->addMedia(QUrl(k));
+//}
 
-void player::on_pushButton2_clicked()
-{
-    myplayer->play();
+//void player::on_pushButton2_clicked()
+//{
+//    myplayer->play();
 
 //    if(isstart)
 //    {
@@ -56,7 +68,7 @@ void player::on_pushButton2_clicked()
 //        myplayer->play();
 //        ui->pushButton3->setEnabled(true);
 //    }
-}
+//}
 
 //停止播放
 //void player::on_pushButton3_clicked()
