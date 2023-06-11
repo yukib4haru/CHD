@@ -13,12 +13,13 @@ LoginVedio2::LoginVedio2(QWidget *parent) :
     mywidget2 = new QVideoWidget(this);	//实例化QVideoWidget
     mywidget2->resize(1600,900);
     myplayer2->setVideoOutput(mywidget2);	//设置player的视频输出对象
-    myplayer2->setMedia(QUrl::fromLocalFile("D:/College/GitHub/CHD/StarRail/Rail/LoginCut2.mp4"));	//设置播放内容路径
+    myplayer2->setMedia(QUrl("qrc:/LoginCut2.mp4"));	//设置播放内容路径
     mywidget2->show();
     myplayer2->play();
     connect(myplayer2, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {
         if (state == QMediaPlayer::StoppedState) {  // 播放结束后
-            myplayer2->play();  // 重新播放
+//            myplayer2->play();  // 重新播放
+            this->onBtn2Clicked();
         }
     });
     ui2->btn2->setStyleSheet("background-color: rgba(0, 0, 0, 0);");

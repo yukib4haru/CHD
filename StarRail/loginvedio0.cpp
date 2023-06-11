@@ -11,19 +11,18 @@ LoginVedio0::LoginVedio0(QWidget *parent) :
     mywidget0 = new QVideoWidget(this);	//实例化QVideoWidget
     mywidget0->resize(1600,900);
     myplayer0->setVideoOutput(mywidget0);	//设置player的视频输出对象
-    myplayer0->setMedia(QUrl::fromLocalFile("D:/College/GitHub/CHD/StarRail/Rail/LoginCut0.mp4"));	//设置播放内容路径
+    myplayer0->setMedia(QUrl("qrc:/LoginCut0.mp4"));	//设置播放内容路径
     mywidget0->show();
     myplayer0->play();
     ui0->btn0->setStyleSheet("background-color: rgba(0, 0, 0, 0);");
     connect(ui0->btn0, &QPushButton::clicked, this, &LoginVedio0::onBtn0Clicked);
     connect(myplayer0, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {
         if (state == QMediaPlayer::StoppedState) {  // 播放结束后
-            myplayer0->play();  // 重新播放
+//            myplayer0->play();  // 重新播放
+            this->onBtn0Clicked();
         }
     });
 //    connect(&timer, &QTimer::timeout, this, &LoginVedio0::onBtn0Clicked);
-
-
 
 }
 
@@ -34,7 +33,6 @@ void LoginVedio0::onBtn0Clicked()
     myplayer0->deleteLater();
     login *login1 = new login;
     login1->show();
-
 //    LoginVedio1 *loginlogin1 = new LoginVedio1;
 //    loginlogin1->show();
 }
@@ -52,16 +50,13 @@ void LoginVedio0::onBtn0Clicked()
 //}
 
 
-
 void LoginVedio0::mousePressEvent(QMouseEvent *event)
 {
     if (event->button() == Qt::LeftButton) {
             emit buttonClicked();
             qDebug() <<"pressed";
         }
-
 }
-
 
 
 LoginVedio0::~LoginVedio0()
