@@ -3,6 +3,7 @@
 #include <QTextStream>
 #include <QDebug>
 #include <QList>
+#include <QRegularExpression>
 
 QFile file("D:/user.txt");
 
@@ -38,22 +39,22 @@ int User::judgeUsernameAndpassword(UserInfo user)
             }
 
             //debug检测一下是否有信息
-            qDebug() << str << endl;
+            qDebug() << str << "\n";
             file.close();
         }
 
         //解析存储
-        QString coun = (QString)str;
-        QString newstr = coun.simplified();
-        QStringList arr = newstr.split(QRegExp("(username)|(password)|( )|(:)"));
+        QString coun = (QString)str;// 将str转换为QString
+        QString newstr = coun.simplified();//去除新行等空白符
+        QStringList arr = newstr.split(QRegularExpression("(username)|(password)|( )|(:)"));// 使用正则表达式split字符串为QStringList
         //for循环存储list对象
         for (int i = 0; i < arr.length(); ++i) {
             UserInfo uc;
-            if(!arr[i].isEmpty()){
-                uc.name = arr[i];
+            if(!arr[i].isEmpty()){ // 跳过空串
+                uc.name = arr[i];// 存储name
                 i = i+3;
                 uc.password = arr[i];
-                storUser.append(uc);
+                storUser.append(uc);// 追加到QList
             }
         }
 
@@ -88,8 +89,8 @@ int User::registerUser(UserInfo user)
         if(file.open(QIODevice::Append))
         {
             QTextStream in(&file);
-            in << n << endl;
-            in << p << endl;
+            in << n << "\n"; //对文件的每一行写入用户名和密码
+            in << p << "\n";
 
             //如果乱码
             //            file.write(n.toUtf8());

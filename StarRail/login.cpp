@@ -1,17 +1,8 @@
 #include "login.h"
 #include "ui_login.h"
 
-#include "MainWidget.h"
-#include "ui_MainWidget.h"
-
-
-#include <User.h>
-
-#include <QFileDialog>
-#include <QIODevice>
-#include <QMessageBox>
-#include <QFile>
-#include <QMovie>
+#include "User.h"
+#include "star.h"
 
 
 
@@ -61,15 +52,15 @@ login::login(QWidget *parent) :
             UserInfo user = {ui->lineEdit_user->text(),ui->lineEdit_pswd->text()};
             User* call = new User();
 
-            int ret = call->judgeUsernameAndpassword(user);//调用judgeUsernameAndpassword()方法来验证用户名和密码,并将返回值存储在ret变量中
+            int ret = call->judgeUsernameAndpassword(user);//验证用户名和密码
 
             switch (ret)
             {
             case 0:
                { QMessageBox::information(this,"信息","登录成功！");
                 this->close();
-                MainWidget* w = new MainWidget;
-                w->show();
+                LoginVedio1* loginlogin1 = new LoginVedio1;
+                loginlogin1->show();
                 break;}
             case 1:
                 QMessageBox::question(this,"信息","登录失败");
@@ -100,3 +91,4 @@ void login::show()
 
     QApplication::exec();  // 启动事件循环
 }
+

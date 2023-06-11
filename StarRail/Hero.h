@@ -6,24 +6,25 @@
 
 class Hero : public Role
 {
+    Q_OBJECT
 public:
-    Hero(string name1,int hp1,int att1,int speed1,int label1);
-    virtual void bindFunc()=0;
+    Hero(){ }
+    Hero(QString name1,int hp1,int att1,int speed1,int shield1/*,int label1*/);
+
 private:
-    int shield;
-    int label;
+//    int label;
 signals:
-    //信号
-    void useASignal(Role* p);
-    void useBSignal(Role* p);
-    void useCSignal(Role* p);
+    //技能释放信号
+    void skillAsignal();
+    void skillBsignal();
+    void skillCsignal();
+    void getValueJiachong(float moveDistanceX,float moveDistanceY,float x1,float y1,float x2,float y2);
 public slots:
-    //信号广播
-    void skillABroadcast(Role* p){emit useASignal(p);};
-    //技能
-    virtual void skillA(Role* p)=0;
-    virtual void skillB(Role* p)=0;
-    virtual void skillC(Role* p)=0;
+    //技能槽函数
+    virtual void skillA()=0;
+    virtual void skillB()=0;
+    virtual void skillC()=0;
+    void beMovedJiachong();
 };
 
 #endif // HERO_H

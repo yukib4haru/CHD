@@ -1,11 +1,14 @@
 #ifndef MAINWIDGET_H
 #define MAINWIDGET_H
 
-#include <QWidget>
-#include<star.h>
-#include<Xing.h>
-#include<Jiachong.h>
-#include<Button.h>
+#include"star.h"
+#include"Xing.h"
+#include<xier.h>
+#include"Natasha.h"
+#include"Jiachong.h"
+#include"Button.h"
+#include"Movetimer.h"
+#include"Turnmanager.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWidget; }
@@ -18,22 +21,31 @@ public:
     //explicit关键字  修饰函数 参数 无法自动转换类型 防止隐式转换
     explicit MainWidget(QWidget *parent = nullptr);
     ~MainWidget();
+    //各种初始化函数
     void initWindow();
-    void paintEvent(QPaintEvent *event);
-
     void initRole();
+    void initButton();
+    void initManager();
+    void initMoveTimer();
+    void initPen();
+    void buttonBond();
 
+    void initDate();
+    //游戏结束
+    void GameOver();
+
+    void delAll();
 private:
     Ui::MainWidget *ui;
 
     QGraphicsView GameView;//游戏视图
     QGraphicsScene Scene;//场景
-
-    QPixmap BackGround;
+    QPen pen;//画笔
 
     //图形元素
     QGraphicsPixmapItem Background1;
     QGraphicsPixmapItem* test1;
+    QGraphicsPixmapItem* gameOver;
 
     //testBtn
     Button* skillAbtn;
@@ -41,13 +53,54 @@ private:
     Button* skillCbtn;
     QVBoxLayout* vboxlayout;
 
+
+    QPushButton *restartBtn;
+
+    //移动计时器
+    MoveTimer *movetimer1;
+    MoveTimer *movetimer2a;
+    MoveTimer *movetimer3;
+    MoveTimer *movetimer2b;
+
+
+    //BtnGroup
+    QButtonGroup* box1 ;
+
     //testHero
     Xing* xing;
+    Xier* xier;
+    Natasha* natasha;
 
     //testEnemy
     Jiachong* jiachong;
+    Jiachong* newEnemy1;
+    Jiachong* newEnemy2;
+
+    //对象向量组
+    vector<Role*> heroes ;
+    vector<Role*> enermies ;
+    vector<Role*> roles ;
+
+    //一些数值
+    int skillPoint;
+    int enemiesNum;
+//    int enemiesNum = 3;
+
+    //事件处理
+    //轮次处理
+    TurnManager* turnmanager;
+public slots:
+    //信号广播槽函数
+    void skillAbroadcast();
+    void skillBbroadcast();
+    void skillCbroadcast();
+    //战技点槽函数
+    void skillPointUp();
+    void skillPointDown();
+    void someoneDie(Role* p);
 
 signals:
+
 
 };
 
