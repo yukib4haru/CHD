@@ -11,7 +11,7 @@ LoginVedio1::LoginVedio1(QWidget *parent) :
     mywidget1 = new QVideoWidget(this);	//实例化QVideoWidget
     mywidget1->resize(1600,900);
     myplayer1->setVideoOutput(mywidget1);	//设置player的视频输出对象
-    myplayer1->setMedia(QUrl::fromLocalFile("D:/QTProject/GitHub/CHD/StarRail/Rail/LoginCut1.mp4"));	//设置播放内容路径
+    myplayer1->setMedia(QUrl::fromLocalFile("D:/College/GitHub/CHD/StarRail/Rail/LoginCut1.mp4"));	//设置播放内容路径
     mywidget1->show();
     myplayer1->play();
     connect(myplayer1, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {

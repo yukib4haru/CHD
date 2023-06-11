@@ -11,7 +11,7 @@ LoginVedio0::LoginVedio0(QWidget *parent) :
     mywidget0 = new QVideoWidget(this);	//实例化QVideoWidget
     mywidget0->resize(1600,900);
     myplayer0->setVideoOutput(mywidget0);	//设置player的视频输出对象
-    myplayer0->setMedia(QUrl::fromLocalFile("D:/QTProject/GitHub/CHD/StarRail/Rail/LoginCut0.mp4"));	//设置播放内容路径
+    myplayer0->setMedia(QUrl::fromLocalFile("D:/College/GitHub/CHD/StarRail/Rail/LoginCut0.mp4"));	//设置播放内容路径
     mywidget0->show();
     myplayer0->play();
     ui0->btn0->setStyleSheet("background-color: rgba(0, 0, 0, 0);");

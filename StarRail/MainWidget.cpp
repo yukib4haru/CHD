@@ -20,8 +20,9 @@ MainWidget::MainWidget(QWidget *parent)
     : QWidget(parent)
     , ui(new Ui::MainWidget)
 {
-        player *player1 = new player;
-        player1->show();
+    player *player1 = new player;
+    player1->show();
+    player1->setParent(this);
     initDate();   //初始化数据
     initPen();      //初始化画笔
     initRole();     //初始化人物 必须放在初始化窗口前面
@@ -100,7 +101,7 @@ void MainWidget::initWindow()
     this->setWindowIcon(QIcon(":/Image/StarRail.ico"));
     //设置视图
     GameView.setSceneRect(QRect(0,0,GAME_WIDTH,GAME_HEIGHT));
-
+    GameView.setGeometry(0, 0, GAME_WIDTH, GAME_HEIGHT);
     GameView.setParent(this);
 
     //设置场景

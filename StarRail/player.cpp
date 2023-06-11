@@ -17,7 +17,7 @@ setWindowTitle("player");
     mywidget->resize(1600,900);
 //    setWindowTitle("音视频播放器");
     myplayer->setVolume(50);
-    myplayer->setMedia(QUrl::fromLocalFile("D:/QTProject/GitHub/CHD/StarRail/Rail/Wildfire.mp3"));
+    myplayer->setMedia(QUrl::fromLocalFile("D:/College/GitHub/CHD/StarRail/Rail/Wildfire.mp3"));
     mywidget->show();
     myplayer->play();
     connect(myplayer, &QMediaPlayer::stateChanged, [=](QMediaPlayer::State state) {
